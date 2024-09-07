@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Application de chat en temps réel</title>
+    <title>Application de Chat en Temps Réel</title>
     <link rel="stylesheet" href="./stylescss/global.css" />
-
     <link rel="stylesheet" href="./stylescss/index.css" />
     <link
       rel="stylesheet"
@@ -22,13 +21,13 @@
     <div id="content"></div>
     <script>
       $(document).ready(function () {
-        $("#content").load("navbar.html");
+        $("#content").load("navbar.html"); // Charger la barre de navigation
       });
     </script>
 
     <div class="jumbotron jumbotron-fluid text-center">
       <div class="container">
-        <h1>Bienvenue sur Notre Application de Chat en temps réel</h1>
+        <h1>Bienvenue sur Notre Application de Chat en Temps Réel</h1>
         <h2>
           Découvrez notre service de messagerie de qualité pour répondre à tous
           vos besoins.
@@ -46,7 +45,7 @@
           <div class="soft-accordion">Vous allez être satisfait.</div>
           <div class="section">
             <p>
-              Notre site contient plein de guides pour la meilleur expérience
+              Notre site contient plein de guides pour la meilleure expérience
               utilisateur.
             </p>
           </div>
@@ -55,7 +54,91 @@
     </div>
 
     <div class="container">
-      <div class="row">
+      <h1 class="text-center">Liste des Fonctionnalités</h1>
+      <div class="accordion" id="featuresAccordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Gestion des amis
+              </button>
+            </h2>
+          </div>
+          <div
+            id="collapseOne"
+            class="collapse show"
+            aria-labelledby="headingOne"
+            data-parent="#featuresAccordion"
+          >
+            <div class="card-body">
+              Ajoutez, modifiez et supprimez vos amis facilement.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Personnalisation
+              </button>
+            </h2>
+          </div>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#featuresAccordion"
+          >
+            <div class="card-body">
+              Personnalisez votre <a href="profil.html">profil</a> et vos
+              préférences.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Notifications
+              </button>
+            </h2>
+          </div>
+          <div
+            id="collapseThree"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#featuresAccordion"
+          >
+            <div class="card-body">
+              Recevez des notifications des réponses de chat en temps réel pour
+              rester informé.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
         <div class="col-12 col-md-4 mb-4">
           <h2>Personnalisation</h2>
           <button
@@ -68,12 +151,12 @@
           <div id="section1Accordion" class="collapse">
             <div class="section">
               <p>
-                Personalisez les couleurs de votre interface utilisateur (mode
-                sombre et clair)
+                Personnalisez les couleurs de votre interface utilisateur (mode
+                sombre et clair).
               </p>
             </div>
           </div>
-          <p>Interface utilisateur personalisable</p>
+          <p>Interface utilisateur personnalisable</p>
         </div>
         <div class="col-12 col-md-4 mb-4">
           <h2>Service Client</h2>
@@ -102,7 +185,7 @@
           </button>
           <div id="section3Accordion" class="collapse">
             <div class="section">
-              <p>Votre satisfaction est notre priorité</p>
+              <p>Votre satisfaction est notre priorité.</p>
             </div>
           </div>
           <p>Nos solutions vous garantissent des résultats optimaux.</p>
@@ -110,7 +193,7 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
