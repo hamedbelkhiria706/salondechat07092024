@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salon de Chat</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="chatsalonstyle.css" />
+  </head>
+  <body>
+    <div id="content"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("#content").load("navbar.html");
+      });
+    </script>
+
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Créer un Salon de Chat</h1>
+      <div class="row">
+        <div class="col-12">
+          <h4>Choisissez votre abonnement</h4>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>10 €</strong> - 1 Salon de Chat
+              <a
+                href="chatsalon10e.html"
+                class="btn btn-primary btn-sm float-right"
+                >Créer</a
+              >
+            </li>
+            <li class="list-group-item">
+              <strong>20 €</strong> - 3 Salons de Chat
+              <a
+                href="chatsalon20e.html"
+                class="btn btn-primary btn-sm float-right"
+                >Créer</a
+              >
+            </li>
+            <li class="list-group-item">
+              <strong>30 €</strong> - 9 Salons de Chat
+              <a
+                href="chatsalon30e.html"
+                class="btn btn-primary btn-sm float-right"
+                >Créer</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salon de Chat - 10 €</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="chatsalonstyle.css" />
+  </head>
+  <body>
+    <div id="content"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("#content").load("navbar.html");
+      });
+    </script>
+
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Créer un Salon de Chat</h1>
+      <div class="alert alert-info" role="alert">
+        Vous pouvez créer 1 salon de chat.
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="roomName">Nom du Salon :</label>
+          <input type="text" class="form-control" id="roomName" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Créer le Salon</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
