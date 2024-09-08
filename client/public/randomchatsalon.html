@@ -12,22 +12,6 @@
   </head>
   <body>
     <div id="content"></div>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(document).ready(function () {
-        $("#content").load("navbar.html");
-
-        // Simulate joining a random chat room
-        const roomName =
-          new URLSearchParams(window.location.search).get("room") ||
-          "Salon Aléatoire";
-        $("#chatRoomName").text(roomName);
-      });
-    </script>
 
     <div class="container mt-5">
       <h1 class="text-center mb-4" id="chatRoomName">Salon de Chat</h1>
@@ -70,19 +54,13 @@
       </div>
     </div>
 
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/randomchatsalon.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-      $("#chatForm").on("submit", function (event) {
-        event.preventDefault();
-        const message = $(this).find("input").val();
-        $("#chatArea").append(
-          `<div class="chat-message"><strong>Vous:</strong> ${message}</div>`
-        );
-        $(this).find("input").val(""); // Clear input
-        $("#chatArea").scrollTop($("#chatArea")[0].scrollHeight); // Scroll to bottom
-      });
-    </script>
   </body>
 </html>
