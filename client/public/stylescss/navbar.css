@@ -1,3 +1,17 @@
+.nav-link {
+  text-decoration: none;
+  color: #6c757d; 
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff; 
+  color: #000;
+}
+
+.navbar {
+  margin-bottom: 20px; 
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;

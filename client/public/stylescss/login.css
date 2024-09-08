@@ -1,0 +1,32 @@
+.nav-link {
+  text-decoration: none;
+  color: #6c757d;
+}
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+  color: #000;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 400px;
+  margin-top: 100px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-buttons img {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
