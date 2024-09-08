@@ -12,16 +12,6 @@
   </head>
   <body>
     <div id="content"></div>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(document).ready(function () {
-        $("#content").load("navbar.html");
-      });
-    </script>
 
     <div class="container mt-5">
       <h1>Modifier le profil</h1>
@@ -39,9 +29,7 @@
             <li class="list-group-item">
               <a href="exportdata.html">Exporter les données</a>
             </li>
-            <li class="list-group-item">
-              <a href="plugins.html">Plugins</a>
-            </li>
+            <li class="list-group-item"><a href="plugins.html">Plugins</a></li>
             <li class="list-group-item">
               <a href="deletechathistory.html"
                 >Sauvegarder l'historique des chats</a
@@ -132,6 +120,12 @@
       </div>
     </div>
 
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/update_profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
