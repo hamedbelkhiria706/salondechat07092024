@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supprimer Votre Compte</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="content"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("#content").load("navbar.html");
+      });
+    </script>
+    <div class="container mt-5">
+      <h1>Supprimer Votre Compte</h1>
+      <p>
+        Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est
+        irréversible.
+      </p>
+      <button class="btn btn-danger">Supprimer le compte</button>
+      <a href="profile.html" class="btn btn-secondary mt-3">Retour au profil</a>
+    </div>
+  </body>
+</html>
