@@ -4,318 +4,270 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Application de Chat en Temps Réel</title>
-    <link rel="stylesheet" href="./stylescss/global.css" />
-    <link rel="stylesheet" href="./stylescss/index.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="./stylescss/global.css" />
+    <link rel="stylesheet" href="./stylescss/index.css" />
   </head>
   <body>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">AppChat</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Fonctionnalités</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing">Tarifs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Témoignages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary text-white" href="#"
+              >Inscription</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <div id="content"></div>
-
+    <!-- Jumbotron Section -->
     <div class="jumbotron jumbotron-fluid text-center">
       <div class="container">
-        <h1>
-          Bienvenue sur Notre Application de chat – Discutez en toute simplicité
-        </h1>
-        <h2>
-          Notre Application de chat est la solution idéale pour communiquer avec
-          vos amis, collègues et proches en toute sécurité et fluidité.
-        </h2>
-        <button
-          class="btn btn-primary"
-          data-toggle="collapse"
-          data-target="#mainAccordion"
+        <h1 class="display-4">Bienvenue sur Notre Application de Chat</h1>
+        <p class="lead">
+          Discutez en toute simplicité avec vos amis, collègues et proches, où
+          que vous soyez !
+        </p>
+        <a href="#" class="btn btn-primary btn-lg mt-4">Commencez à Chatter</a>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Nos Fonctionnalités</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Gestion des Amis</h5>
+                <p class="card-text">
+                  Ajoutez, modifiez et supprimez vos amis rapidement et
+                  facilement.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Personnalisation</h5>
+                <p class="card-text">
+                  Personnalisez votre profil et vos préférences selon vos goûts.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Notifications</h5>
+                <p class="card-text">
+                  Recevez des notifications en temps réel de toutes vos
+                  conversations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-4">Plans Tarifaires</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card text-center mb-4">
+              <div class="card-header">Plan Gratuit</div>
+              <div class="card-body">
+                <h5 class="card-title">0€ / mois</h5>
+                <p class="card-text">Chat illimité, support limité, etc.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-outline-primary">Choisir</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center mb-4">
+              <div class="card-header">Plan Premium</div>
+              <div class="card-body">
+                <h5 class="card-title">15€ / mois</h5>
+                <p class="card-text">
+                  Chat illimité, personnalisation avancée, support prioritaire.
+                </p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-outline-primary">Choisir</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center mb-4">
+              <div class="card-header">Plan Entreprise</div>
+              <div class="card-body">
+                <h5 class="card-title">50€ / mois</h5>
+                <p class="card-text">
+                  Chat sécurisé, intégration API, support dédié.
+                </p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-outline-primary">Choisir</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Témoignages</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <blockquote class="blockquote text-center">
+              <p class="mb-0">
+                "Une application formidable, je ne peux plus m'en passer !"
+              </p>
+              <footer class="blockquote-footer">Alice D.</footer>
+            </blockquote>
+          </div>
+          <div class="col-md-4">
+            <blockquote class="blockquote text-center">
+              <p class="mb-0">
+                "Service impeccable, interface intuitive et fluide."
+              </p>
+              <footer class="blockquote-footer">Bernard P.</footer>
+            </blockquote>
+          </div>
+          <div class="col-md-4">
+            <blockquote class="blockquote text-center">
+              <p class="mb-0">
+                "Je recommande à tous ceux qui veulent un chat rapide et
+                sécurisé."
+              </p>
+              <footer class="blockquote-footer">Claire M.</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-4">FAQ</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="card">
+            <div class="card-header" id="faqHeadingOne">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#faqCollapseOne"
+                  aria-expanded="true"
+                  aria-controls="faqCollapseOne"
+                >
+                  Comment puis-je m'inscrire ?
+                </button>
+              </h2>
+            </div>
+            <div
+              id="faqCollapseOne"
+              class="collapse show"
+              aria-labelledby="faqHeadingOne"
+              data-parent="#faqAccordion"
+            >
+              <div class="card-body">
+                L'inscription est simple. Cliquez sur le bouton "S'inscrire" en
+                haut à droite et suivez les instructions.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="faqHeadingTwo">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#faqCollapseTwo"
+                  aria-expanded="false"
+                  aria-controls="faqCollapseTwo"
+                >
+                  Est-ce que l'application est sécurisée ?
+                </button>
+              </h2>
+            </div>
+            <div
+              id="faqCollapseTwo"
+              class="collapse"
+              aria-labelledby="faqHeadingTwo"
+              data-parent="#faqAccordion"
+            >
+              <div class="card-body">
+                Oui, nous utilisons des technologies de pointe pour garantir la
+                sécurité de vos données et conversations.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 p-4 text-center">
+      <p>
+        &copy; 2024 Application de Chat en Temps Réel | Tous droits réservés.
+      </p>
+      <p>
+        <a href="politique.html" class="text-white"
+          >Politique de confidentialité</a
         >
-          En savoir plus
-        </button>
-      </div>
-      <div id="mainAccordion" class="collapse">
-        <div class="container">
-          <div class="soft-accordion">Vous allez être satisfait.</div>
-          <div class="section">
-            <p>
-              Notre site contient plein de guides pour la meilleure expérience
-              utilisateur.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+        | <a href="mentions.html" class="text-white">Mentions légales</a> |
+        <a href="contact.html" class="text-white">Contactez-nous</a>
+      </p>
+    </footer>
 
-    <div class="container">
-      <h1 class="text-center">Liste des Fonctionnalités</h1>
-      <div class="accordion" id="featuresAccordion">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                **Discussions instantanées**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseOne"
-            class="collapse show"
-            aria-labelledby="headingOne"
-            data-parent="#featuresAccordion"
-          >
-            <div class="card-body">
-              Envoyez des messages en temps réel à vos contacts.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-                **Groupes de discussion**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseTwo"
-            class="collapse"
-            aria-labelledby="headingTwo"
-            data-parent="#featuresAccordion"
-          >
-            <div class="card-body">
-              Créez des groupes pour échanger avec plusieurs personnes à la
-              fois.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-                **Messages vocaux**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseThree"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#featuresAccordion"
-          >
-            <div class="card-body">
-              Laissez des notes vocales rapides et faciles à écouter.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingFour">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseFour"
-                aria-expanded="false"
-                aria-controls="collapseFour"
-              >
-                **Partage de fichiers**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseFour"
-            class="collapse"
-            aria-labelledby="headingFour"
-            data-parent="#featuresAccordion"
-          >
-            <div class="card-body">
-              Envoyez des photos, des vidéos, et des documents en toute
-              simplicité.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingFive">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseFive"
-                aria-expanded="false"
-                aria-controls="collapseFive"
-              >
-                **Notifications en temps réel**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseFive"
-            class="collapse"
-            aria-labelledby="headingFive"
-            data-parent="#featuresAccordion"
-          >
-            <div class="card-body">
-              Restez informé des nouveaux messages immédiatement.
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-success mt-4">[Essayez-le maintenant]</button>
-
-      <h1 class="text-center mt-5">
-        Pourquoi choisir notre application de chat en temps réel ?
-      </h1>
-      <div class="accordion" id="chooseAccordion">
-        <div class="card">
-          <div class="card-header" id="headingSix">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseSix"
-                aria-expanded="true"
-                aria-controls="collapseSix"
-              >
-                **Simplicité**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseSix"
-            class="collapse show"
-            aria-labelledby="headingSix"
-            data-parent="#chooseAccordion"
-          >
-            <div class="card-body">
-              Une interface épurée et facile à utiliser.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingSeven">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseSeven"
-                aria-expanded="false"
-                aria-controls="collapseSeven"
-              >
-                **Sécurité**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseSeven"
-            class="collapse"
-            aria-labelledby="headingSeven"
-            data-parent="#chooseAccordion"
-          >
-            <div class="card-body">
-              Vos conversations sont protégées grâce au chiffrement de bout en
-              bout.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingEight">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseEight"
-                aria-expanded="false"
-                aria-controls="collapseEight"
-              >
-                **Disponibilité**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseEight"
-            class="collapse"
-            aria-labelledby="headingEight"
-            data-parent="#chooseAccordion"
-          >
-            <div class="card-body">
-              Disponible sur mobile et sur ordinateur pour un accès à tout
-              moment.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingNine">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseNine"
-                aria-expanded="false"
-                aria-controls="collapseNine"
-              >
-                **Gratuit**
-              </button>
-            </h2>
-          </div>
-          <div
-            id="collapseNine"
-            class="collapse"
-            aria-labelledby="headingNine"
-            data-parent="#chooseAccordion"
-          >
-            <div class="card-body">
-              Profitez de nos fonctionnalités principales gratuitement.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h1 class="text-center mt-5">Témoignages de nos utilisateurs</h1>
-      <div class="testimonials">
-        <p>
-          <strong>Sophie L.</strong> : "Grâce à l'application, je peux rester en
-          contact avec ma famille à l'étranger de manière simple et rapide."
-        </p>
-        <p>
-          <strong>Pierre M.</strong> : "L'application est parfaite pour la
-          communication au travail. L'interface est intuitive et les
-          fonctionnalités sont exactement ce dont j'ai besoin."
-        </p>
-      </div>
-    </div>
-
-    <script src="js/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
