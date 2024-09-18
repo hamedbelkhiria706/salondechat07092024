@@ -1,16 +1,28 @@
+a.disabled {
+  pointer-events: none; /* Désactiver les événements liés à la souris */
+  color: #999; /* Changer la couleur du texte pour indiquer le lien désactivé */
+  text-decoration: none; /* Enlever le soulignement du lien */
+  opacity: 0.6; /* Réduire l'opacité pour indiquer un état désactivé */
+  cursor: not-allowed; /* Changer le curseur de la souris pour indiquer l'état désactivé */
+}
+
+a.noneshow {
+  display: none;
+}
+
 .nav-link {
   text-decoration: none;
-  color: #6c757d; 
+  color: #6c757d;
 }
 
 .nav-link.active {
   font-weight: bold;
-  border-bottom: 2px solid #007bff; 
+  border-bottom: 2px solid #007bff;
   color: #000;
 }
 
 .navbar {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 body {
   font-family: Arial, sans-serif;
