@@ -12,7 +12,7 @@ a.noneshow {
 
 .nav-link {
   text-decoration: none;
-  color: #6c757d;
+  color: #721036;
 }
 
 .nav-link.active {
@@ -28,7 +28,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-color: #3634b3a9;
 }
 
 header {
