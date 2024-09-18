@@ -8,91 +8,137 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="stylescss/global.css">
     <link rel="stylesheet" href="/stylescss/chatsalonstyle.css" />
   </head>
   <body>
-    <div id="content"></div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">AppChat</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item"></li>
+                <a class="nav-link" href="chat.html">Chat</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-primary text-white" href="login.html"
+                  >Inscription</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-    <div class="container mt-5">
-      <h1 class="text-center mb-4">Créer un Salon de Chat</h1>
-      <div class="row">
-        <div class="col-12">
-          <h4>Choisissez votre abonnement</h4>
-          <ul class="list-group">
-            <li class="list-group-item">
-              <strong>10 €</strong> - 1 Salon de Chat
-              <a
-                href="chatsalon10e.html"
-                class="btn btn-primary btn-sm float-right"
-                >Créer</a
-              >
-            </li>
-            <li class="list-group-item">
-              <strong>20 €</strong> - 3 Salons de Chat
-              <a
-                href="chatsalon20e.html"
-                class="btn btn-primary btn-sm float-right"
-                >Créer</a
-              >
-            </li>
-            <li class="list-group-item">
-              <strong>30 €</strong> - 9 Salons de Chat
-              <a
-                href="chatsalon30e.html"
-                class="btn btn-primary btn-sm float-right"
-                >Créer</a
-              >
-            </li>
-          </ul>
+    <main>
+      <div class="container mt-5">
+        <h1 class="text-center mb-4">Créer un Salon de Chat</h1>
+        <div class="row">
+          <div class="col-12">
+            <h4>Choisissez votre abonnement</h4>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <strong>10 €</strong> - 1 Salon de Chat
+                <a
+                  href="chatsalon10e.html"
+                  class="btn btn-primary btn-sm float-right"
+                  >Créer</a
+                >
+              </li>
+              <li class="list-group-item">
+                <strong>20 €</strong> - 3 Salons de Chat
+                <a
+                  href="chatsalon20e.html"
+                  class="btn btn-primary btn-sm float-right"
+                  >Créer</a
+                >
+              </li>
+              <li class="list-group-item">
+                <strong>30 €</strong> - 9 Salons de Chat
+                <a
+                  href="chatsalon30e.html"
+                  class="btn btn-primary btn-sm float-right"
+                  >Créer</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="container mt-5">
-      <h1 class="text-center mb-4">
-        Tarifs des niveaux – Flexibilité et Accessibilité
-      </h1>
-      <p class="text-center">
-        Nous offrons des options tarifaires flexibles qui s'adaptent à vos
-        besoins de communication.
+      <div class="container mt-5">
+        <h1 class="text-center mb-4">
+          Tarifs des niveaux – Flexibilité et Accessibilité
+        </h1>
+        <p class="text-center">
+          Nous offrons des options tarifaires flexibles qui s'adaptent à vos
+          besoins de communication.
+        </p>
+        <hr />
+        <h4>Plans de tarification :</h4>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Gratuit</strong>
+            <ul>
+              <li>Messages illimités</li>
+              <li>Groupes de discussion</li>
+              <li>Partage de fichiers limité à 5 Mo</li>
+              <li>Support via forum en ligne</li>
+              <li><strong>Prix</strong> : 0 €/mois</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <strong>Pro</strong>
+            <ul>
+              <li>Tout ce qui est dans le plan Gratuit, plus :</li>
+              <li>Partage de fichiers jusqu’à 100 Mo</li>
+              <li>Appels vocaux et vidéo illimités</li>
+              <li>Priorité de support client</li>
+              <li><strong>Prix</strong> : 9,99 €/mois</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <strong>Entreprise</strong>
+            <ul>
+              <li>Tout ce qui est dans le plan Pro, plus :</li>
+              <li>Gestion d’équipe et administration</li>
+              <li>Intégration avec des outils professionnels</li>
+              <li>Stockage de fichiers augmenté à 1 Go</li>
+              <li><strong>Prix</strong> : Sur devis</li>
+            </ul>
+          </li>
+        </ul>
+        <button class="btn btn-success mt-4">[Choisir un plan]</button>
+      </div>
+    </main>
+     <!-- Footer -->
+     <footer class="bg-dark text-white mt-5 p-4 text-center">
+      <p>
+        &copy; 2024 Application de Chat en Temps Réel | Tous droits réservés.
       </p>
-      <hr />
-      <h4>Plans de tarification :</h4>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <strong>Gratuit</strong>
-          <ul>
-            <li>Messages illimités</li>
-            <li>Groupes de discussion</li>
-            <li>Partage de fichiers limité à 5 Mo</li>
-            <li>Support via forum en ligne</li>
-            <li><strong>Prix</strong> : 0 €/mois</li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <strong>Pro</strong>
-          <ul>
-            <li>Tout ce qui est dans le plan Gratuit, plus :</li>
-            <li>Partage de fichiers jusqu’à 100 Mo</li>
-            <li>Appels vocaux et vidéo illimités</li>
-            <li>Priorité de support client</li>
-            <li><strong>Prix</strong> : 9,99 €/mois</li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <strong>Entreprise</strong>
-          <ul>
-            <li>Tout ce qui est dans le plan Pro, plus :</li>
-            <li>Gestion d’équipe et administration</li>
-            <li>Intégration avec des outils professionnels</li>
-            <li>Stockage de fichiers augmenté à 1 Go</li>
-            <li><strong>Prix</strong> : Sur devis</li>
-          </ul>
-        </li>
-      </ul>
-      <button class="btn btn-success mt-4">[Choisir un plan]</button>
-    </div>
-
+      <p>
+        <a href="politique.html" class="text-white"
+          >Politique de confidentialité</a
+        >
+        | <a href="mentions.html" class="text-white">Mentions légales</a> |
+        <a href="about.html" class="text-white">Contactez-nous</a>
+      </p>
+    </footer>
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
