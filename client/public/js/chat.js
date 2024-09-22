@@ -58,10 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // messageInput.value = filter.clean(messageInput.value);
         //  messageInput.value = ""; // Clear input
         return;
-      } else if (message.contains(tab)) {
+      } else if (tab.some((word) => message.includes(word))) {
         errorMessage.style.display = "block"; // Show the error message
         // messageInput.value = filter.clean(messageInput.value);
         //  messageInput.value = ""; // Clear input
+        return;
       }
 
       // Append message to chat area
