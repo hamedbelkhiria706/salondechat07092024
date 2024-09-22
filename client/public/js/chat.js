@@ -1,43 +1,47 @@
 $(document).ready(function () {
   $("#content").load("navbar.html");
 });
-import Filter from "bad-words";
 
-const chatForm = document.getElementById("chatForm");
-const messageInput = document.getElementById("messageInput");
-const chatMessages = document.getElementById("chatMessages");
-const typingIndicator = document.getElementById("typingIndicator");
-// Create a new Filter instance
-const filter = new Filter();
+import { Filter } from "https://cdn.jsdelivr.net/npm/bad-words@4.0.0/+esm";
 
-// Show typing indicator
-messageInput.addEventListener("input", function () {
-  typingIndicator.style.display = "block";
-  setTimeout(() => {
-    typingIndicator.style.display = "none";
-  }, 1000); // Show for 1 second
-});
+import { array } from "https://cdn.jsdelivr.net/npm/french-badwords-list@1.0.7/+esm";
+document.addEventListener("DOMContentLoaded", function () {
+  const chatForm = document.getElementById("chatForm");
+  const messageInput = document.getElementById("messageInput");
+  const chatMessages = document.getElementById("chatMessages");
+  const typingIndicator = document.getElementById("typingIndicator");
 
-chatForm.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent form submission
+  // Create a new Filter instance from the global bad-words library
 
-  const message = messageInput.value.trim();
+  const filter = new Filter();
+  array.forEach((word) => filter.addWords(word));
+  // Show typing indicator
+  messageInput.addEventListener("input", function () {
+    typingIndicator.style.display = "block";
+    setTimeout(() => {
+      typingIndicator.style.display = "none";
+    }, 1000); // Show for 1 second
+  });
 
-  // Check for censored words
-  if (filter.isProfane(message)) {
-    alert(
-      "Votre message contient des mots inappropriés et ne peut pas être envoyé."
-    );
-    messageInput.value = ""; // Clear input
-    return;
-  }
+  chatForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
 
-  // Append message to chat area
-  const newMessage = document.createElement("div");
-  newMessage.classList.add("message");
-  newMessage.innerHTML = `<strong>Vous :</strong> ${message}`;
-  chatMessages.appendChild(newMessage);
+    const message = messageInput.value.trim();
 
-  // Clear input field
-  messageInput.value = "";
+    // Check for censored words
+    if (filter.isProfane(message)) {
+      errorMessage.style.display = "block"; // Show the error message
+      messageInput.value = ""; // Clear input
+      return;
+    }
+
+    // Append message to chat area
+    const newMessage = document.createElement("div");
+    newMessage.classList.add("message");
+    newMessage.innerHTML = `<strong>Vous :</strong> ${message}`;
+    chatMessages.appendChild(newMessage);
+
+    // Clear input field
+    messageInput.value = "";
+  });
 });
