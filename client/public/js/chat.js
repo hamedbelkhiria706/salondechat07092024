@@ -5,7 +5,7 @@ $(document).ready(function () {
 import { Filter } from "https://cdn.jsdelivr.net/npm/bad-words@4.0.0/+esm";
 
 import { array } from "https://cdn.jsdelivr.net/npm/french-badwords-list@1.0.7/+esm";
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const chatForm = document.getElementById("chatForm");
   const messageInput = document.getElementById("messageInput");
   const chatMessages = document.getElementById("chatMessages");
@@ -15,6 +15,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const filter = new Filter();
   array.forEach((word) => filter.addWords(word));
+
+  const response = await fetch(
+    "../../old/arabic-bad-words-list_text-file_one-word-per-line.csv"
+  ); // Replace with your actual path
+
+  const text = await response.text();
+
+  const words = text
+    .split("\n")
+    .map((word) => word.trim())
+    .filter((word) => word);
+  words.forEach((word) => {
+    filter.addWords(word);
+  });
+
   // Show typing indicator
   messageInput.addEventListener("input", function () {
     typingIndicator.style.display = "block";
@@ -31,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check for censored words
     if (filter.isProfane(message)) {
       errorMessage.style.display = "block"; // Show the error message
-      messageInput.value = ""; // Clear input
+      //  messageInput.value = ""; // Clear input
       return;
     }
 
