@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "bad-words": "^4.0.0"
+    "bad-words": "^4.0.0",
+    "bad-words-checker": "^1.2.1"
   },
   "target": "es6"
 }
