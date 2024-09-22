@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const filter = new Filter();
   array.forEach((word) => filter.addWords(word));
-
+  var tab = [];
   function loadArabicBadWords() {
     return fetch(
       "../../old/arabic-bad-words-list_text-file_one-word-per-line.csv"
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .split("\n")
           .map((word) => word.trim())
           .filter((word) => word);
-
+        tab = words;
         words.forEach((word) => {
           filter.addWords(word);
         });
@@ -55,9 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
       // Check for censored words
       if (filter.isProfane(message)) {
         errorMessage.style.display = "block"; // Show the error message
-        messageInput.value = filter.clean(messageInput.value);
+        // messageInput.value = filter.clean(messageInput.value);
         //  messageInput.value = ""; // Clear input
         return;
+      } else if (message.contains(tab)) {
+        errorMessage.style.display = "block"; // Show the error message
+        // messageInput.value = filter.clean(messageInput.value);
+        //  messageInput.value = ""; // Clear input
       }
 
       // Append message to chat area
