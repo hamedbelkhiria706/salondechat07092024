@@ -97,7 +97,7 @@ $(document).ready(function () {
     updateCreatedRoomsList();
 
     // Réduire le nombre total de salons
-    totalRooms = createdRooms.length; // Mettre à jour le nombre total de salons
+    totalRooms += 1; // Mettre à jour le nombre total de salons
     renderRoomInputs(); // Appeler la fonction pour afficher les entrées
   });
 });
