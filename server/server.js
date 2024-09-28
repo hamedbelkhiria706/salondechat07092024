@@ -8,7 +8,7 @@ const port = 3000;
 
 // Middleware to parse JSON
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 const uri = "mongodb://localhost:27017"; // MongoDB connection URL
 const database1 = "salonchatdboscarf28092024";
 const client = new MongoClient(uri);
