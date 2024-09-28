@@ -41,6 +41,7 @@ router.post("/login", async (req, res) => {
 function authenticateToken(req, res, next) {
   const token =
     req.headers["authorization"] && req.headers["authorization"].split(" ")[1];
+  console.log(token);
   if (!token) return res.sendStatus(401);
 
   jwt.verify(token, JWT_SECRET, (err, user) => {
@@ -80,14 +81,17 @@ router.post("/signup", async (req, res) => {
     res.status(500).json({ message: "Error creating user.", error });
   }
 });
+
+const { ObjectId } = require("mongodb");
 // Update user profile route
 router.put("/profile", authenticateToken, async (req, res) => {
-  const { name, email, oldPassword, newPassword } = req.body; // Assuming the request may include one or more of these fields
-  const userId = req.user.userId; // Assuming you have this information in req.user after authenticating the token
+  const { name, email, oldPassword, newPassword, userId } = req.body; // Assuming the request may include one or more of these fields
 
   try {
     const usersCollection = client.db(database1).collection("users");
-    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
+    const user = await usersCollection.findOne({
+      _id: ObjectId.createFromHexString(userId),
+    });
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -114,18 +118,16 @@ router.put("/profile", authenticateToken, async (req, res) => {
 
     // Update the user's profile based on the provided fields
     const result = await usersCollection.findOneAndUpdate(
-      { _id: ObjectId(userId) },
+      { _id: ObjectId.createFromHexString(userId) },
       { $set: updateQuery },
       { returnOriginal: false }
     );
 
-    if (result.value) {
-      res
-        .status(200)
-        .json({
-          message: "User profile updated successfully",
-          user: result.value,
-        });
+    if (result) {
+      res.status(200).json({
+        message: "User profile updated successfully",
+        user: result,
+      });
     } else {
       res.status(404).json({ message: "User not found" });
     }
