@@ -13,7 +13,7 @@ const uri = "mongodb://localhost:27017"; // MongoDB connection URL
 const database1 = "salonchatdboscarf28092024";
 const client = new MongoClient(uri);
 
-const usersRouter = require("./routes/users");
+const usersRouter = require("./routes/usersRoutes");
 
 // Définir la route des utilisateurs en utilisant le router importé
 app.use("/users", usersRouter);
