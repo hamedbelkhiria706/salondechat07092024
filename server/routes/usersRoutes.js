@@ -141,6 +141,15 @@ router.put("/profile", authenticateToken, async (req, res) => {
 // Ajouter un utilisateur à une salle de discussion
 router.post("/addUserToRoom", authenticateToken, async (req, res) => {
   try {
+    // Check if the user is an admin of the room before adding a user
+    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
+    if (user && user.adminRooms.includes(roomId)) {
+      // User is an admin of the room, proceed with adding user logic
+    } else {
+      res
+        .status(403)
+        .json({ message: "Unauthorized to add user to this room" });
+    }
     const { roomId, userId } = req.body;
     // Ajouter la logique pour vérifier les autorisations et l'ajout de l'utilisateur à la salle de discussion spécifiée
 
@@ -164,6 +173,15 @@ router.post("/addUserToRoom", authenticateToken, async (req, res) => {
 // Bloquer un utilisateur d'une salle de discussion
 router.post("/blockUserInRoom", authenticateToken, async (req, res) => {
   try {
+    // Check if the user is an admin of the room before adding a user
+    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
+    if (user && user.adminRooms.includes(roomId)) {
+      // User is an admin of the room, proceed with adding user logic
+    } else {
+      res
+        .status(403)
+        .json({ message: "Unauthorized to add user to this room" });
+    }
     const { roomId, userIdToBlock } = req.body;
     // Ajouter la logique pour vérifier les autorisations et bloquer l'utilisateur de la salle de discussion spécifiée
 
