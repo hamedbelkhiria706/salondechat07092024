@@ -225,6 +225,14 @@ router.post("/createRoom", authenticateToken, async (req, res) => {
 // Supprimer une salle de discussion
 router.delete("/deleteRoom/:id", authenticateToken, async (req, res) => {
   try {
+    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
+    if (user && user.adminRooms.includes(roomId)) {
+      // User is an admin of the room, proceed with adding user logic
+    } else {
+      res
+        .status(403)
+        .json({ message: "Unauthorized to add user to this room" });
+    }
     const roomId = req.params.id;
     // Ajouter la logique pour vérifier les autorisations et supprimer la salle de discussion spécifiée
 
