@@ -2,6 +2,27 @@ $(document).ready(function () {
   $("#content").load("navbar.html");
 });
 
+const blockButtons = document.querySelectorAll(".btn-danger");
+
+blockButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const user = button.parentNode.textContent.trim();
+    if (button.textContent === "Bloquer") {
+      // Ajouter ici la logique pour bloquer l'utilisateur
+      alert(`Vous avez bloqué l'utilisateur : ${user}`);
+      button.textContent = "Débloquer";
+      button.classList.remove("btn-danger"); // Supprimer la classe 'btn-danger'
+      button.classList.add("btn-success"); // Ajouter la classe 'btn-success' pour la couleur verte
+    } else {
+      // Ajouter ici la logique pour débloquer l'utilisateur
+      alert(`Vous avez débloqué l'utilisateur : ${user}`);
+      button.textContent = "Bloquer";
+      button.classList.remove("btn-success"); // Supprimer la classe 'btn-success'
+      button.classList.add("btn-danger"); // Ajouter la classe 'btn-danger' pour la couleur rouge
+    }
+  });
+});
+
 import { Filter } from "https://cdn.jsdelivr.net/npm/bad-words@4.0.0/+esm";
 
 import { array } from "https://cdn.jsdelivr.net/npm/french-badwords-list@1.0.7/+esm";
