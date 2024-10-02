@@ -13,7 +13,7 @@ navLinks.forEach((link) => {
 let currentPage1 = window.location.pathname;
 
 // Check if the current page is index.html
-if (currentPage1.includes("index.html")) {
+if (currentPage1.includes("index")) {
   // Enable or show the links
   console.log("Welcome to the homepage");
   // Re-enable links if they were previously disabled

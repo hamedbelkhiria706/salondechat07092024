@@ -38,6 +38,12 @@ app.use(
     },
   })
 );
+
+// Add a route for the assets directory
+app.use(
+  "/client/assets",
+  express.static(path.join(__dirname, "views", "public", "assets"))
+);
 // Define routes
 app.get("/client/:ejsfilename", (req, res) => {
   const ejsFileName = req.params.ejsfilename; // Get the EJS filename from the URL parameter
