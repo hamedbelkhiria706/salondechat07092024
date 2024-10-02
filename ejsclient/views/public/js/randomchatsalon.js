@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#content").load("navbar.html");
+  $("#content").load("navbar.ejs");
 
   // Simulate joining a random chat room
   const roomName =
