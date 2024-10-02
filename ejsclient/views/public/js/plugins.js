@@ -1,3 +1,3 @@
 $(document).ready(function () {
-  $("#content").load("navbar.html");
+  $("#content").load("navbar.ejd");
 });
