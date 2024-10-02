@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="chatstyle.css" />
+    <link rel="stylesheet" href="stylescss/chatstyle.css" />
   </head>
   <body>
     <div id="content"></div>
@@ -33,6 +33,19 @@
             tête-à-tête, partagez des fichiers et échangez en temps réel.
           </p>
           <h4>Chat</h4>
+          <div id="typingIndicator" style="display: none">
+            Un utilisateur est en train d'écrire...
+          </div>
+          <!-- Error message placeholder -->
+          <div
+            class="alert alert-danger"
+            id="errorMessage"
+            style="display: none"
+            role="alert"
+          >
+            Votre message contient des mots inappropriés et ne peut pas être
+            envoyé.
+          </div>
           <div
             class="border rounded p-3"
             style="height: 300px; overflow-y: scroll"
@@ -48,9 +61,11 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Écrivez votre message..."
+                placeholder="Ecrivez votre message..."
                 required
+                id="messageInput"
               />
+
               <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">Envoyer</button>
               </div>
@@ -65,7 +80,7 @@
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
-    <script src="js/randomchatsalon.js"></script>
+    <script type="module" src="js/randomchatsalon.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>

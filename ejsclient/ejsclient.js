@@ -5,7 +5,7 @@ const path = require("path");
 // Set EJS as the view engine
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
-
+app.use("/old", express.static(path.join(__dirname, "..", "old")));
 // Define routes
 app.get("/", (req, res) => {
   res.render("index", {

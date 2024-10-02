@@ -4,7 +4,7 @@ $(document).ready(function () {
 // Join chat room functionality
 $(document).on("click", ".rejoindre", function () {
   const roomName = $(this).data("room");
-  window.location.href = `http://127.0.0.1:3000/client/public/randomchatsalon?room=${encodeURIComponent(
+  window.location.href = `http://127.0.0.1:3000/client/randomchatsalon?room=${encodeURIComponent(
     roomName
   )}`; // Redirect to the chat room
 });
