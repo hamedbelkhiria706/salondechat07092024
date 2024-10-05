@@ -7,9 +7,9 @@ const jwt = require("jsonwebtoken");
 // Now you can use the imported 'client' and 'database1' in your routes
 
 // For example:
-const { usersCollection } = require("../models/usersCollectionStructure");
+const { usersCollection } = require("../oldmodels/usersCollectionStructure");
 // ... (Use the usersCollection in your signup and login routes)
-const { roomsCollection } = require("../models/roomsCollectionStructure");
+const { roomsCollection } = require("../oldmodels/roomsCollectionStructure");
 
 // Login route
 router.post("/login", async (req, res) => {

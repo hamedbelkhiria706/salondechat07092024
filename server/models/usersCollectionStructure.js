@@ -1,104 +1,28 @@
 const { JWT_SECRET, client, database1 } = require("../config/db"); // Ensure correct path to your db.js file
 const { ObjectId } = require("mongodb");
-const Joi = require("joi");
-const validationSchema = {
-  $jsonSchema: {
-    bsonType: "object",
-    required: [
-      "email",
-      "username",
-      "password",
-      "isVerified",
-      "maxRooms",
-      "adminRooms",
-    ],
-    properties: {
-      _id: {
-        bsonType: "objectId",
-      },
-      email: {
-        bsonType: "string",
-        description: "must be a string and is required",
-      },
-      username: {
-        bsonType: "string",
-        description: "must be a string and is required",
-        validationAction: "error", // Specifies what to do if the validation fails
-        validate: {
-          validator: function (v) {
-            return (
-              Joi.string().alphanum().min(3).max(30).required().validate(v)
-                .error === undefined
-            );
-          },
-          message:
-            "Username must be a string with alphanumeric characters, minimum length 3, and maximum length 30",
-        },
-      },
-      password: {
-        bsonType: "string",
-        description: "must be a string and is required",
-        validationAction: "error", // Specifies what to do if the validation fails
-        validate: {
-          validator: function (v) {
-            return (
-              Joi.string()
-                .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
-                .validate(v).error === undefined
-            );
-          },
-          message:
-            "Username must be a string with alphanumeric characters, minimum length 3, and maximum length 30",
-        },
-      },
-      isVerified: {
-        bsonType: "bool",
-        description: "must be a boolean and is required",
-      },
-      maxRooms: {
-        bsonType: "int",
-        description: "must be an integer and is required",
-      },
-      adminRooms: {
-        bsonType: "array",
-        items: {
-          bsonType: "objectId",
-        },
-        description: "must be an array of ObjectIds and is required",
-      },
-      plan: {
-        type: "object",
-        properties: {
-          type: { type: "string" },
-          date_debut: { type: "string", format: "date-time" },
-          date_fin: { type: "string", format: "date-time" },
-        },
-        required: ["type", "date_debut", "date_fin"],
-      },
-    },
+
+// Mise à jour du modèle User avec les informations d'abonnement
+const userSchema = new Schema({
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
+  subscriptionPlan: {
+    type: String,
+    enum: ["free", "premium", "pro"],
+    default: "free",
   },
-};
+  maxChatRooms: { type: Number, default: 3 }, // 3 pour les utilisateurs gratuits
+  createdChatRooms: { type: Number, default: 0 },
+  role: { type: String, enum: ["user", "admin"], default: "user" },
+});
 
-let isValidationSetUp = false;
+// Collection des abonnements
+const subscriptionSchema = new Schema({
+  planName: { type: String, required: true },
+  maxChatRooms: { type: Number, required: true },
+  price: { type: Number, required: true },
+});
 
-async function setupValidation() {
-  const collStats = await client.db(database1).collection("users").stats();
-  if (!isValidationSetUp && !collStats.validator) {
-    await client.db(database1).runCommand({
-      collMod: "users",
-      validator: validationSchema,
-      validationAction: "error",
-    });
-    isValidationSetUp = true; // Mark validation as set up
-  }
-}
-
-const usersCollection = client.db(database1).collection("users");
-
-// Call the setup function to ensure validation is applied
-setupValidation().catch(console.error);
-
-module.exports = {
-  usersCollection,
-  setupValidation, // Export the setup function if needed elsewhere
-};
+const User = mongoose.model("User", userSchema);
+const Subscription = mongoose.model("Subscription", subscriptionSchema);
