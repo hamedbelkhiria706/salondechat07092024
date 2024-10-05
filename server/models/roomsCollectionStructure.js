@@ -18,9 +18,10 @@ const validationSchema = {
 };
 
 let isValidationSetUp = false;
-
+const roomsCollection = client.db(database1).collection("rooms");
 async function setupValidation() {
-  if (!isValidationSetUp) {
+  const collStats = await roomsCollection.stats();
+  if (!isValidationSetUp && !collStats.validator) {
     await client.db(database1).runCommand({
       collMod: "rooms",
       validator: validationSchema,
@@ -29,8 +30,6 @@ async function setupValidation() {
     isValidationSetUp = true; // Mark validation as set up
   }
 }
-
-const roomsCollection = client.db(database1).collection("rooms");
 
 // Call the setup function to ensure validation is applied
 setupValidation().catch(console.error);

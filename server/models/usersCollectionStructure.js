@@ -23,12 +23,33 @@ const validationSchema = {
       username: {
         bsonType: "string",
         description: "must be a string and is required",
-        pattern: Joi.string().alphanum().min(3).max(30).required(),
+        validationAction: "error", // Specifies what to do if the validation fails
+        validate: {
+          validator: function (v) {
+            return (
+              Joi.string().alphanum().min(3).max(30).required().validate(v)
+                .error === undefined
+            );
+          },
+          message:
+            "Username must be a string with alphanumeric characters, minimum length 3, and maximum length 30",
+        },
       },
       password: {
         bsonType: "string",
         description: "must be a string and is required",
-        pattern: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+        validationAction: "error", // Specifies what to do if the validation fails
+        validate: {
+          validator: function (v) {
+            return (
+              Joi.string()
+                .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
+                .validate(v).error === undefined
+            );
+          },
+          message:
+            "Username must be a string with alphanumeric characters, minimum length 3, and maximum length 30",
+        },
       },
       isVerified: {
         bsonType: "bool",
@@ -61,7 +82,8 @@ const validationSchema = {
 let isValidationSetUp = false;
 
 async function setupValidation() {
-  if (!isValidationSetUp) {
+  const collStats = await client.db(database1).collection("users").stats();
+  if (!isValidationSetUp && !collStats.validator) {
     await client.db(database1).runCommand({
       collMod: "users",
       validator: validationSchema,
