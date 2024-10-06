@@ -8,9 +8,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   subscriptionPlan: {
-    type: String,
-    enum: ["free", "premium", "pro"],
-    default: "free",
+    type: mongoose.Schema.Types.ObjectId,
   },
   maxChatRooms: { type: Number, default: 3 }, // 3 pour les utilisateurs gratuits
   createdChatRooms: { type: Number, default: 0 },
@@ -19,7 +17,8 @@ const userSchema = new mongoose.Schema({
 
 // Collection des abonnements
 const subscriptionSchema = new mongoose.Schema({
-  planName: { type: String, required: true },
+  _id: mongoose.Schema.Types.ObjectId,
+  planName: ["free", "premium", "pro"],
   maxChatRooms: { type: Number, required: true },
   price: { type: Number, required: true },
 });
