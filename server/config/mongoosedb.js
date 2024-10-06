@@ -11,3 +11,8 @@ async function connectDB() {
     useUnifiedTopology: true,
   });
 }
+module.exports = {
+  JWT_SECRET,
+  connectDB,
+  database1,
+};

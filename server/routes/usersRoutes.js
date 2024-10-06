@@ -1,4 +1,9 @@
-const { JWT_SECRET, client, database1 } = require("../config/db"); // Use the correct path to your db.js file
+const {
+  JWT_SECRET,
+  database1,
+  Schema,
+  mongoose,
+} = require("../config/mongoosedb"); // Use the correct path to your db.js file
 const express = require("express");
 const router = express.Router();
 
@@ -7,9 +12,9 @@ const jwt = require("jsonwebtoken");
 // Now you can use the imported 'client' and 'database1' in your routes
 
 // For example:
-const { usersCollection } = require("../oldmodels/usersCollectionStructure");
+const { usersCollection } = require("../models/usersCollectionStructure");
 // ... (Use the usersCollection in your signup and login routes)
-const { roomsCollection } = require("../oldmodels/roomsCollectionStructure");
+const { roomsCollection } = require("../models/roomsCollectionStructure");
 
 // Login route
 router.post("/login", async (req, res) => {
@@ -59,8 +64,6 @@ router.post("/signup", async (req, res) => {
     // Hash the password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-    const usersCollection = client.db(database1).collection("users");
 
     // Check if the user already exists
     const existingUser = await usersCollection.findOne({ email });
