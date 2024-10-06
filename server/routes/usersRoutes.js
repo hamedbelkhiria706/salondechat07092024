@@ -8,6 +8,8 @@ const jwt = require("jsonwebtoken");
 
 // For example:
 const { usersCollection } = require("../models/usersCollectionStructure");
+
+const User = usersCollection;
 // ... (Use the usersCollection in your signup and login routes)
 const { roomsCollection } = require("../models/roomsCollectionStructure");
 
