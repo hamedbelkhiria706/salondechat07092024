@@ -11,6 +11,59 @@ const { usersCollection } = require("../models/usersCollectionStructure");
 // ... (Use the usersCollection in your signup and login routes)
 const { roomsCollection } = require("../models/roomsCollectionStructure");
 
+//Creer
+
+router.post("/users", async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+//Lire
+
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+//Mise a jour
+
+router.put("/users/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!user) {
+      return res.status(404).send();
+    }
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+//Supprimer
+
+router.delete("/users/:id", async (req, res) => {
+  try {
+    const user = await User.findByldAndDelete(req.params.id);
+    if (luser) {
+      return res.status(404).send();
+    }
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 // Login route
 router.post("/login", async (req, res) => {
   try {
