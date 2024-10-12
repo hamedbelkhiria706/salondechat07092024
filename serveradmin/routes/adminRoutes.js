@@ -1,7 +1,8 @@
 const { JWT_SECRET, client, database1 } = require("../config/db"); // Use the correct path to your db.js file
 const express = require("express");
 const router = express.Router();
-
+var AES = require("crypto-js/aes");
+var SHA256 = require("crypto-js/sha256");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 // Now you can use the imported 'client' and 'database1' in your routes
@@ -32,4 +33,9 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: "Error logging in.", error });
   }
 });
+
+router.post("/banuser/:id", async (req, res) => {});
+
+router.post("/validatepayment/:id", async (req, res) => {});
+
 module.exports = router;
