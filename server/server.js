@@ -25,9 +25,13 @@ app.get("/test", (req, res, next) => {
   res.send(SHA256.AES.encrypt("my message", "secret key 123").toString());
 });
 
-app.use("/public", express.static("../client/public"));
-app.use("/admin", adminRouter);
-app.use("/users", usersRouter);
+// Serve static files from the 'public' directory for requests to '/public'
+app.use("/public", express.static(path.join(__dirname, "../client/public")));
+
+// Serve static files from the 'admin' directory for requests to '/admin'
+app.use("/admin", express.static(path.join(__dirname, "../admin")));
+app.use("/admin1", adminRouter);
+app.use("/users1", usersRouter);
 
 // Connect to the database
 async function connectDB() {
