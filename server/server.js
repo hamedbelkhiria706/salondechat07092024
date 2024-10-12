@@ -24,6 +24,8 @@ const adminRouter = require("./routes/adminRoutes");
 app.get("/test", (req, res, next) => {
   res.send(SHA256.AES.encrypt("my message", "secret key 123").toString());
 });
+
+app.use("/public", express.static("../client/public"));
 app.use("/admin", adminRouter);
 app.use("/users", usersRouter);
 
