@@ -1,4 +1,4 @@
-const { JWT_SECRET, database1 } = require("../config/mongoosedb"); // Use the correct path to your db.js file
+const { JWT_SECRET, database1 } = require("../config/db"); // Use the correct path to your db.js file
 const express = require("express");
 const router = express.Router();
 

@@ -15,7 +15,16 @@ const client = new MongoClient(uri);
 
 const usersRouter = require("./routes/usersRoutes");
 
+var SHA256 = require("crypto-js");
 // Définir la route des utilisateurs en utilisant le router importé
+const adminRouter = require("./routes/adminRoutes");
+
+// Définir la route des utilisateurs en utilisant le router importé
+
+app.get("/test", (req, res, next) => {
+  res.send(SHA256.AES.encrypt("my message", "secret key 123").toString());
+});
+app.use("/admin", adminRouter);
 app.use("/users", usersRouter);
 
 // Connect to the database

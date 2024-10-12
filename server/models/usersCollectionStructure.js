@@ -1,4 +1,4 @@
-const { JWT_SECRET, client, database1 } = require("../config/mongoosedb"); // Ensure correct path to your db.js file
+const { JWT_SECRET, client, database1 } = require("../config/db"); // Ensure correct path to your db.js file
 const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 // Mise à jour du modèle User avec les informations d'abonnement
