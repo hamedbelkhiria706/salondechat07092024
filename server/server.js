@@ -2,7 +2,7 @@ const express = require("express");
 const { MongoClient } = require("mongodb");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const path = require("path");
 const app = express();
 const port = 3000;
 
@@ -24,12 +24,27 @@ const adminRouter = require("./routes/adminRoutes");
 app.get("/test", (req, res, next) => {
   res.send(SHA256.AES.encrypt("my message", "secret key 123").toString());
 });
-
-// Serve static files from the 'public' directory for requests to '/public'
-app.use("/public", express.static(path.join(__dirname, "../client/public")));
+app.get("/public/:page1/:page", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "../client/public/" + req.params.page1 + "/" + req.params.page
+    )
+  ); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
+});
+app.get("/public/:page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/public/" + req.params.page)); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
+});
 
 // Serve static files from the 'admin' directory for requests to '/admin'
-app.use("/admin", express.static(path.join(__dirname, "../admin")));
+app.get("/admin/:page1/:page", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../admin/" + req.params.page1 + "/" + req.params.page)
+  ); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
+});
+app.get("/admin/:page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/public/" + req.params.page)); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
+});
 app.use("/admin1", adminRouter);
 app.use("/users1", usersRouter);
 
