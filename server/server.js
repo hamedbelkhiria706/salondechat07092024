@@ -43,7 +43,7 @@ app.get("/admin/:page1/:page", (req, res) => {
   ); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
 });
 app.get("/admin/:page", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public/" + req.params.page)); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
+  res.sendFile(path.join(__dirname, "../admin/" + req.params.page)); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
 });
 app.use("/admin1", adminRouter);
 app.use("/users1", usersRouter);
