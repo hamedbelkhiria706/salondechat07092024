@@ -29,5 +29,4 @@ const User = mongoose.model("User", userSchema);
 
 module.exports = {
   usersCollection: User,
-  setupValidation, // Export the setup function if needed elsewhere
 };
