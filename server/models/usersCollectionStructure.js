@@ -24,6 +24,7 @@ const subscriptionSchema = new mongoose.Schema({
   maxChatRooms: { type: Number, required: true },
   price: { type: Number, required: true },
 });
+//Encrypt password before saving
 
 const User = mongoose.model("User", userSchema);
 const Subscription = mongoose.model("Subscription", subscriptionSchema);
