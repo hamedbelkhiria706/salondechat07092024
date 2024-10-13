@@ -1,11 +1,14 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const path = require("path");
+const dotenv = require("dotenv");
 const app = express();
 const port = 3000;
 
+dotenv.config();
 // Middleware to parse JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,6 +18,11 @@ const client = new MongoClient(uri);
 
 const usersRouter = require("./routes/usersRoutes");
 
+const chatRouter = require("./routes/chatRoutes");
+
+const publicRouter = require("./routes/publicRoutes");
+
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 var SHA256 = require("crypto-js");
 // Définir la route des utilisateurs en utilisant le router importé
 const adminRouter = require("./routes/adminRoutes");
@@ -45,8 +53,10 @@ app.get("/admin/:page1/:page", (req, res) => {
 app.get("/admin/:page", (req, res) => {
   res.sendFile(path.join(__dirname, "../admin/" + req.params.page)); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
 });
-app.use("/admin1", adminRouter);
-app.use("/users1", usersRouter);
+app.use("/api/admin", adminRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/chat", chatRouter);
+app.use("/api/public", publicRoutes);
 
 // Connect to the database
 async function connectDB() {
