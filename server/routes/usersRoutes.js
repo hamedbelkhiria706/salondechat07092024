@@ -4,6 +4,14 @@ const router = express.Router();
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
+const {
+  registerUser,
+  loginUser,
+  verifyEmail,
+  getUserDashboard,
+} = require("../controllers/userController");
+
 // Now you can use the imported 'client' and 'database1' in your routes
 
 // For example:
