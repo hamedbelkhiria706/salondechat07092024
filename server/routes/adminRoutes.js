@@ -6,6 +6,21 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 // Now you can use the imported 'client' and 'database1' in your routes
 const { adminCollection } = require("../models/adminsCollectionStructure");
+
+const {
+  getAdminDashboard,
+  getAllUsers,
+  manageUserSubscription,
+} = require("../controllers/adminController");
+const {
+  authMiddleware,
+  adminMiddleware,
+} = require("../middleware/adminMiddleware");
+
+router.post("/dashboard", getAdminDashboard);
+
+router.post("/");
+
 // Login route
 router.post("/login", async (req, res) => {
   try {
