@@ -11,7 +11,7 @@ const {
   verifyEmail,
   getUserDashboard,
 } = require("../controllers/userController");
-
+const { authMiddleware } = require("../middleware/authMiddleware");
 // Now you can use the imported 'client' and 'database1' in your routes
 
 // For example:
@@ -20,6 +20,14 @@ const { usersCollection } = require("../models/usersCollectionStructure");
 const User = usersCollection;
 // ... (Use the usersCollection in your signup and login routes)
 const { roomsCollection } = require("../models/roomsCollectionStructure");
+
+router.post("/register", registerUser);
+
+router.get("/verify/:token", verifyEmail);
+
+router.get("/login", loginUser);
+
+router.get("/dashboard", authMiddleware, getUserDashboard);
 
 //Creer
 
