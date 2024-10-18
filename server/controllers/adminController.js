@@ -26,5 +26,12 @@ const manageUsersSubscriptions = async (req, res) => {
     user.isPaidUser = subscriptionPlan !== "free";
     await user.save();
     res.json({ message: "Subscription updated successfully" });
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({ message: "Error updating subscription", error });
+  }
+};
+module.exports = {
+  getAdminDashboard,
+  getAllUsers,
+  manageUsersSubscriptions,
 };
