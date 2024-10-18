@@ -17,7 +17,7 @@ const registerUser = async (reg, res) => {
     });
     const verifyUrl = `${req.protocol}://${req.get(
       "host"
-    )}/api/users/verify/$(verificationToken}`;
+    )}/api/users/verify/${verificationToken}`;
 
     const message = `Verify your email by clicking the Link: ${verifyUrl}`;
     await sendEmail({
@@ -32,6 +32,7 @@ const registerUser = async (reg, res) => {
     res.status(500).json({ message: "Error registering user", error });
   }
 };
+
 const verifyEmail = async (req, res) => {
   const { token } = req.params;
   try {
