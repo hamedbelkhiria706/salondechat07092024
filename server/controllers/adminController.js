@@ -8,5 +8,10 @@ const getAdminDashboard = (req, res) => {
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select("-password");
-  } catch (e) {}
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching users", error });
+  }
 };
+//Manage users subscriptions
+const manageUsersSubscriptions = async (req, res) => {};
