@@ -19,7 +19,9 @@ const {
 
 router.post("/dashboard", getAdminDashboard);
 
-router.post("/");
+router.post("/users", getAllUsers);
+
+router.put("/subscriptions/:userId", manageUserSubscription);
 
 // Login route
 router.post("/login", async (req, res) => {
