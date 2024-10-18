@@ -16,3 +16,4 @@ const authMiddleware = async (req, res, next) => {
     }
   }
 };
+const adminMiddleware = (req, res, next) => {};
