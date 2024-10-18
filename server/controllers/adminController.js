@@ -25,5 +25,6 @@ const manageUsersSubscriptions = async (req, res) => {
     user.subscriptionPlan = subscriptionPlan;
     user.isPaidUser = subscriptionPlan !== "free";
     await user.save();
-  } catch (e) {}
+    res.json({ message: "Subscription updated successfully" });
+  } catch (error) {}
 };
