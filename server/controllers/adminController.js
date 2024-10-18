@@ -14,4 +14,16 @@ const getAllUsers = async (req, res) => {
   }
 };
 //Manage users subscriptions
-const manageUsersSubscriptions = async (req, res) => {};
+const manageUsersSubscriptions = async (req, res) => {
+  const { userId } = req.params;
+  const { subscriptionPlan } = req.body;
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    user.subscriptionPlan = subscriptionPlan;
+    user.isPaidUser = subscriptionPlan !== "free";
+    await user.save();
+  } catch (e) {}
+};
