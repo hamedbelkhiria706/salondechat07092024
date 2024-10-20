@@ -44,17 +44,7 @@ router.put("/users/:id", usersid);
 
 //Supprimer
 
-router.delete("/users/:id", async (req, res) => {
-  try {
-    const user = await User.findByldAndDelete(req.params.id);
-    if (luser) {
-      return res.status(404).send();
-    }
-    res.status(200).send(user);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
+router.delete("/users/:id");
 
 // Login route
 router.post("/login", async (req, res) => {
