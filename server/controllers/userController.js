@@ -86,7 +86,7 @@ const users = async (req, res) => {
   }
 };
 
-const users1 = async (req, res) => {
+const getusers = async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).send(users);
@@ -115,6 +115,6 @@ module.exports = {
   loginUser,
   getUserDashboard,
   users,
-  users1,
+  getusers,
   usersid,
 };

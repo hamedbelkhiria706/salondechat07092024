@@ -11,7 +11,7 @@ const {
   verifyEmail,
   getUserDashboard,
   users,
-  users1,
+  getusers,
 } = require("../controllers/userController");
 const { authMiddleware } = require("../middleware/authMiddleware");
 // Now you can use the imported 'client' and 'database1' in your routes
@@ -36,7 +36,7 @@ router.get("/dashboard", authMiddleware, getUserDashboard);
 router.post("/users", users);
 //Lire
 
-router.get("/users", users1);
+router.get("/users", getusers);
 
 //Mise a jour
 
