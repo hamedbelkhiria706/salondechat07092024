@@ -2,6 +2,7 @@ const User = require("../models/user");
 const generateToken = require("../utils/generateToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
@@ -73,5 +74,15 @@ const loginUser = async (req, res) => {
 //Get User Dashboard
 const getUserDashboard = (req, res) => {
   res.json({ message: "Welcome to your dashboard, ${req.user.username}!" });
+};
+
+const users = async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 };
 module.exports = { registerUser, verifyEmail, loginUser, getUserDashboard };
