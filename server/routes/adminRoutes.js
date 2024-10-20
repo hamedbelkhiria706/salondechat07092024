@@ -11,12 +11,14 @@ const {
   getAdminDashboard,
   getAllUsers,
   manageUserSubscription,
+  login,
 } = require("../controllers/adminController");
 const {
   authMiddleware,
   adminMiddleware,
 } = require("../middleware/adminMiddleware");
 
+router.use(authMiddleware, adminMiddleware);
 router.post("/dashboard", getAdminDashboard);
 
 router.post("/users", getAllUsers);
@@ -24,31 +26,7 @@ router.post("/users", getAllUsers);
 router.put("/subscriptions/:userId", manageUserSubscription);
 
 // Login route
-router.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    // Find the user
-    const user = await adminCollection.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "User not found." });
-    }
-
-    // Compare passwords
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return res.status(400).json({ message: "Invalid password." });
-    }
-
-    // Create a JWT token
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
-      expiresIn: "2h",
-    });
-    res.status(200).json({ message: "Login successful.", token });
-  } catch (error) {
-    res.status(500).json({ message: "Error logging in.", error });
-  }
-});
+router.post("/login", login);
 
 router.post("/banuser/:id", async (req, res) => {});
 
