@@ -40,20 +40,7 @@ router.get("/users", users1);
 
 //Mise a jour
 
-router.put("/users/:id", async (req, res) => {
-  try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    if (!user) {
-      return res.status(404).send();
-    }
-    res.status(200).send(user);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-});
+router.put("/users/:id", usersid);
 
 //Supprimer
 

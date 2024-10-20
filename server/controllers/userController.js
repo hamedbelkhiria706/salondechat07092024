@@ -94,6 +94,21 @@ const users1 = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+const usersid = async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!user) {
+      return res.status(404).send();
+    }
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
 module.exports = {
   registerUser,
   verifyEmail,
@@ -101,4 +116,5 @@ module.exports = {
   getUserDashboard,
   users,
   users1,
+  usersid,
 };
