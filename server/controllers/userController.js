@@ -85,4 +85,20 @@ const users = async (req, res) => {
     res.status(400).send(error);
   }
 };
-module.exports = { registerUser, verifyEmail, loginUser, getUserDashboard };
+
+const users1 = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+module.exports = {
+  registerUser,
+  verifyEmail,
+  loginUser,
+  getUserDashboard,
+  users,
+  users1,
+};
