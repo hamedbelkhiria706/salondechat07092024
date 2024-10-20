@@ -2,7 +2,7 @@ const User = require("../models/user");
 const generateToken = require("../utils/generateToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
-const registerUser = async (reg, res) => {
+const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const userExists = await User.findOne({ email });
@@ -48,7 +48,7 @@ const verifyEmail = async (req, res) => {
   }
 };
 //User Login
-const loginUser = async (reg, res) => {
+const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
