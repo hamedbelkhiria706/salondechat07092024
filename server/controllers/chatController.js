@@ -10,3 +10,11 @@ const createChatRoom = async (req, res) => {
     res.status(500).json({ message: "Error creating chatroom", error });
   }
 };
+const getChatrooms = async (req, res) => {
+  try {
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching chatrooms", error });
+  }
+};
+
+module.exports = { createChatRoom, getChatrooms };
