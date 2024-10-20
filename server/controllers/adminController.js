@@ -61,4 +61,5 @@ module.exports = {
   getAdminDashboard,
   getAllUsers,
   manageUsersSubscriptions,
+  login,
 };
