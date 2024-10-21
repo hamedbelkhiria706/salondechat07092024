@@ -19,6 +19,7 @@ const {
   profile,
   addUserToRoom,
   blockUserFromChat,
+  createRoom,
 } = require("../controllers/userController");
 const { authMiddleware } = require("../middleware/authMiddleware");
 // Now you can use the imported 'client' and 'database1' in your routes
@@ -80,23 +81,7 @@ router.post("/addUserToRoom", authenticateToken, addUserToRoom);
 // Bloquer un utilisateur d'une salle de discussion
 router.post("/blockUserInRoom", authenticateToken, blockUserFromChat);
 // Créer une nouvelle salle de discussion avec des contrôles de limite
-router.post("/createRoom", authenticateToken, async (req, res) => {
-  const { roomId, userId } = req.body;
-  try {
-    // Ajouter la logique pour vérifier la limite et les autorisations avant la création de la salle de discussion
-    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
-    if (user && user.createdRooms.length < MAX_ALLOWED_ROOMS) {
-      // Logique de création de la salle de discussion
-      res.status(200).json({ message: "Room created successfully" });
-    } else {
-      res.status(403).json({ message: "Not allowed to create more rooms" });
-    }
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error creating room", error: error.message });
-  }
-});
+router.post("/createRoom", authenticateToken, createRoom);
 // Supprimer une salle de discussion
 router.delete("/deleteRoom/:id", authenticateToken, async (req, res) => {
   try {

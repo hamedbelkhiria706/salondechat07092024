@@ -298,6 +298,23 @@ const blockUserFromChat = async (req, res) => {
       .json({ message: "Error blocking user in room", error: error.message });
   }
 };
+const createRoom = async (req, res) => {
+  const { roomId, userId } = req.body;
+  try {
+    // Ajouter la logique pour vérifier la limite et les autorisations avant la création de la salle de discussion
+    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
+    if (user && user.createdRooms.length < MAX_ALLOWED_ROOMS) {
+      // Logique de création de la salle de discussion
+      res.status(200).json({ message: "Room created successfully" });
+    } else {
+      res.status(403).json({ message: "Not allowed to create more rooms" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating room", error: error.message });
+  }
+};
 module.exports = {
   registerUser,
   verifyEmail,
@@ -312,4 +329,5 @@ module.exports = {
   profile,
   addUserToRoom,
   blockUserFromChat,
+  createRoom,
 };
