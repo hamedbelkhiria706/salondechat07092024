@@ -14,6 +14,7 @@ const {
   getusers,
   usersid,
   deleteusers,
+  oldlogin,
 } = require("../controllers/userController");
 const { authMiddleware } = require("../middleware/authMiddleware");
 // Now you can use the imported 'client' and 'database1' in your routes
@@ -49,31 +50,7 @@ router.put("/users/:id", usersid);
 router.delete("/users/:id", deleteusers);
 
 // Login route
-router.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    // Find the user
-    const user = await usersCollection.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "User not found." });
-    }
-
-    // Compare passwords
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return res.status(400).json({ message: "Invalid password." });
-    }
-
-    // Create a JWT token
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
-      expiresIn: "2h",
-    });
-    res.status(200).json({ message: "Login successful.", token });
-  } catch (error) {
-    res.status(500).json({ message: "Error logging in.", error });
-  }
-});
+router.post("/oldlogin", oldlogin);
 
 // Middleware to verify JWT token
 function authenticateToken(req, res, next) {
