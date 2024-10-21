@@ -1,8 +1,15 @@
-const User = require("../models/user");
+//const User = require("../models/user");
 const generateToken = require("../utils/generateToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+// Now you can use the imported 'client' and 'database1' in your routes
 
+// For example:
+const { usersCollection } = require("../models/usersCollectionStructure");
+
+const User = usersCollection;
+// ... (Use the usersCollection in your signup and login routes)
+const { roomsCollection } = require("../models/roomsCollectionStructure");
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
@@ -227,6 +234,38 @@ const profile = async (req, res) => {
       .json({ message: "Error updating user profile", error: error.message });
   }
 };
+const addUserToRoom = async (req, res) => {
+  const { roomId, userId } = req.body;
+  try {
+    // Check if the user is an admin of the room before adding a user
+    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
+    if (user && user.adminRooms.includes(roomId)) {
+      // User is an admin of the room, proceed with adding user logic
+    } else {
+      res
+        .status(403)
+        .json({ message: "Unauthorized to add user to this room" });
+    }
+
+    // Ajouter la logique pour vérifier les autorisations et l'ajout de l'utilisateur à la salle de discussion spécifiée
+
+    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    if (room) {
+      room.users.push(userId);
+      await roomsCollection.updateOne(
+        { _id: ObjectId(roomId) },
+        { $set: { users: room.users } }
+      );
+      res.status(200).json({ message: "User added to room successfully" });
+    } else {
+      res.status(404).json({ message: "Room not found" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error adding user to room", error: error.message });
+  }
+};
 module.exports = {
   registerUser,
   verifyEmail,
@@ -239,4 +278,5 @@ module.exports = {
   oldlogin,
   oldsignup,
   profile,
+  addUserToRoom,
 };
