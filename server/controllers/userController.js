@@ -315,6 +315,34 @@ const createRoom = async (req, res) => {
       .json({ message: "Error creating room", error: error.message });
   }
 };
+const deleteRoom = async (req, res) => {
+  try {
+    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
+    if (user && user.adminRooms.includes(roomId)) {
+      // User is an admin of the room, proceed with adding user logic
+    } else {
+      res
+        .status(403)
+        .json({ message: "Unauthorized to add user to this room" });
+    }
+    const roomId = req.params.id;
+    // Ajouter la logique pour vérifier les autorisations et supprimer la salle de discussion spécifiée
+
+    const result = await roomsCollection.deleteOne({
+      _id: ObjectId(roomId),
+      creator: ObjectId(userId),
+    });
+    if (result.deletedCount > 0) {
+      res.status(200).json({ message: "Room deleted successfully" });
+    } else {
+      res.status(403).json({ message: "Not allowed to delete this room" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error deleting room", error: error.message });
+  }
+};
 module.exports = {
   registerUser,
   verifyEmail,
@@ -330,4 +358,5 @@ module.exports = {
   addUserToRoom,
   blockUserFromChat,
   createRoom,
+  deleteRoom,
 };
