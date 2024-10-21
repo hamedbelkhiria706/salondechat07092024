@@ -12,6 +12,7 @@ const {
   getUserDashboard,
   users,
   getusers,
+  deleteusers,
 } = require("../controllers/userController");
 const { authMiddleware } = require("../middleware/authMiddleware");
 // Now you can use the imported 'client' and 'database1' in your routes
@@ -44,7 +45,7 @@ router.put("/users/:id", usersid);
 
 //Supprimer
 
-router.delete("/users/:id");
+router.delete("/users/:id", deleteusers);
 
 // Login route
 router.post("/login", async (req, res) => {
