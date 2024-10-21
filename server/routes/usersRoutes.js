@@ -12,6 +12,7 @@ const {
   getUserDashboard,
   users,
   getusers,
+  usersid,
   deleteusers,
 } = require("../controllers/userController");
 const { authMiddleware } = require("../middleware/authMiddleware");
