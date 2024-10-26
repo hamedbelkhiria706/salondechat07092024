@@ -38,3 +38,4 @@ const dynamicsalonchat = () => {
     </main>
   );
 };
+export default dynamicsalonchat;
