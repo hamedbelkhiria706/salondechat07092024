@@ -1,7 +1,7 @@
 import React from "react";
 import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
 import "./stylescss/global.css";
-import "./stylescss/chatstyle.css";
+import "./stylescss/deletechathistory.css";
 import $ from "jquery";
 import "./js/deletechathistory.js";
 const deletechathistory = () => {
