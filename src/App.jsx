@@ -21,7 +21,7 @@ import RandomChatSalon from "./public/randomchatsalon";
 import SignUp from "./public/signup";
 import UpdateProfile from "./public/update_profile";
 import YourChatSalon from "./public/yourchatsalon";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   const location = useLocation();
   const capitalizeWords = (str) => {
