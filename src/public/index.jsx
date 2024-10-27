@@ -1,276 +1,226 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Application de Chat en Temps Réel</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./stylescss/global.css" />
-    <link rel="stylesheet" href="./stylescss/index.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <div id="content"></div>
-    <!--  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">AppChat</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Accueil</a>
-          </li>
-          <li class="nav-item"></li>
-            <a class="nav-link" href="chat.html">Chat</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-primary text-white" href="login.html"
-              >Inscription</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>-->
+import React from "react";
+import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
+import "./stylescss/global.css";
+import "./stylescss/decorationacceuil.css";
+import $ from "jquery";
+import "./js/faqs.js";
+import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
+import Footer from "./footer";
+const index = () => {
+  return (
+    <main>
+      <div id="content"></div>
 
-    <!-- Jumbotron Section -->
-    <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
-        <h1 class="display-4">Bienvenue sur Notre Application de Chat</h1>
-        <p class="lead">
-          Discutez en toute simplicité avec vos amis, collègues et proches, où
-          que vous soyez !
-        </p>
-        <a href="#" class="btn btn-primary btn-lg mt-4">Commencez à Chatter</a>
-      </div>
-    </div>
+      {/* Jumbotron Section */}
 
-    <!-- Features Section -->
-    <section id="features" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Nos Fonctionnalités</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-body">
-                <h5 class="card-title">Gestion des Amis</h5>
-                <p class="card-text">
-                  Ajoutez, modifiez et supprimez vos amis rapidement et
-                  facilement.
-                </p>
+      <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="display-4">Bienvenue sur Notre Application de Chat</h1>
+          <p class="lead">
+            Discutez en toute simplicité avec vos amis, collègues et proches, où
+            que vous soyez !
+          </p>
+          <a href="#" class="btn btn-primary btn-lg mt-4">
+            Commencez à Chatter
+          </a>
+        </div>
+      </div>
+
+      <section id="features" class="py-5">
+        <div class="container">
+          <h2 class="text-center mb-4">Nos Fonctionnalités</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">Gestion des Amis</h5>
+                  <p class="card-text">
+                    Ajoutez, modifiez et supprimez vos amis rapidement et
+                    facilement.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-body">
-                <h5 class="card-title">Personnalisation</h5>
-                <p class="card-text">
-                  Personnalisez votre profil et vos préférences selon vos goûts.
-                </p>
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">Personnalisation</h5>
+                  <p class="card-text">
+                    Personnalisez votre profil et vos préférences selon vos
+                    goûts.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-body">
-                <h5 class="card-title">Notifications</h5>
-                <p class="card-text">
-                  Recevez des notifications en temps réel de toutes vos
-                  conversations.
-                </p>
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">Notifications</h5>
+                  <p class="card-text">
+                    Recevez des notifications en temps réel de toutes vos
+                    conversations.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-5 bg-light">
-      <div class="container">
-        <h2 class="text-center mb-4">Plans Tarifaires</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card text-center mb-4">
-              <div class="card-header">Plan Gratuit</div>
-              <div class="card-body">
-                <h5 class="card-title">0€ / mois</h5>
-                <p class="card-text">Chat illimité, support limité, etc.</p>
-                <p class="card-text">Un salon gratuit</p>
+      <section id="pricing" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4">Plans Tarifaires</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card text-center mb-4">
+                <div class="card-header">Plan Gratuit</div>
+                <div class="card-body">
+                  <h5 class="card-title">0€ / mois</h5>
+                  <p class="card-text">Chat illimité, support limité, etc.</p>
+                  <p class="card-text">Un salon gratuit</p>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-outline-primary">
+                    Choisir
+                  </a>
+                </div>
               </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-outline-primary">Choisir</a>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-center mb-4">
+                <div class="card-header">Plan Premium</div>
+                <div class="card-body">
+                  <h5 class="card-title">15€ / mois</h5>
+                  <p class="card-text">
+                    Chat illimité, personnalisation avancée, support
+                    prioritaire.
+                  </p>
+                  <p class="card-text">3 salons gratuits</p>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-outline-primary">
+                    Choisir
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-center mb-4">
+                <div class="card-header">Plan Entreprise</div>
+                <div class="card-body">
+                  <h5 class="card-title">50€ / mois</h5>
+                  <p class="card-text">
+                    Chat sécurisé, intégration API, support dédié.
+                  </p>
+                  <p class="card-text">9 salons gratuits</p>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-outline-primary">
+                    Choisir
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card text-center mb-4">
-              <div class="card-header">Plan Premium</div>
-              <div class="card-body">
-                <h5 class="card-title">15€ / mois</h5>
-                <p class="card-text">
-                  Chat illimité, personnalisation avancée, support prioritaire.
+        </div>
+      </section>
+
+      <section id="testimonials" class="py-5">
+        <div class="container">
+          <h2 class="text-center mb-4">Témoignages</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <blockquote class="blockquote text-center">
+                <p class="mb-0">
+                  "Une application formidable, je ne peux plus m'en passer !"
                 </p>
-                <p class="card-text">3 salons gratuits</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-outline-primary">Choisir</a>
-              </div>
+                <footer class="blockquote-footer">Alice D.</footer>
+              </blockquote>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card text-center mb-4">
-              <div class="card-header">Plan Entreprise</div>
-              <div class="card-body">
-                <h5 class="card-title">50€ / mois</h5>
-                <p class="card-text">
-                  Chat sécurisé, intégration API, support dédié.
+            <div class="col-md-4">
+              <blockquote class="blockquote text-center">
+                <p class="mb-0">
+                  "Service impeccable, interface intuitive et fluide."
                 </p>
-                <p class="card-text">9 salons gratuits</p>
+                <footer class="blockquote-footer">Bernard P.</footer>
+              </blockquote>
+            </div>
+            <div class="col-md-4">
+              <blockquote class="blockquote text-center">
+                <p class="mb-0">
+                  "Je recommande à tous ceux qui veulent un chat rapide et
+                  sécurisé."
+                </p>
+                <footer class="blockquote-footer">Claire M.</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4">FAQ</h2>
+          <div class="accordion" id="faqAccordion">
+            <div class="card">
+              <div class="card-header" id="faqHeadingOne">
+                <h2 class="mb-0">
+                  <button
+                    class="btn btn-link"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#faqCollapseOne"
+                    aria-expanded="true"
+                    aria-controls="faqCollapseOne"
+                  >
+                    Comment puis-je m'inscrire ?
+                  </button>
+                </h2>
               </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-outline-primary">Choisir</a>
+              <div
+                id="faqCollapseOne"
+                class="collapse show"
+                aria-labelledby="faqHeadingOne"
+                data-parent="#faqAccordion"
+              >
+                <div class="card-body">
+                  L'inscription est simple. Cliquez sur le bouton "S'inscrire"
+                  en haut à droite et suivez les instructions.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="faqHeadingTwo">
+                <h2 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#faqCollapseTwo"
+                    aria-expanded="false"
+                    aria-controls="faqCollapseTwo"
+                  >
+                    Est-ce que l'application est sécurisée ?
+                  </button>
+                </h2>
+              </div>
+              <div
+                id="faqCollapseTwo"
+                class="collapse"
+                aria-labelledby="faqHeadingTwo"
+                data-parent="#faqAccordion"
+              >
+                <div class="card-body">
+                  Oui, nous utilisons des technologies de pointe pour garantir
+                  la sécurité de vos données et conversations.
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Témoignages</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <blockquote class="blockquote text-center">
-              <p class="mb-0">
-                "Une application formidable, je ne peux plus m'en passer !"
-              </p>
-              <footer class="blockquote-footer">Alice D.</footer>
-            </blockquote>
-          </div>
-          <div class="col-md-4">
-            <blockquote class="blockquote text-center">
-              <p class="mb-0">
-                "Service impeccable, interface intuitive et fluide."
-              </p>
-              <footer class="blockquote-footer">Bernard P.</footer>
-            </blockquote>
-          </div>
-          <div class="col-md-4">
-            <blockquote class="blockquote text-center">
-              <p class="mb-0">
-                "Je recommande à tous ceux qui veulent un chat rapide et
-                sécurisé."
-              </p>
-              <footer class="blockquote-footer">Claire M.</footer>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-5 bg-light">
-      <div class="container">
-        <h2 class="text-center mb-4">FAQ</h2>
-        <div class="accordion" id="faqAccordion">
-          <div class="card">
-            <div class="card-header" id="faqHeadingOne">
-              <h2 class="mb-0">
-                <button
-                  class="btn btn-link"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#faqCollapseOne"
-                  aria-expanded="true"
-                  aria-controls="faqCollapseOne"
-                >
-                  Comment puis-je m'inscrire ?
-                </button>
-              </h2>
-            </div>
-            <div
-              id="faqCollapseOne"
-              class="collapse show"
-              aria-labelledby="faqHeadingOne"
-              data-parent="#faqAccordion"
-            >
-              <div class="card-body">
-                L'inscription est simple. Cliquez sur le bouton "S'inscrire" en
-                haut à droite et suivez les instructions.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="faqHeadingTwo">
-              <h2 class="mb-0">
-                <button
-                  class="btn btn-link collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#faqCollapseTwo"
-                  aria-expanded="false"
-                  aria-controls="faqCollapseTwo"
-                >
-                  Est-ce que l'application est sécurisée ?
-                </button>
-              </h2>
-            </div>
-            <div
-              id="faqCollapseTwo"
-              class="collapse"
-              aria-labelledby="faqHeadingTwo"
-              data-parent="#faqAccordion"
-            >
-              <div class="card-body">
-                Oui, nous utilisons des technologies de pointe pour garantir la
-                sécurité de vos données et conversations.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white mt-5 p-4 text-center">
-      <p>
-        &copy; 2024 Application de Chat en Temps Réel | Tous droits réservés.
-      </p>
-      <p>
-        <a href="politique.html" class="text-white"
-          >Politique de confidentialité</a
-        >
-        | <a href="mentions.html" class="text-white">Mentions légales</a> |
-        <a href="about.html" class="text-white">Contactez-nous</a>
-      </p>
-    </footer>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/index.js"></script>
-  </body>
-</html>
+      </section>
+      <Footer />
+    </main>
+  );
+};
+export default index;

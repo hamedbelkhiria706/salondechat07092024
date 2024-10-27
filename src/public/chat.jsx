@@ -6,6 +6,7 @@ import $ from "jquery";
 import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
 
 import "./js/chat.js";
+import Footer from "./footer";
 const Chat = () => {
   return (
     <main className="mt-5">
@@ -86,26 +87,7 @@ const Chat = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-dark text-white mt-5 p-4 text-center">
-        <p>
-          &copy; 2024 Application de Chat en Temps Réel | Tous droits réservés.
-        </p>
-        <p>
-          <a href="politique.html" className="text-white">
-            Politique de confidentialité
-          </a>{" "}
-          |
-          <a href="mentions.html" className="text-white">
-            {" "}
-            Mentions légales
-          </a>{" "}
-          |
-          <a href="about.html" className="text-white">
-            Contactez-nous
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 };
