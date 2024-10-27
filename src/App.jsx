@@ -1,5 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes as Switch,
+} from "react-router-dom";
 import Index from "./public/index";
 import About from "./public/about";
 import Chat from "./public/chat";
@@ -21,7 +25,7 @@ import RandomChatSalon from "./public/randomchatsalon";
 import SignUp from "./public/signup";
 import UpdateProfile from "./public/update_profile";
 import YourChatSalon from "./public/yourchatsalon";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 const App = () => {
   const location = useLocation();
   const capitalizeWords = (str) => {
