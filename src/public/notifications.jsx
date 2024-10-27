@@ -5,36 +5,36 @@ import "./js/notifications.js";
 const notifications = () => {
   return (
     <main>
-      <div class="container mt-5">
+      <div className="container mt-5">
         <h1>Notifications</h1>
         <p>Gérez vos paramètres de notification ici.</p>
         <form>
-          <div class="form-check">
+          <div className="form-check">
             <input
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
               id="email-notifications"
               checked
             />
-            <label class="form-check-label" for="email-notifications">
+            <label className="form-check-label" for="email-notifications">
               Recevoir des notifications par email
             </label>
           </div>
-          <div class="form-check">
+          <div className="form-check">
             <input
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
               id="sms-notifications"
             />
-            <label class="form-check-label" for="sms-notifications">
+            <label className="form-check-label" for="sms-notifications">
               Recevoir des notifications par SMS
             </label>
           </div>
-          <button type="submit" class="btn btn-primary mt-3">
+          <button type="submit" className="btn btn-primary mt-3">
             Sauvegarder les paramètres
           </button>
         </form>
-        <a href="profile.html" class="btn btn-secondary mt-3">
+        <a href="profile.html" className="btn btn-secondary mt-3">
           Retour au profil
         </a>
       </div>
