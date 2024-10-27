@@ -1,25 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import About from "./about";
-import Chat from "./chat";
-import DeleteAccount from "./deleteaccount";
-import DeleteChatHistory from "./deletechathistory";
-import DynamicSalonChat from "./dynamicsalonchat";
-import EditProfile from "./editprofile";
-import ExportData from "./exportdata";
-import FAQs from "./faqs";
-import Footer from "./footer";
-import Login from "./login";
-import Navbar from "./navbar";
-import Notifications from "./notifications";
-import NousContacter from "./nouscontacter";
-import Password from "./password";
-import Plugins from "./plugins";
-import Profile from "./profile";
-import RandomChatSalon from "./randomchatsalon";
-import SignUp from "./signup";
-import UpdateProfile from "./update_profile";
-import YourChatSalon from "./yourchatsalon";
+import Index from "./public/index";
+import About from "./public/about";
+import Chat from "./public/chat";
+import DeleteAccount from "./public/deleteaccount";
+import DeleteChatHistory from "./public/deletechathistory";
+import DynamicSalonChat from "./public/dynamicsalonchat";
+import EditProfile from "./public/editprofile";
+import ExportData from "./public/exportdata";
+import FAQs from "./public/faqs";
+import Footer from "./public/footer";
+import Login from "./public/login";
+import Navbar from "./public/navbar";
+import Notifications from "./public/notifications";
+import NousContacter from "./public/nouscontacter";
+import Password from "./public/password";
+import Plugins from "./public/plugins";
+import Profile from "./public/profile";
+import RandomChatSalon from "./public/randomchatsalon";
+import SignUp from "./public/signup";
+import UpdateProfile from "./public/update_profile";
+import YourChatSalon from "./public/yourchatsalon";
 
 const App = () => {
   const location = useLocation();
@@ -53,7 +54,7 @@ const App = () => {
       <Navbar /> {/* Render the navbar on all pages */}
       <Switch>
         {/* Define your routes here */}
-        <Route path="/" exact component={Chat} />
+        <Route path="/" exact component={Index} />
         <Route path="/about" component={About} />
         <Route path="/chat" component={Chat} />
         <Route path="/delete-account" component={DeleteAccount} />
