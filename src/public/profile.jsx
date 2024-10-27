@@ -5,16 +5,16 @@ import "./js/profile.js";
 const profile = () => {
   return (
     <main>
-      <div class="container mt-5">
-        <div class="profile-card text-center">
+      <div className="container mt-5">
+        <div className="profile-card text-center">
           <img
             src="assets/CnP_08092024135607-min.png"
             alt="Profile Photo"
-            class="profile-photo mb-3"
+            className="profile-photo mb-3"
           />
           <h2>Dr. Anna Jones</h2>
           <h5>Médecin généraliste</h5>
-          <div class="star-rating mb-2">
+          <div className="star-rating mb-2">
             <span>⭐</span>
             <span>⭐</span>
             <span>⭐</span>
@@ -34,10 +34,10 @@ const profile = () => {
             connaissances sur leur santé.
           </p>
           <h6>Revues</h6>
-          <div class="mb-3">
+          <div className="mb-3">
             <p>
               <strong>Jinny Oslin</strong>
-              <span class="star-rating">⭐ ⭐ ⭐ ⭐</span>
+              <span className="star-rating">⭐ ⭐ ⭐ ⭐</span>
               <small>il y'a un jour</small>
             </p>
             <p>
@@ -50,17 +50,17 @@ const profile = () => {
               recommande vivement !
             </p>
           </div>
-          <a href="#" class="btn btn-primary">
+          <a href="#" className="btn btn-primary">
             Voir tout
           </a>
-          <h6 class="mt-4">Hospital</h6>
+          <h6 className="mt-4">Hospital</h6>
           <p>
             Care Medical Center
             <br />
             1284 W. Grey St, D1
           </p>
         </div>
-        <a href="update_profile.html" class="btn btn-secondary mt-3">
+        <a href="update_profile.html" className="btn btn-secondary mt-3">
           Modifier le profil
         </a>
       </div>

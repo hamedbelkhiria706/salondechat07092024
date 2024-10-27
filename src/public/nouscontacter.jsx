@@ -5,8 +5,8 @@ import "./js/nouscontacter.js";
 const nouscontacter = () => {
   return (
     <main>
-      <div class="container mt-5">
-        <h1 class="text-center mb-4">Nous Contacter</h1>
+      <div className="container mt-5">
+        <h1 className="text-center mb-4">Nous Contacter</h1>
 
         <h4>Vous avez des questions ou besoin d’aide ?</h4>
         <p>
@@ -35,50 +35,50 @@ const nouscontacter = () => {
 
         <h4>Formulaire de contact</h4>
         <p>Remplissez ce formulaire pour toute demande :</p>
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-8">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-8">
             <form>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="name">Nom:</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="name"
                   name="name"
                   required
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="email">Email:</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="email"
                   name="email"
                   required
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="subject">Sujet:</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="subject"
                   name="subject"
                   required
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="message">Message:</label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="message"
                   name="message"
                   rows="5"
                   required
                 ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary btn-block">
+              <button type="submit" className="btn btn-primary btn-block">
                 Envoyer
               </button>
             </form>

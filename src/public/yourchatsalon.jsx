@@ -5,17 +5,18 @@ import "./js/yourchatsalon.js";
 const yourchatsalon = () => {
   return (
     <main>
-      <div class="container mt-5">
-        <h1 class="text-center mb-4">Mes Salons de Chat</h1>
+      <div className="container mt-5">
+        <h1 className="text-center mb-4">Mes Salons de Chat</h1>
 
-        <div class="row">
-          <div class="col-12">
+        <div className="row">
+          <div className="col-12">
             <h4>Salons Créés</h4>
-            <ul class="list-group mb-4" id="chatRooms">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Salon 1<button class="btn btn-danger btn-sm">Supprimer</button>
+            <ul className="list-group mb-4" id="chatRooms">
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Salon 1
+                <button className="btn btn-danger btn-sm">Supprimer</button>
                 <button
-                  class="btn btn-info btn-sm"
+                  className="btn btn-info btn-sm"
                   data-room="Salon 1"
                   data-toggle="modal"
                   data-target="#addFriendModal"
@@ -23,16 +24,17 @@ const yourchatsalon = () => {
                   Ajouter Ami
                 </button>
                 <button
-                  class="btn btn-success btn-sm rejoindre"
+                  className="btn btn-success btn-sm rejoindre"
                   data-room="Salon 1"
                 >
                   Rejoindre
                 </button>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Salon 2<button class="btn btn-danger btn-sm">Supprimer</button>
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Salon 2
+                <button className="btn btn-danger btn-sm">Supprimer</button>
                 <button
-                  class="btn btn-info btn-sm"
+                  className="btn btn-info btn-sm"
                   data-room="Salon 2"
                   data-toggle="modal"
                   data-target="#addFriendModal"
@@ -40,16 +42,17 @@ const yourchatsalon = () => {
                   Ajouter Ami
                 </button>
                 <button
-                  class="btn btn-success btn-sm rejoindre"
+                  className="btn btn-success btn-sm rejoindre"
                   data-room="Salon 2"
                 >
                   Rejoindre
                 </button>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Salon 3<button class="btn btn-danger btn-sm">Supprimer</button>
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Salon 3
+                <button className="btn btn-danger btn-sm">Supprimer</button>
                 <button
-                  class="btn btn-info btn-sm"
+                  className="btn btn-info btn-sm"
                   data-room="Salon 3"
                   data-toggle="modal"
                   data-target="#addFriendModal"
@@ -57,7 +60,7 @@ const yourchatsalon = () => {
                   Ajouter Ami
                 </button>
                 <button
-                  class="btn btn-success btn-sm rejoindre"
+                  className="btn btn-success btn-sm rejoindre"
                   data-room="Salon 3"
                 >
                   Rejoindre
@@ -66,16 +69,16 @@ const yourchatsalon = () => {
             </ul>
 
             <h4>Amis</h4>
-            <ul class="list-group" id="friendList">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Ami 1<button class="btn btn-danger btn-sm">Retirer</button>
+            <ul className="list-group" id="friendList">
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Ami 1<button className="btn btn-danger btn-sm">Retirer</button>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Ami 2<button class="btn btn-danger btn-sm">Retirer</button>
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Ami 2<button className="btn btn-danger btn-sm">Retirer</button>
               </li>
             </ul>
 
-            <button class="btn btn-success mt-4" id="randomChatButton">
+            <button className="btn btn-success mt-4" id="randomChatButton">
               Rejoindre un Salon aléatoire
             </button>
           </div>
@@ -83,34 +86,34 @@ const yourchatsalon = () => {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="addFriendModal"
         tabindex="-1"
         aria-labelledby="addFriendModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addFriendModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="addFriendModalLabel">
                 Ajouter un Ami
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form id="addFriendForm">
-                <div class="form-group">
+                <div className="form-group">
                   <label for="friendName">Nom de l'Ami :</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="friendName"
                     required
                   />
@@ -118,17 +121,17 @@ const yourchatsalon = () => {
                 <input type="hidden" id="selectedRoom" />
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Annuler
               </button>
               <button
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 id="addFriendButton"
               >
                 Ajouter
