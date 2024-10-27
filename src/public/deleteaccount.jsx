@@ -5,9 +5,11 @@ import "./stylescss/chatstyle.css";
 import $ from "jquery";
 
 import "./js/deleteaccount.js";
+import Content from "./navbar";
 const deleteAccount = () => {
   return (
     <main>
+      <Content />
       <div class="container mt-5">
         <h1>Supprimer Votre Compte</h1>
         <p>

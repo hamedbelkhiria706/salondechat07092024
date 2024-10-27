@@ -6,10 +6,11 @@ import $ from "jquery";
 
 import "./js/about.js";
 import Footer from "./footer";
+import Content from "./navbar";
 const about = () => {
   return (
     <main>
-      <div id="content"></div>
+      <Content />
       <header class="mt-5">
         <div class="row justify-content-center">
           <div class="col-md-12">
