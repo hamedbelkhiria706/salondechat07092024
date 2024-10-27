@@ -3,12 +3,13 @@ import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
 import "./stylescss/global.css";
 import "./stylescss/deletechathistory.css";
 import $ from "jquery";
- 
+
 import "./js/deletechathistory.js";
+import Content from "./navbar";
 const deletechathistory = () => {
   return (
     <main>
-      <div id="content"></div>
+      <Content />
 
       <div class="container mt-5">
         <h1>Sauvegarder l'Historique des Chats</h1>
