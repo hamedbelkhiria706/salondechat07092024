@@ -4,20 +4,20 @@ import $ from "jquery";
 
 const footer = () => {
   return (
-    <footer class="bg-dark text-white mt-5 p-4 text-center">
+    <footer className="bg-dark text-white mt-5 p-4 text-center">
       <p>
         &copy; 2024 Application de Chat en Temps Réel | Tous droits réservés.
       </p>
       <p>
-        <a href="politique.html" class="text-white">
+        <a href="politique.html" className="text-white">
           Politique de confidentialité
         </a>
         |{" "}
-        <a href="mentions.html" class="text-white">
+        <a href="mentions.html" className="text-white">
           Mentions légales
         </a>{" "}
         |
-        <a href="about.html" class="text-white">
+        <a href="about.html" className="text-white">
           Contactez-nous
         </a>
       </p>

@@ -10,13 +10,13 @@ const exportdata = () => {
     <main>
       <div id="content"></div>
 
-      <div class="container mt-5">
+      <div className="container mt-5">
         <h1>Exporter les Données</h1>
         <p>Cliquez ci-dessous pour exporter vos données.</p>
-        <a href="#" class="btn btn-primary">
+        <a href="#" className="btn btn-primary">
           Exporter mes données
         </a>
-        <a href="profile.html" class="btn btn-secondary mt-3">
+        <a href="profile.html" className="btn btn-secondary mt-3">
           Retour au profil
         </a>
       </div>

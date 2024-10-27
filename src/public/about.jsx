@@ -2,29 +2,27 @@ import React from "react";
 
 import "./stylescss/global.css";
 
-
-
 import "./js/about.js";
 
 const about = () => {
   return (
     <main>
-      <header class="mt-5">
-        <div class="row justify-content-center">
-          <div class="col-md-12">
-            <div class="wrapper">
-              <div class="row no-gutters mb-5">
-                <div class="col-md-5">
-                  <div class="w-100 p-md-5 p-4">
-                    <h1 class="mb-4">Contact Us</h1>
+      <header className="mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-12">
+            <div className="wrapper">
+              <div className="row no-gutters mb-5">
+                <div className="col-md-5">
+                  <div className="w-100 p-md-5 p-4">
+                    <h1 className="mb-4">Contact Us</h1>
                     <div
                       id="form-message-warning"
-                      class="mb-4"
+                      className="mb-4"
                       style="display: none"
                     ></div>
                     <div
                       id="form-message-success"
-                      class="mb-4"
+                      className="mb-4"
                       style="display: none"
                     >
                       Your message was sent, thank you!
@@ -33,18 +31,18 @@ const about = () => {
                       method="POST"
                       id="contactForm"
                       name="contactForm"
-                      class="contactForm"
+                      className="contactForm"
                       novalidate="novalidate"
                     >
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="label" for="name">
+                      <div className="row">
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label className="label" for="name">
                               Full Name
                             </label>
                             <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               name="name"
                               id="name"
                               placeholder="Name"
@@ -52,82 +50,82 @@ const about = () => {
                               pattern="[A-Za-zÀ-ÿ ']+"
                               title="Please enter a valid name (letters and spaces only)."
                             />
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                               Please provide a valid name.
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="label" for="email">
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label className="label" for="email">
                               Email Address
                             </label>
                             <input
                               type="email"
-                              class="form-control"
+                              className="form-control"
                               name="email"
                               id="email"
                               placeholder="Email"
                               required
                             />
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                               Please enter a valid email address.
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="label" for="subject">
+                        <div className="col-md-12">
+                          <div className="form-group">
+                            <label className="label" for="subject">
                               Subject
                             </label>
                             <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               name="subject"
                               id="subject"
                               placeholder="Subject"
                               required
                             />
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                               Please provide a subject.
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="label" for="message">
+                        <div className="col-md-12">
+                          <div className="form-group">
+                            <label className="label" for="message">
                               Message
                             </label>
                             <textarea
                               name="message"
-                              class="form-control"
+                              className="form-control"
                               id="message"
                               cols="30"
                               rows="4"
                               placeholder="Message"
                               required
                             ></textarea>
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                               Please enter a message.
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
+                        <div className="col-md-12">
+                          <div className="form-group">
                             <input
                               type="submit"
                               value="Send Message"
-                              class="btn btn-primary"
+                              className="btn btn-primary"
                             />
-                            <div class="submitting"></div>
+                            <div className="submitting"></div>
                           </div>
                         </div>
                       </div>
                     </form>
                   </div>
                 </div>
-                <div class="col-md-7 flex-column">
-                  <div class="w-100 p-md-5 p-4">
+                <div className="col-md-7 flex-column">
+                  <div className="w-100 p-md-5 p-4">
                     <h2>Qui sommes-nous ?</h2>
                     <p>
                       Notre projet a été fondé avec une mission claire : rendre
@@ -162,18 +160,18 @@ const about = () => {
                       Ensemble, nous avons pour but de faire de [Nom de l’App]
                       la meilleure plateforme de chat disponible.
                     </p>
-                    <button class="btn btn-primary">
+                    <button className="btn btn-primary">
                       [Rejoignez notre communauté]
                     </button>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="dbox w-100 text-center">
-                      <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="fa fa-map-marker"></span>
+                <div className="row">
+                  <div className="col-md-3">
+                    <div className="dbox w-100 text-center">
+                      <div className="icon d-flex align-items-center justify-content-center">
+                        <span className="fa fa-map-marker"></span>
                       </div>
-                      <div class="text">
+                      <div className="text">
                         <p>
                           <span>Address:</span> 198 West 21th Street, Suite 721
                           New York NY 10016
@@ -181,12 +179,12 @@ const about = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="dbox w-100 text-center">
-                      <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="fa fa-phone"></span>
+                  <div className="col-md-3">
+                    <div className="dbox w-100 text-center">
+                      <div className="icon d-flex align-items-center justify-content-center">
+                        <span className="fa fa-phone"></span>
                       </div>
-                      <div class="text">
+                      <div className="text">
                         <p>
                           <span>Phone:</span>
                           <a href="tel://1234567920">+ 1235 2355 98</a>
@@ -194,12 +192,12 @@ const about = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="dbox w-100 text-center">
-                      <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="fa fa-paper-plane"></span>
+                  <div className="col-md-3">
+                    <div className="dbox w-100 text-center">
+                      <div className="icon d-flex align-items-center justify-content-center">
+                        <span className="fa fa-paper-plane"></span>
                       </div>
-                      <div class="text">
+                      <div className="text">
                         <p>
                           <span>Email:</span>
                           <a href="mailto:info@yoursite.com">
@@ -209,12 +207,12 @@ const about = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="dbox w-100 text-center">
-                      <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="fa fa-globe"></span>
+                  <div className="col-md-3">
+                    <div className="dbox w-100 text-center">
+                      <div className="icon d-flex align-items-center justify-content-center">
+                        <span className="fa fa-globe"></span>
                       </div>
-                      <div class="text">
+                      <div className="text">
                         <p>
                           <span>Website</span> <a href="#">yoursite.com</a>
                         </p>

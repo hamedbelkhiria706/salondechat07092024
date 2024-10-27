@@ -1,20 +1,20 @@
 import React from "react";
 import "./stylescss/global.css";
-import $ from "jquery";
+
 import "./js/faqs.js";
 
 const faqs = () => {
   return (
     <main>
-      <div class="container mt-5">
-        <h1 class="text-center mb-4">Foire aux Questions</h1>
+      <div className="container mt-5">
+        <h1 className="text-center mb-4">Foire aux Questions</h1>
 
-        <div class="accordion" id="faqAccordion">
-          <div class="card">
-            <div class="card-header" id="headingZero">
-              <h2 class="mb-0">
+        <div className="accordion" id="faqAccordion">
+          <div className="card">
+            <div className="card-header" id="headingZero">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link"
+                  className="btn btn-link"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseZero"
@@ -27,21 +27,21 @@ const faqs = () => {
             </div>
             <div
               id="collapseZero"
-              class="collapse show"
+              className="collapse show"
               aria-labelledby="headingZero"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Oui, notre version de base est entièrement gratuite et vous
                 permet de profiter des fonctions essentielles de chat.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingOne">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link"
+                  className="btn btn-link"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseOne"
@@ -54,21 +54,21 @@ const faqs = () => {
             </div>
             <div
               id="collapseOne"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingOne"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Il suffit de vous connecter à votre compte, de visiter la page
                 des tarifs et de sélectionner l’abonnement Pro.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingTwo">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link"
+                  className="btn btn-link"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseTwo"
@@ -81,21 +81,21 @@ const faqs = () => {
             </div>
             <div
               id="collapseTwo"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingTwo"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Absolument. Tous les messages sont chiffrés de bout en bout pour
                 garantir la confidentialité de vos conversations.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingThree">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link"
+                  className="btn btn-link"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseThree"
@@ -108,21 +108,21 @@ const faqs = () => {
             </div>
             <div
               id="collapseThree"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingThree"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Oui, vous pouvez vous connecter à votre compte sur plusieurs
                 appareils, que ce soit un ordinateur ou un mobile.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingFour">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingFour">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link"
+                  className="btn btn-link"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseFour"
@@ -135,22 +135,22 @@ const faqs = () => {
             </div>
             <div
               id="collapseFour"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingFour"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Dans la version gratuite, vous pouvez partager des fichiers
                 jusqu'à 5 Mo. Avec le plan Pro, cette limite est portée à 100
                 Mo.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingFive">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingFive">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  className="btn btn-link collapsed"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseFive"
@@ -163,21 +163,21 @@ const faqs = () => {
             </div>
             <div
               id="collapseFive"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingFive"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Pour rejoindre un salon de chat, connectez-vous à votre compte
                 et sélectionnez un salon dans la liste des salons disponibles.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingSix">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingSix">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  className="btn btn-link collapsed"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseSix"
@@ -190,21 +190,21 @@ const faqs = () => {
             </div>
             <div
               id="collapseSix"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingSix"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Oui, vous pouvez créer votre propre salon de chat en cliquant
                 sur le bouton "Créer un salon" dans votre tableau de bord.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingSeven">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingSeven">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  className="btn btn-link collapsed"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseSeven"
@@ -217,21 +217,21 @@ const faqs = () => {
             </div>
             <div
               id="collapseSeven"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingSeven"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Pour signaler un utilisateur, cliquez sur son nom dans le salon
                 et sélectionnez l'option "Signaler" dans le menu déroulant.
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingEight">
-              <h2 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingEight">
+              <h2 className="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  className="btn btn-link collapsed"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseEight"
@@ -244,11 +244,11 @@ const faqs = () => {
             </div>
             <div
               id="collapseEight"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingEight"
               data-parent="#faqAccordion"
             >
-              <div class="card-body">
+              <div className="card-body">
                 Nous proposons divers salons, y compris des salons de discussion
                 générale, des salons thématiques, et des salons privés.
               </div>

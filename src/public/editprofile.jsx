@@ -8,53 +8,53 @@ import "./js/editprofile.js";
 const editprofile = () => {
   return (
     <main>
-      <div class="container mt-5">
-        <h1 class="text-center">Modifier le Profil</h1>
+      <div className="container mt-5">
+        <h1 className="text-center">Modifier le Profil</h1>
 
-        <div class="row mt-4">
-          <div class="col-12 col-md-8 offset-md-2">
+        <div className="row mt-4">
+          <div className="col-12 col-md-8 offset-md-2">
             <form>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="firstName">Prénom</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="firstName"
                   placeholder="Entrez votre prénom"
                 />
               </div>
 
-              <div class="form-group">
+              <div className="form-group">
                 <label for="lastName">Nom de Famille</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="lastName"
                   placeholder="Entrez votre nom de famille"
                 />
               </div>
 
-              <div class="form-group">
+              <div className="form-group">
                 <label for="email">Email</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="email"
                   placeholder="Entrez votre adresse email"
                 />
               </div>
 
-              <div class="form-group">
+              <div className="form-group">
                 <label for="bio">Bio</label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="bio"
                   rows="3"
                   placeholder="Parlez-nous de vous-même"
                 ></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-block">
+              <button type="submit" className="btn btn-primary btn-block">
                 Enregistrer les Modifications
               </button>
             </form>
