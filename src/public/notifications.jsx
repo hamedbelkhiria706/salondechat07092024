@@ -43,3 +43,4 @@ const notifications = () => {
     </main>
   );
 };
+export default notifications;
