@@ -4,6 +4,8 @@ import "./stylescss/global.css";
 
 import $ from "jquery";
 import "./js/dynamicsalonchat.js";
+import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
+
 const dynamicsalonchat = () => {
   return (
     <main>

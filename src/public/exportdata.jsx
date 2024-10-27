@@ -2,6 +2,7 @@ import React from "react";
 import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
 import "./stylescss/global.css";
 
+import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
 import $ from "jquery";
 import "./js/exportdata.js";
 const exportdata = () => {

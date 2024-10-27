@@ -3,6 +3,8 @@ import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
 import "./stylescss/global.css";
 import "./stylescss/chatstyle.css";
 import $ from "jquery";
+import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
+
 import "./js/deleteaccount.js";
 const deleteAccount = () => {
   return (
