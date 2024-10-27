@@ -39,6 +39,7 @@ const App = () => {
     // Split the pathname and transform it
     const formattedTitle = location.pathname
       .replace(/\//g, " ") // Replace slashes with spaces
+      .replace(/-/g, " ") // Replace dashes with spaces
       .trim(); // Remove leading/trailing spaces
 
     return capitalizeWords(formattedTitle); // Capitalize each word
