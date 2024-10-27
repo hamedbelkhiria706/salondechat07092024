@@ -3,8 +3,6 @@ import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
 import "./stylescss/global.css";
 import $ from "jquery";
 
-import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
-
 const footer = () => {
   return (
     <footer class="bg-dark text-white mt-5 p-4 text-center">

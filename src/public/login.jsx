@@ -4,7 +4,7 @@ import "./stylescss/global.css";
 import "./stylescss/login.css";
 import $ from "jquery";
 import "./js/login.js";
-import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
+
 import Footer from "./footer";
 const login = () => {
   return (
