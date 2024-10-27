@@ -6,6 +6,7 @@ import $ from "jquery";
 import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js";
 
 import "./js/exportdata.js";
+import Footer from "./footer";
 const exportdata = () => {
   return (
     <main>
@@ -21,6 +22,7 @@ const exportdata = () => {
           Retour au profil
         </a>
       </div>
+      <Footer />
     </main>
   );
 };
