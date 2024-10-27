@@ -23,9 +23,29 @@ import YourChatSalon from "./yourchatsalon";
 
 const App = () => {
   const location = useLocation();
+  const capitalizeWords = (str) => {
+    return str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalizes the first letter
+      .join(" ");
+  };
+
+  const generateTitle = () => {
+    // Check if path is the root, then set a default title
+    if (location.pathname === "/") {
+      return "Accueil"; // Default title for the home page
+    }
+
+    // Split the pathname and transform it
+    const formattedTitle = location.pathname
+      .replace(/\//g, " ") // Replace slashes with spaces
+      .trim(); // Remove leading/trailing spaces
+
+    return capitalizeWords(formattedTitle); // Capitalize each word
+  };
 
   useEffect(() => {
-    document.title = location.pathname;
+    document.title = generateTitle(); // Set the document title
   }, [location]);
   return (
     <Router>
