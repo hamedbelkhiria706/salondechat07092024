@@ -1,7 +1,6 @@
 import React from "react";
 import "./stylescss/global.css";
 
-import $ from "jquery";
 import "./js/notifications.js";
 const notifications = () => {
   return (

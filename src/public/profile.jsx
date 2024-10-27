@@ -1,7 +1,6 @@
 import React from "react";
 import "./stylescss/global.css";
 import "./stylescss/profile.css";
-import $ from "jquery";
 import "./js/profile.js";
 const profile = () => {
   return (
