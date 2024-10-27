@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -26,7 +26,7 @@ import SignUp from "./public/signup";
 import UpdateProfile from "./public/update_profile";
 import YourChatSalon from "./public/yourchatsalon";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useLocation } from "react-router-dom";
 const AppRoutes = () => {
   const location = useLocation();
 
