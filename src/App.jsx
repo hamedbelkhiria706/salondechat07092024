@@ -25,60 +25,57 @@ import RandomChatSalon from "./public/randomchatsalon";
 import SignUp from "./public/signup";
 import UpdateProfile from "./public/update_profile";
 import YourChatSalon from "./public/yourchatsalon";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const App = () => {
+const AppRoutes = () => {
   const location = useLocation();
-  const capitalizeWords = (str) => {
-    return str
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalizes the first letter
+
+  // Effect to change the title based on the pathname
+  useEffect(() => {
+    // Example: Set the title based on the current path
+    document.title =
+      location.pathname === "/" ? "Home" : capitalizePath(location.pathname);
+  }, [location]);
+
+  const capitalizePath = (path) => {
+    return path
+      .split("/")
+      .filter(Boolean) // Remove empty strings
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
       .join(" ");
   };
 
-  const generateTitle = () => {
-    // Check if path is the root, then set a default title
-    if (location.pathname === "/") {
-      return "Accueil"; // Default title for the home page
-    }
-
-    // Split the pathname and transform it
-    const formattedTitle = location.pathname
-      .replace(/\//g, " ") // Replace slashes with spaces
-      .replace(/-/g, " ") // Replace dashes with spaces
-      .trim(); // Remove leading/trailing spaces
-
-    return capitalizeWords(formattedTitle); // Capitalize each word
-  };
-
-  useEffect(() => {
-    document.title = generateTitle(); // Set the document title
-  }, [location]);
+  return (
+    <Switch>
+      {/* Define your routes here */}
+      <Route path="/" exact component={Index} />
+      <Route path="/about" component={About} />
+      <Route path="/chat" component={Chat} />
+      <Route path="/delete-account" component={DeleteAccount} />
+      <Route path="/delete-chat-history" component={DeleteChatHistory} />
+      <Route path="/dynamic-salon-chat" component={DynamicSalonChat} />
+      <Route path="/edit-profile" component={EditProfile} />
+      <Route path="/export-data" component={ExportData} />
+      <Route path="/faqs" component={FAQs} />
+      <Route path="/login" component={Login} />
+      <Route path="/notifications" component={Notifications} />
+      <Route path="/nouscontacter" component={NousContacter} />
+      <Route path="/password" component={Password} />
+      <Route path="/plugins" component={Plugins} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/random-chat-salon" component={RandomChatSalon} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/update-profile" component={UpdateProfile} />
+      <Route path="/your-chat-salon" component={YourChatSalon} />
+      {/* You can add more routes as necessary */}
+    </Switch>
+  );
+};
+const App = () => {
   return (
     <Router>
       <Navbar /> {/* Render the navbar on all pages */}
-      <Switch>
-        {/* Define your routes here */}
-        <Route path="/" exact component={Index} />
-        <Route path="/about" component={About} />
-        <Route path="/chat" component={Chat} />
-        <Route path="/delete-account" component={DeleteAccount} />
-        <Route path="/delete-chat-history" component={DeleteChatHistory} />
-        <Route path="/dynamic-salon-chat" component={DynamicSalonChat} />
-        <Route path="/edit-profile" component={EditProfile} />
-        <Route path="/export-data" component={ExportData} />
-        <Route path="/faqs" component={FAQs} />
-        <Route path="/login" component={Login} />
-        <Route path="/notifications" component={Notifications} />
-        <Route path="/nouscontacter" component={NousContacter} />
-        <Route path="/password" component={Password} />
-        <Route path="/plugins" component={Plugins} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/random-chat-salon" component={RandomChatSalon} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/update-profile" component={UpdateProfile} />
-        <Route path="/your-chat-salon" component={YourChatSalon} />
-        {/* You can add more routes as necessary */}
-      </Switch>
+      <AppRoutes></AppRoutes>
       <Footer /> {/* Render footer on all pages */}
     </Router>
   );
