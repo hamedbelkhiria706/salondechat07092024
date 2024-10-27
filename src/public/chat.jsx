@@ -5,12 +5,10 @@ import "./stylescss/chatstyle.css";
 import $ from "jquery";
 
 import "./js/chat.js";
-import Footer from "./footer";
-import Content from "./navbar";
+
 const Chat = () => {
   return (
     <main className="mt-5">
-      <Content />
       <h1 className="text-center mb-4">Chat</h1>
       <div className="chat-container p-3">
         <div className="alert alert-warning notification" role="alert">

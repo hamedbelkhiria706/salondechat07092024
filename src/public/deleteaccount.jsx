@@ -5,7 +5,7 @@ import "./stylescss/chatstyle.css";
 import $ from "jquery";
 
 import "./js/deleteaccount.js";
-import Content from "./navbar";
+
 const deleteAccount = () => {
   return (
     <main>

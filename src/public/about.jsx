@@ -5,12 +5,10 @@ import "./stylescss/global.css";
 import $ from "jquery";
 
 import "./js/about.js";
-import Footer from "./footer";
-import Content from "./navbar";
+
 const about = () => {
   return (
     <main>
-      <Content />
       <header class="mt-5">
         <div class="row justify-content-center">
           <div class="col-md-12">
@@ -229,8 +227,6 @@ const about = () => {
           </div>
         </div>
       </header>
-
-      <Footer />
     </main>
   );
 };

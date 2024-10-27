@@ -4,12 +4,10 @@ import "./stylescss/global.css";
 
 import $ from "jquery";
 import "./js/dynamicsalonchat.js";
-import Footer from "./footer";
-import Content from "./navbar";
+
 const dynamicsalonchat = () => {
   return (
     <main>
-      <Content />
       <div class="container mt-5">
         <h1 class="text-center mb-4">Achetez un Abonnement</h1>
 
@@ -37,7 +35,6 @@ const dynamicsalonchat = () => {
           </button>
         </form>
       </div>
-      <Footer />
     </main>
   );
 };

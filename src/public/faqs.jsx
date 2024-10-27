@@ -3,12 +3,10 @@ import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
 import "./stylescss/global.css";
 import $ from "jquery";
 import "./js/faqs.js";
-import Footer from "./footer";
+
 const faqs = () => {
   return (
     <main>
-      <div id="content"></div>
-
       <div class="container mt-5">
         <h1 class="text-center mb-4">Foire aux Questions</h1>
 
@@ -259,7 +257,6 @@ const faqs = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </main>
   );
 };

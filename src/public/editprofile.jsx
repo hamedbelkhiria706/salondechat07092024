@@ -5,13 +5,10 @@ import "./stylescss/global.css";
 import $ from "jquery";
 
 import "./js/editprofile.js";
-import Content from "./navbar";
-import Footer from "./footer";
+
 const editprofile = () => {
   return (
     <main>
-      <Content />
-
       <div class="container mt-5">
         <h1 class="text-center">Modifier le Profil</h1>
 
@@ -65,7 +62,6 @@ const editprofile = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </main>
   );
 };

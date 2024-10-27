@@ -5,12 +5,10 @@ import "./stylescss/deletechathistory.css";
 import $ from "jquery";
 
 import "./js/deletechathistory.js";
-import Content from "./navbar";
+
 const deletechathistory = () => {
   return (
     <main>
-      <Content />
-
       <div class="container mt-5">
         <h1>Sauvegarder l'Historique des Chats</h1>
         <p>Vous pouvez sauvegarder votre historique des chats ici.</p>
