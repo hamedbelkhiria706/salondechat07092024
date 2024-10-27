@@ -3,12 +3,14 @@ import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
 import "./stylescss/global.css";
 
 import $ from "jquery";
- 
+
 import "./js/editprofile.js";
+import Content from "./navbar";
+import Footer from "./footer";
 const editprofile = () => {
   return (
     <main>
-      <div id="content"></div>
+      <Content />
 
       <div class="container mt-5">
         <h1 class="text-center">Modifier le Profil</h1>
@@ -63,6 +65,7 @@ const editprofile = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 };
