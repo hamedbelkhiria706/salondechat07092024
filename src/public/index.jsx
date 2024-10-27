@@ -1,7 +1,7 @@
 import React from "react";
 import "./stylescss/global.css";
 import "./stylescss/decorationacceuil.css";
-import $ from "jquery";
+
 import "./js/faqs.js";
 
 import Footer from "./footer";
@@ -12,50 +12,50 @@ const index = () => {
 
       {/* Jumbotron Section */}
 
-      <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
-          <h1 class="display-4">Bienvenue sur Notre Application de Chat</h1>
-          <p class="lead">
+      <div className="jumbotron jumbotron-fluid text-center">
+        <div className="container">
+          <h1 className="display-4">Bienvenue sur Notre Application de Chat</h1>
+          <p className="lead">
             Discutez en toute simplicité avec vos amis, collègues et proches, où
             que vous soyez !
           </p>
-          <a href="#" class="btn btn-primary btn-lg mt-4">
+          <a href="#" className="btn btn-primary btn-lg mt-4">
             Commencez à Chatter
           </a>
         </div>
       </div>
 
-      <section id="features" class="py-5">
-        <div class="container">
-          <h2 class="text-center mb-4">Nos Fonctionnalités</h2>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">Gestion des Amis</h5>
-                  <p class="card-text">
+      <section id="features" className="py-5">
+        <div className="container">
+          <h2 className="text-center mb-4">Nos Fonctionnalités</h2>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card mb-4">
+                <div className="card-body">
+                  <h5 className="card-title">Gestion des Amis</h5>
+                  <p className="card-text">
                     Ajoutez, modifiez et supprimez vos amis rapidement et
                     facilement.
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">Personnalisation</h5>
-                  <p class="card-text">
+            <div className="col-md-4">
+              <div className="card mb-4">
+                <div className="card-body">
+                  <h5 className="card-title">Personnalisation</h5>
+                  <p className="card-text">
                     Personnalisez votre profil et vos préférences selon vos
                     goûts.
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">Notifications</h5>
-                  <p class="card-text">
+            <div className="col-md-4">
+              <div className="card mb-4">
+                <div className="card-body">
+                  <h5 className="card-title">Notifications</h5>
+                  <p className="card-text">
                     Recevez des notifications en temps réel de toutes vos
                     conversations.
                   </p>
@@ -66,55 +66,57 @@ const index = () => {
         </div>
       </section>
 
-      <section id="pricing" class="py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center mb-4">Plans Tarifaires</h2>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card text-center mb-4">
-                <div class="card-header">Plan Gratuit</div>
-                <div class="card-body">
-                  <h5 class="card-title">0€ / mois</h5>
-                  <p class="card-text">Chat illimité, support limité, etc.</p>
-                  <p class="card-text">Un salon gratuit</p>
+      <section id="pricing" className="py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center mb-4">Plans Tarifaires</h2>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card text-center mb-4">
+                <div className="card-header">Plan Gratuit</div>
+                <div className="card-body">
+                  <h5 className="card-title">0€ / mois</h5>
+                  <p className="card-text">
+                    Chat illimité, support limité, etc.
+                  </p>
+                  <p className="card-text">Un salon gratuit</p>
                 </div>
-                <div class="card-footer">
-                  <a href="#" class="btn btn-outline-primary">
+                <div className="card-footer">
+                  <a href="#" className="btn btn-outline-primary">
                     Choisir
                   </a>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card text-center mb-4">
-                <div class="card-header">Plan Premium</div>
-                <div class="card-body">
-                  <h5 class="card-title">15€ / mois</h5>
-                  <p class="card-text">
+            <div className="col-md-4">
+              <div className="card text-center mb-4">
+                <div className="card-header">Plan Premium</div>
+                <div className="card-body">
+                  <h5 className="card-title">15€ / mois</h5>
+                  <p className="card-text">
                     Chat illimité, personnalisation avancée, support
                     prioritaire.
                   </p>
-                  <p class="card-text">3 salons gratuits</p>
+                  <p className="card-text">3 salons gratuits</p>
                 </div>
-                <div class="card-footer">
-                  <a href="#" class="btn btn-outline-primary">
+                <div className="card-footer">
+                  <a href="#" className="btn btn-outline-primary">
                     Choisir
                   </a>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card text-center mb-4">
-                <div class="card-header">Plan Entreprise</div>
-                <div class="card-body">
-                  <h5 class="card-title">50€ / mois</h5>
-                  <p class="card-text">
+            <div className="col-md-4">
+              <div className="card text-center mb-4">
+                <div className="card-header">Plan Entreprise</div>
+                <div className="card-body">
+                  <h5 className="card-title">50€ / mois</h5>
+                  <p className="card-text">
                     Chat sécurisé, intégration API, support dédié.
                   </p>
-                  <p class="card-text">9 salons gratuits</p>
+                  <p className="card-text">9 salons gratuits</p>
                 </div>
-                <div class="card-footer">
-                  <a href="#" class="btn btn-outline-primary">
+                <div className="card-footer">
+                  <a href="#" className="btn btn-outline-primary">
                     Choisir
                   </a>
                 </div>
@@ -124,48 +126,48 @@ const index = () => {
         </div>
       </section>
 
-      <section id="testimonials" class="py-5">
-        <div class="container">
-          <h2 class="text-center mb-4">Témoignages</h2>
-          <div class="row">
-            <div class="col-md-4">
-              <blockquote class="blockquote text-center">
-                <p class="mb-0">
+      <section id="testimonials" className="py-5">
+        <div className="container">
+          <h2 className="text-center mb-4">Témoignages</h2>
+          <div className="row">
+            <div className="col-md-4">
+              <blockquote className="blockquote text-center">
+                <p className="mb-0">
                   "Une application formidable, je ne peux plus m'en passer !"
                 </p>
-                <footer class="blockquote-footer">Alice D.</footer>
+                <footer className="blockquote-footer">Alice D.</footer>
               </blockquote>
             </div>
-            <div class="col-md-4">
-              <blockquote class="blockquote text-center">
-                <p class="mb-0">
+            <div className="col-md-4">
+              <blockquote className="blockquote text-center">
+                <p className="mb-0">
                   "Service impeccable, interface intuitive et fluide."
                 </p>
-                <footer class="blockquote-footer">Bernard P.</footer>
+                <footer className="blockquote-footer">Bernard P.</footer>
               </blockquote>
             </div>
-            <div class="col-md-4">
-              <blockquote class="blockquote text-center">
-                <p class="mb-0">
+            <div className="col-md-4">
+              <blockquote className="blockquote text-center">
+                <p className="mb-0">
                   "Je recommande à tous ceux qui veulent un chat rapide et
                   sécurisé."
                 </p>
-                <footer class="blockquote-footer">Claire M.</footer>
+                <footer className="blockquote-footer">Claire M.</footer>
               </blockquote>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="faq" class="py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center mb-4">FAQ</h2>
-          <div class="accordion" id="faqAccordion">
-            <div class="card">
-              <div class="card-header" id="faqHeadingOne">
-                <h2 class="mb-0">
+      <section id="faq" className="py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center mb-4">FAQ</h2>
+          <div className="accordion" id="faqAccordion">
+            <div className="card">
+              <div className="card-header" id="faqHeadingOne">
+                <h2 className="mb-0">
                   <button
-                    class="btn btn-link"
+                    className="btn btn-link"
                     type="button"
                     data-toggle="collapse"
                     data-target="#faqCollapseOne"
@@ -178,21 +180,21 @@ const index = () => {
               </div>
               <div
                 id="faqCollapseOne"
-                class="collapse show"
+                className="collapse show"
                 aria-labelledby="faqHeadingOne"
                 data-parent="#faqAccordion"
               >
-                <div class="card-body">
+                <div className="card-body">
                   L'inscription est simple. Cliquez sur le bouton "S'inscrire"
                   en haut à droite et suivez les instructions.
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="faqHeadingTwo">
-                <h2 class="mb-0">
+            <div className="card">
+              <div className="card-header" id="faqHeadingTwo">
+                <h2 className="mb-0">
                   <button
-                    class="btn btn-link collapsed"
+                    className="btn btn-link collapsed"
                     type="button"
                     data-toggle="collapse"
                     data-target="#faqCollapseTwo"
@@ -205,11 +207,11 @@ const index = () => {
               </div>
               <div
                 id="faqCollapseTwo"
-                class="collapse"
+                className="collapse"
                 aria-labelledby="faqHeadingTwo"
                 data-parent="#faqAccordion"
               >
-                <div class="card-body">
+                <div className="card-body">
                   Oui, nous utilisons des technologies de pointe pour garantir
                   la sécurité de vos données et conversations.
                 </div>
