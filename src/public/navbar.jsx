@@ -8,52 +8,51 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" href="index.html">
+            <Link className="nav-link" to="/">
               Accueil
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#features">
+            <Link className="nav-link" to="#features">
               Fonctionnalités
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#pricing">
+            <Link className="nav-link" to="#pricing">
               Tarifs
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#testimonials">
+            <Link className="nav-link" to="#testimonials">
               Témoignages
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#faq">
+            <Link className="nav-link" to="#faq">
               FAQ
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="chat.html">
+            <Link className="nav-link" to="/chat">
               Chat
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="dynamicsalonchat.html">
+            <Link className="nav-link" to="/dynamicsalonchat">
               Abonnement
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="about.html">
-              Contact
-            </a>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                Contact
+              </Link>
+            </li>
           </li>
           <li className="nav-item">
-            <a
-              className="nav-link btn btn-primary text-white"
-              href="login.html"
-            >
+            <Link className="nav-link btn btn-primary text-white" to="/login">
               Inscription
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
