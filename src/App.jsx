@@ -22,6 +22,11 @@ import UpdateProfile from "./update_profile";
 import YourChatSalon from "./yourchatsalon";
 
 const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    document.title = location.pathname;
+  }, [location]);
   return (
     <Router>
       <Navbar /> {/* Render the navbar on all pages */}
