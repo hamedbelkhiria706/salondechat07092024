@@ -4,6 +4,8 @@ import "./stylescss/global.css";
 
 import "./js/dynamicsalonchat.js";
 
+console.log("hello world");
+
 const dynamicsalonchat = () => {
   return (
     <main>
@@ -28,7 +30,7 @@ const dynamicsalonchat = () => {
         <div id="subscriptionStatus" className="mt-4"></div>
 
         <form id="chatRoomForm" style={{ display: "none" }}>
-          <div id="roomInputs"></div>
+          <div id="roomInputs">1</div>
           <button type="submit" className="btn btn-primary">
             Créer les Salons
           </button>

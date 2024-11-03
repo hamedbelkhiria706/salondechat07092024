@@ -1,7 +1,7 @@
 let totalRooms = 0;
 let totalPayments = 0;
 let createdRooms = [];
-
+console.log("hello world");
 function renderRoomInputs() {
   $("#roomInputs").empty();
   for (let i = 1; i <= totalRooms; i++) {
