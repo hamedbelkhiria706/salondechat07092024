@@ -27,6 +27,7 @@ import UpdateProfile from "./public/update_profile";
 import YourChatSalon from "./public/yourchatsalon";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom"; // Ensure you import Outlet
 const AppRoutes = () => {
   const location = useLocation();
 
@@ -48,7 +49,7 @@ const AppRoutes = () => {
   return (
     <Switch>
       {/* Define your routes here */}
-      <Route path="/" exact component={Index} />
+      <Route index component={Index} />
       <Route path="/about" component={About} />
       <Route path="/chat" component={Chat} />
       <Route path="/delete-account" component={DeleteAccount} />
@@ -76,6 +77,7 @@ const App = () => {
     <Router>
       <Navbar /> {/* Render the navbar on all pages */}
       <AppRoutes></AppRoutes>
+      <Outlet /> {/* Renders matched child routes */}
       <Footer /> {/* Render footer on all pages */}
     </Router>
   );

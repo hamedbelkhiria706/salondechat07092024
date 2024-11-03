@@ -4,7 +4,6 @@ import "./stylescss/decorationacceuil.css";
 
 import "./js/faqs.js";
 
-import Footer from "./footer";
 const index = () => {
   return (
     <main>
@@ -218,7 +217,6 @@ const index = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 };
