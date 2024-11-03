@@ -84,8 +84,6 @@ const Chat = () => {
           Note : Utilisez le bouton Bloquer pour garder le chat propre.
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 };
