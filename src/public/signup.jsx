@@ -1,5 +1,9 @@
 import React from "react";
 import "./stylescss/global.css";
+import { Link } from "react-router-dom";
+import _1 from "./assets/facebook.png";
+import _2 from "./assets/github.png";
+import _3 from "./assets/google.png";
 
 import "./js/signup.js";
 const signup = () => {
@@ -23,9 +27,9 @@ const signup = () => {
 
         <div className="text-center mb-4">
           <div className="social-buttons">
-            <img src="assets/google.png" alt="Google" className="mx-2" />
-            <img src="assets/facebook.png" alt="Facebook" className="mx-2" />
-            <img src="assets/github.png" alt="GitHub" className="mx-2" />
+            <img src={_3} alt="Google" className="mx-2" />
+            <img src={_1} alt="Facebook" className="mx-2" />
+            <img src={_2} alt="GitHub" className="mx-2" />
           </div>
           <p>OU</p>
         </div>

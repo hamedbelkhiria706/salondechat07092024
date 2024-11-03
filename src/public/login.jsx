@@ -1,10 +1,11 @@
 import React from "react";
 import "./stylescss/global.css";
 import "./stylescss/login.css";
-
+import { Link } from "react-router-dom";
 import "./js/login.js";
-
-import Footer from "./footer";
+import _1 from "./assets/facebook.png";
+import _2 from "./assets/github.png";
+import _3 from "./assets/google.png";
 const login = () => {
   return (
     <main>
@@ -24,15 +25,15 @@ const login = () => {
         <p>Déjà membre ? Connectez-vous pour commencer à discuter.</p>
 
         <div className="text-center social-buttons mb-4">
-          <img src="assets/google.png" alt="Google" className="mx-2" />
-          <img src="assets/facebook.png" alt="Facebook" className="mx-2" />
-          <img src="assets/github.png" alt="GitHub" className="mx-2" />
+          <img src={_3} alt="Google" className="mx-2" />
+          <img src={_1} alt="Facebook" className="mx-2" />
+          <img src={_2} alt="GitHub" className="mx-2" />
         </div>
         <p className="text-center">OU</p>
 
         <form>
           <div className="form-group">
-            <label for="email">Email :</label>
+            <label htmlFor="email">Email :</label>
             <input
               type="email"
               className="form-control"
@@ -43,7 +44,7 @@ const login = () => {
             />
           </div>
           <div className="form-group">
-            <label for="password">Mot de passe :</label>
+            <label htmlFor="password">Mot de passe :</label>
             <input
               type="password"
               className="form-control"
@@ -59,7 +60,7 @@ const login = () => {
               className="form-check-input"
               id="rememberMe"
             />
-            <label className="form-check-label" for="rememberMe">
+            <label className="form-check-label" htmlFor="rememberMe">
               Se souvenir de moi
             </label>
           </div>
@@ -71,8 +72,6 @@ const login = () => {
           <a href="#">Mot de passe oublié ?</a>
         </div>
       </header>
-
-      <Footer />
     </main>
   );
 };
