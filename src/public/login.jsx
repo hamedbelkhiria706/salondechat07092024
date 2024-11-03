@@ -12,12 +12,12 @@ const login = () => {
 
       <header className="mt-5 text-center">
         <div className="d-flex justify-content-between mb-4">
-          <a href="login.html" className="nav-link active">
+          <Link to="/login" className="nav-link active">
             Se connecter
-          </a>
-          <a href="signup.html" className="nav-link">
+          </Link>
+          <Link to="/signup" className="nav-link">
             S'inscrire
-          </a>
+          </Link>
         </div>
 
         <h1 className="mb-4">Se connecter à notre site</h1>
