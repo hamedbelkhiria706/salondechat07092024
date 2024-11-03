@@ -1,6 +1,3 @@
-$(document).ready(function () {
-  $("#content").load("navbar.html");
-});
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
   const warningMessage = document.getElementById("form-message-warning");

@@ -1,7 +1,3 @@
-$(document).ready(function () {
-  $("#content").load("navbar.html");
-});
-
 const blockButtons = document.querySelectorAll(".btn-danger");
 
 blockButtons.forEach((button) => {

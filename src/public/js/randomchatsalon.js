@@ -1,12 +1,7 @@
-$(document).ready(function () {
-  $("#content").load("navbar.html");
-
-  // Simulate joining a random chat room
-  const roomName =
-    new URLSearchParams(window.location.search).get("room") ||
-    "Salon Aléatoire";
-  $("#chatRoomName").text(roomName);
-});
+// Simulate joining a random chat room
+const roomName =
+  new URLSearchParams(window.location.search).get("room") || "Salon Aléatoire";
+$("#chatRoomName").text(roomName);
 
 $("#chatForm").on("submit", function (event) {
   event.preventDefault();

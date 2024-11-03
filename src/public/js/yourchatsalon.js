@@ -1,6 +1,3 @@
-$(document).ready(function () {
-  $("#content").load("navbar.html");
-});
 // Join chat room functionality
 $(document).on("click", ".rejoindre", function () {
   const roomName = $(this).data("room");
