@@ -27,7 +27,7 @@ const dynamicsalonchat = () => {
         <h4>Créer des Salons de Chat</h4>
         <div id="subscriptionStatus" className="mt-4"></div>
 
-        <form id="chatRoomForm" style="display: none">
+        <form id="chatRoomForm" style={{ display: "none" }}>
           <div id="roomInputs"></div>
           <button type="submit" className="btn btn-primary">
             Créer les Salons
