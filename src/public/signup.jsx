@@ -7,12 +7,12 @@ const signup = () => {
     <main>
       <header className="mt-5 text-center">
         <div className="d-flex justify-content-between mb-4">
-          <a href="login.html" className="nav-link">
+          <Link to="/login" className="nav-link">
             Se connecter
-          </a>
-          <a href="signup.html" className="nav-link active">
+          </Link>
+          <Link to="/signup" className="nav-link active">
             S'inscrire
-          </a>
+          </Link>
         </div>
 
         <h1 className="mb-4">Nouveau sur le site ?</h1>
@@ -32,7 +32,7 @@ const signup = () => {
 
         <form>
           <div className="form-group">
-            <label for="name">Nom :</label>
+            <label htmlFor="name">Nom :</label>
             <input
               type="text"
               className="form-control"
@@ -43,7 +43,7 @@ const signup = () => {
             />
           </div>
           <div className="form-group">
-            <label for="email">Email :</label>
+            <label htmlFor="email">Email :</label>
             <input
               type="email"
               className="form-control"
@@ -54,7 +54,7 @@ const signup = () => {
             />
           </div>
           <div className="form-group">
-            <label for="password">Mot de passe :</label>
+            <label htmlFor="password">Mot de passe :</label>
             <input
               type="password"
               className="form-control"
@@ -65,7 +65,7 @@ const signup = () => {
             />
           </div>
           <div className="form-group">
-            <label for="confirmPassword">Confirmez le mot de passe :</label>
+            <label htmlFor="confirmPassword">Confirmez le mot de passe :</label>
             <input
               type="password"
               className="form-control"
@@ -82,7 +82,7 @@ const signup = () => {
               id="terms"
               required
             />
-            <label className="form-check-label" for="terms">
+            <label className="form-check-label" htmlFor="terms">
               J'accepte les T&C et la Politique de confidentialité
             </label>
           </div>
