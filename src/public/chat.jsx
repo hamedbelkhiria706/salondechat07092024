@@ -7,18 +7,18 @@ import "./js/chat.js";
 
 const Chat = () => {
   return (
-    <main classNameName="mt-5">
-      <h1 classNameName="text-center mb-4">Chat</h1>
-      <div classNameName="chat-container p-3">
-        <div classNameName="alert alert-warning notification" role="alert">
+    <main className="mt-5">
+      <h1 className="text-center mb-4">Chat</h1>
+      <div className="chat-container p-3">
+        <div className="alert alert-warning notification" role="alert">
           Le chat est GRATUIT et le restera toujours ! Commencez à discuter en
           choisissant une personne dans la liste !
         </div>
-        <div classNameName="row">
+        <div className="row">
           {/* User List */}
-          <div classNameName="col-12 col-md-4 user-list p-0">
+          <div className="col-12 col-md-4 user-list p-0">
             <h4>Utilisateurs En Ligne</h4>
-            <ul classNameName="list-group">
+            <ul className="list-group">
               {[
                 "Utilisateur 1",
                 "Utilisateur 2",
@@ -26,27 +26,27 @@ const Chat = () => {
                 "Utilisateur 4",
               ].map((user) => (
                 <li
-                  classNameName="list-group-item d-flex justify-content-between align-items-center"
+                  className="list-group-item d-flex justify-content-between align-items-center"
                   key={user}
                 >
                   {user}
-                  <button classNameName="btn btn-danger btn-sm">Bloquer</button>
+                  <button className="btn btn-danger btn-sm">Bloquer</button>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Chat Area */}
-          <div classNameName="col-12 col-md-8 chat-area">
+          <div className="col-12 col-md-8 chat-area">
             <h4>Zone de Chat</h4>
-            <div classNameName="border p-2" id="chatMessages">
-              <div classNameName="message">
+            <div className="border p-2" id="chatMessages">
+              <div className="message">
                 <strong>Utilisateur 1 :</strong> Bonjour !
               </div>
-              <div classNameName="message">
+              <div className="message">
                 <strong>Vous :</strong> Salut !
               </div>
-              <div classNameName="message">
+              <div className="message">
                 <strong>Utilisateur 2 :</strong> Comment ça va ?
               </div>
             </div>
@@ -54,7 +54,7 @@ const Chat = () => {
               Un utilisateur est en train d'écrire...
             </div>
             <div
-              classNameName="alert alert-danger"
+              className="alert alert-danger"
               id="errorMessage"
               style={{ display: "none" }}
               role="alert"
@@ -62,17 +62,17 @@ const Chat = () => {
               Votre message contient des mots inappropriés et ne peut pas être
               envoyé.
             </div>
-            <form classNameName="mt-3" id="chatForm">
-              <div classNameName="input-group">
+            <form className="mt-3" id="chatForm">
+              <div className="input-group">
                 <input
                   type="text"
-                  classNameName="form-control"
+                  className="form-control"
                   placeholder="Tapez un message..."
                   required
                   id="messageInput"
                 />
-                <div classNameName="input-group-append">
-                  <button classNameName="btn btn-primary" type="submit">
+                <div className="input-group-append">
+                  <button className="btn btn-primary" type="submit">
                     Envoyer
                   </button>
                 </div>
@@ -80,7 +80,7 @@ const Chat = () => {
             </form>
           </div>
         </div>
-        <div classNameName="alert alert-info mt-3" role="alert">
+        <div className="alert alert-info mt-3" role="alert">
           Note : Utilisez le bouton Bloquer pour garder le chat propre.
         </div>
       </div>
