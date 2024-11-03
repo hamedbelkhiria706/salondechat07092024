@@ -128,8 +128,8 @@ const index = () => {
           <h2 className="text-center mb-4">Témoignages</h2>
           <div className="row">
             <div className="col-md-4">
-              <blockquote className="blockquote text-center">
-                <p className="mb-0">
+              <blockquote className="blockquote text-center blockquote-custom">
+                <p className="mb-1">
                   "Une application formidable, je ne peux plus m'en passer !"
                 </p>
                 <footer className="blockquote-footer">Alice D.</footer>

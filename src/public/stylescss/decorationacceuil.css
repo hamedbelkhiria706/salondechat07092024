@@ -4,3 +4,6 @@ h1 {
 h2 {
   color: brown !important;
 }
+.blockquote-responsive {
+  font-size: 5vw;
+}
