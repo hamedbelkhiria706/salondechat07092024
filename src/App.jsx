@@ -49,25 +49,25 @@ const AppRoutes = () => {
   return (
     <Switch>
       {/* Define your routes here */}
-      <Route index component={Index} />
-      <Route path="/about" component={About} />
-      <Route path="/chat" component={Chat} />
-      <Route path="/delete-account" component={DeleteAccount} />
-      <Route path="/delete-chat-history" component={DeleteChatHistory} />
-      <Route path="/dynamic-salon-chat" component={DynamicSalonChat} />
-      <Route path="/edit-profile" component={EditProfile} />
-      <Route path="/export-data" component={ExportData} />
-      <Route path="/faqs" component={FAQs} />
-      <Route path="/login" component={Login} />
-      <Route path="/notifications" component={Notifications} />
-      <Route path="/nouscontacter" component={NousContacter} />
-      <Route path="/password" component={Password} />
-      <Route path="/plugins" component={Plugins} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/random-chat-salon" component={RandomChatSalon} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/update-profile" component={UpdateProfile} />
-      <Route path="/your-chat-salon" component={YourChatSalon} />
+      <Route index element={<Index />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/chat" element={<Chat />} />
+      <Route path="/delete-account" element={<DeleteAccount />} />
+      <Route path="/delete-chat-history" element={<DeleteChatHistory />} />
+      <Route path="/dynamic-salon-chat" element={<DynamicSalonChat />} />
+      <Route path="/edit-profile" element={<EditProfile />} />
+      <Route path="/export-data" element={<ExportData />} />
+      <Route path="/faqs" element={<FAQs />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/notifications" element={<Notifications />} />
+      <Route path="/nouscontacter" element={<NousContacter />} />
+      <Route path="/password" element={<Password />} />
+      <Route path="/plugins" element={<Plugins />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/random-chat-salon" element={<RandomChatSalon />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/update-profile" element={<UpdateProfile />} />
+      <Route path="/your-chat-salon" element={<YourChatSalon />} />
       {/* You can add more routes as necessary */}
     </Switch>
   );
