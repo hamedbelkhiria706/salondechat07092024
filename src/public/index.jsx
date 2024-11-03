@@ -8,8 +8,6 @@ import Footer from "./footer";
 const index = () => {
   return (
     <main>
-      <div id="content"></div>
-
       {/* Jumbotron Section */}
 
       <div className="jumbotron jumbotron-fluid text-center">
