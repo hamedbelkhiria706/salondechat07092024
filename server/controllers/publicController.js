@@ -4,3 +4,8 @@ const getHomePage = (req, res) => {
 const getAboutPage = (req, res) => {
   res.send("Learn more about our app and company.");
 };
+
+module.exports = {
+  getHomePage,
+  getAboutPage,
+};

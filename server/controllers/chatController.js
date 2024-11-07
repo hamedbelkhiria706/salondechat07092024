@@ -1,4 +1,4 @@
-const ChatRoom = require("../models/chatroom");
+const ChatRoom = require("../models/ChatRoomCollectionStructure");
 
 //Create a new Chat Room
 const createChatRoom = async (req, res) => {

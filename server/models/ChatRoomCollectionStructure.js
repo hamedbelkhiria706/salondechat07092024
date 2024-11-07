@@ -2,7 +2,7 @@ const { JWT_SECRET, client, database1 } = require("../config/db"); // Use the co
 const mongoose = require("mongoose");
 
 // ChatRoom Schema
-const chatRoomSchema = new Schema({
+const chatRoomSchema = new mongoose.Schema({
   name: { type: String, required: true },
   users: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
 });

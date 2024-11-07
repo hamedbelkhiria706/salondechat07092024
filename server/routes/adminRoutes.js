@@ -10,20 +10,15 @@ const { adminCollection } = require("../models/adminsCollectionStructure");
 const {
   getAdminDashboard,
   getAllUsers,
-  manageUserSubscription,
+  manageUsersSubscriptions, // Corrected name here
   login,
 } = require("../controllers/adminController");
-const {
-  authMiddleware,
-  adminMiddleware,
-} = require("../middleware/adminMiddleware");
 
-router.use(authMiddleware, adminMiddleware);
 router.post("/dashboard", getAdminDashboard);
 
 router.post("/users", getAllUsers);
 
-router.put("/subscriptions/:userId", manageUserSubscription);
+router.put("/subscriptions/:userId", manageUsersSubscriptions);
 
 // Login route
 router.post("/login", login);
