@@ -1,6 +1,5 @@
 import React from "react";
-import "./stylescss/global.css";
-import $ from "jquery";
+import "../styles/global.css";
 
 const footer = () => {
   return (
