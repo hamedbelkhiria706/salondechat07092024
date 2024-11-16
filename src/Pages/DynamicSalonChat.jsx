@@ -8,7 +8,7 @@ const dynamicsalonchat = () => {
   let [totalPayments, setTotalPayments] = useState(0);
 
   let [createdRooms, setCreatedRooms] = useState([]);
-  let [newRooms, setNewRooms] = useState;
+  let [newRooms, setNewRooms] = useState([]);
   const handleClick = (price, maxRooms) => {
     setTotalPayments((prevPayments) => prevPayments + price);
     setTotalRooms((prevRooms) => prevRooms + maxRooms);
@@ -76,7 +76,11 @@ const dynamicsalonchat = () => {
         <ul id="createdRoomsList" className="list-group mt-3"></ul>
         <h4>Créer des Salons de Chat</h4>
         <div id="subscriptionStatus" className="mt-4"></div>
-        <form id="chatRoomForm" style={{ display: "none" }}>
+        <form
+          id="chatRoomForm"
+          onSubmit={handleSubmit}
+          style={{ display: totalPayments > 0 ? "block" : "none" }}
+        >
           <div id="roomInputs">
             {[...Array(totalRooms)].map((_, index) => (
               <div className="form-group" key={index}>
@@ -93,6 +97,25 @@ const dynamicsalonchat = () => {
               </div>
             ))}
           </div>
+          <div>Salons crées:</div>
+          <ul id="createdRoomsList">
+            {" "}
+            {createdRooms.map((room, index) => (
+              <li
+                className="list-group-item d-flex justify-content-between align-items-center"
+                key={index}
+              >
+                {" "}
+                Salon {index + 1}: {room}{" "}
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => removeRoom(index)}
+                >
+                  Supprimer
+                </button>{" "}
+              </li>
+            ))}{" "}
+          </ul>
           <button type="submit" className="btn btn-primary">
             Créer les Salons
           </button>
