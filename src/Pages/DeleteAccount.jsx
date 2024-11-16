@@ -1,7 +1,7 @@
 import React from "react";
 
-import "../stylescss/global.css";
-import "../stylescss/chatstyle.css";
+import "../styles/global.css";
+import "../styles/chatstyle.css";
 
 const deleteAccount = () => {
   return (
