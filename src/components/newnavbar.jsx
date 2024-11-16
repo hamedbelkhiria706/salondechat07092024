@@ -12,34 +12,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#features">
-              Fonctionnalités
+            <a className="nav-link" href="/plans">
+              Plans
             </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#pricing">
-              Tarifs
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#testimonials">
-              Témoignages
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#faq">
-              FAQ
-            </a>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/chat">
-              Chat
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/dynamicsalonchat">
-              Abonnement
-            </Link>
           </li>
 
           <li className="nav-item">

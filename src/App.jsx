@@ -4,7 +4,8 @@ import HomePage from "./Pages/Index";
 import ContactPage from "./Pages/Contact";
 import Navbar from "./components/newnavbar";
 import Footer from "./components/newfooter";
-import DynamicSalonChat from "./Pages/dynamicsalonchat";
+import Plans from "./Pages/Plans";
+// import DynamicSalonChat from "./Pages/dynamicsalonchat";
 function App() {
   return (
     <Router>
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/chat" element={<DynamicSalonChat />} />
+        <Route path="/plans" element={<Plans />} />
       </Routes>
       <Footer></Footer>
     </Router>
