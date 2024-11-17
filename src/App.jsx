@@ -2,10 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/Index";
 import ContactPage from "./Pages/Contact";
-import Navbar from "./components/newnavbar";
+import Navbar from "./components/MainNavbar";
 import Footer from "./components/newfooter";
 import Plans from "./Pages/Plans";
-// import DynamicSalonChat from "./Pages/dynamicsalonchat";
 function App() {
   return (
     <Router>
