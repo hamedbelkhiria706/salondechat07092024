@@ -2,7 +2,7 @@ import React from "react";
 
 import "../styles/global.css";
 import "../styles/chatstyle.css";
-
+import { Link } from "react-router-dom";
 const deleteAccount = () => {
   return (
     <main>
@@ -14,9 +14,9 @@ const deleteAccount = () => {
           irréversible.
         </p>
         <button className="btn btn-danger">Supprimer le compte</button>
-        <Lin to="/profile" className="btn btn-secondary mt-3">
+        <Link to="/profile" className="btn btn-secondary mt-3">
           Retour au profil
-        </Lin>
+        </Link>
       </div>
     </main>
   );
