@@ -26,6 +26,9 @@ const ContactPage = () => {
     if(!email){
       console.log("Entrer votre email");
     }
+    if(!subject){
+      console.log("Entrer le sujet")
+    }
   };
   return (
     <main>
