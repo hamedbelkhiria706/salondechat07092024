@@ -14,9 +14,9 @@ const deleteAccount = () => {
           irréversible.
         </p>
         <button className="btn btn-danger">Supprimer le compte</button>
-        <a href="profile.html" className="btn btn-secondary mt-3">
+        <Lin to="/profile" className="btn btn-secondary mt-3">
           Retour au profil
-        </a>
+        </Lin>
       </div>
     </main>
   );
