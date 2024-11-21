@@ -6,16 +6,25 @@ import "../styles/decorationacceuil.css";
 
 const ContactPage = () => {
   const [nom, setNom] = useState("");
-
+  const [email,setEmail]=useState("");
+  const [subject,setSubject]=useState("");
   const handleNameChange = (e) => {
     setNom(e.target.value);
     console.log(nom);
   };
-
+  const handleEmailChange=(e)=>{
+    setEmail(e.target.value);
+  }
+  const handleSubjectChange=(e)=>{
+    setSubject(e.target.value)
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!nom) {
       console.log("Entrer votre nom");
+    }
+    if(!email){
+      console.log("Entrer votre email");
     }
   };
   return (
@@ -73,6 +82,7 @@ const ContactPage = () => {
                               name="email"
                               id="email"
                               placeholder="Email"
+                              onChange={handleEmailChange}
                               required
                             />
                             <div className="invalid-feedback">
@@ -92,6 +102,7 @@ const ContactPage = () => {
                               id="subject"
                               placeholder="Subject"
                               required
+                              onChange={handleSubjectChange}
                             />
                             <div className="invalid-feedback">
                               Please provide a subject.
