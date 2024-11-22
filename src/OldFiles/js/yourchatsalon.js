@@ -39,7 +39,7 @@ $("#randomChatButton").on("click", function () {
       .find("button.btn-info")
       .data("room"); // Get room name from button
     if (selectedRoom) {
-      window.location.href = `http://127.0.0.1:5501/client/public/randomchatsalon.html?room=${encodeURIComponent(
+      window.location.href = `http://127.0.0.1:5713/client/public/randomchatsalon.html?room=${encodeURIComponent(
         selectedRoom
       )}`; // Redirect to the chat room
     }
