@@ -16,9 +16,9 @@ const footer = () => {
           Mentions légales
         </a>{" "}
         |
-        <a href="about.html" className="text-white">
+        <Link to="/about" className="text-white">
           Contactez-nous
-        </a>
+        </Link>
       </p>
     </footer>
   );
