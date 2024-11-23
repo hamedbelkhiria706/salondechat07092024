@@ -5,6 +5,7 @@ import ContactPage from "./Pages/Contact";
 import Navbar from "./components/MainNavbar";
 import Footer from "./components/newfooter";
 import Plans from "./Pages/Plans";
+import MentionsLegales from "./components/MentionsLegales";
 function App() {
   return (
     <Router>
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/plans" element={<Plans />} />
+        <Route path="/mentionslegales" element={<MentionsLegales/>}/>
       </Routes>
       <Footer></Footer>
     </Router>

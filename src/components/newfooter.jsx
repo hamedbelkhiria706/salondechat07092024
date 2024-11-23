@@ -12,9 +12,9 @@ const footer = () => {
           Politique de confidentialité
         </a>
         |{" "}
-        <a href="mentions.html" className="text-white">
+        <Link to="/mentionslegales" className="text-white">
           Mentions légales
-        </a>{" "}
+        </Link>{" "}
         |
         <Link to="/about" className="text-white">
           Contactez-nous
