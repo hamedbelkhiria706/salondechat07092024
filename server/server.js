@@ -2,73 +2,89 @@ const express = require("express");
 const { MongoClient } = require("mongodb");
 const path = require("path");
 const dotenv = require("dotenv");
-const app = express();
-const port = 3000;
-const publicRoutes = require("./routes/publicRoutes");
+const SHA256 = require("crypto-js/sha256"); // Correctly import SHA256
+const AES = require("crypto-js/aes"); // Add AES for encryption
 
+// Initialize app and configurations
 dotenv.config();
-// Middleware to parse JSON
+const app = express();
+const port = process.env.PORT || 3000; // Use .env file for port configuration if available
+const uri = process.env.MONGO_URI || "mongodb://localhost:27017"; // Use .env file for MongoDB URI if available
+const databaseName = process.env.DB_NAME || "salonchatdboscarf28092024";
+
+// MongoDB Client
+const client = new MongoClient(uri);
+
+// Import routes
+const usersRouter = require("./routes/usersRoutes");
+const chatRouter = require("./routes/chatRoutes");
+const publicRouter = require("./routes/publicRoutes");
+const adminRouter = require("./routes/adminRoutes");
+
+// Import middleware
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+
+// Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../src/public")));
 
-const uri = "mongodb://localhost:27017"; // MongoDB connection URL
-const database1 = "salonchatdboscarf28092024";
-const client = new MongoClient(uri);
-
-const usersRouter = require("./routes/usersRoutes");
-
-const chatRouter = require("./routes/chatRoutes");
-
-const publicRouter = require("./routes/publicRoutes");
-
-const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-var SHA256 = require("crypto-js");
-// Définir la route des utilisateurs en utilisant le router importé
-const adminRouter = require("./routes/adminRoutes");
-
-// Serve static files from React's build folder
-app.use(express.static(path.join(__dirname, "src/build")));
-
-// Catch-all route to send all requests to index.html
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "src/build", "index.html"));
-});
-
-// Définir la route des utilisateurs en utilisant le router importé
-
-app.get("/test", (req, res, next) => {
-  res.send(SHA256.AES.encrypt("my message", "secret key 123").toString());
-});
-app.get("/public/:page1/:page", (req, res) => {
-  res.sendFile(
-    path.join(
-      __dirname,
-      "../client/public/" + req.params.page1 + "/" + req.params.page
-    )
-  ); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
-});
-app.get("/public/:page", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public/" + req.params.page)); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
-});
-
-// Serve static files from the 'admin' directory for requests to '/admin'
-app.get("/admin/:page1/:page", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../admin/" + req.params.page1 + "/" + req.params.page)
-  ); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
-});
-app.get("/admin/:page", (req, res) => {
-  res.sendFile(path.join(__dirname, "../admin/" + req.params.page)); // Renders the 'page.ejs' or 'page.pug' file from the 'views' directory
-});
+// Route definitions
 app.use("/api/admin", adminRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/chat", chatRouter);
-app.use("/api/public", publicRoutes);
+app.use("/api/public", publicRouter);
+
+// Example route with SHA256 and AES encryption
+app.get("/test", (req, res) => {
+  const message = "my message";
+  const secretKey = "secret key 123";
+  const encryptedMessage = AES.encrypt(message, secretKey).toString();
+  res.send({ originalMessage: message, encryptedMessage });
+});
+
+// Serve static files for public directory
+app.get("/public/:page1/:page", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../client/public/", req.params.page1, req.params.page)
+  );
+});
+
+app.get("/public/:page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/public/", req.params.page));
+});
+
+// Serve static files for admin directory
+app.get("/admin/:page1/:page", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../admin/", req.params.page1, req.params.page)
+  );
+});
+
+app.get("/admin/:page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../admin/", req.params.page));
+});
+
+// Middleware for handling errors
+app.use(notFound);
+app.use(errorHandler);
+
+// Catch-all route for React frontend
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../src/build", "index.html"));
+});
 
 // Connect to the database
 async function connectDB() {
-  await client.connect();
+  try {
+    await client.connect();
+    console.log(`Connected to MongoDB: ${uri}`);
+    const db = client.db(databaseName);
+    app.locals.db = db; // Store database reference in app locals for reuse
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error.message);
+    process.exit(1); // Exit the application if DB connection fails
+  }
 }
 
 // Start the server

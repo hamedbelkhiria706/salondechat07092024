@@ -1,362 +1,235 @@
-//const User = require("../models/user");
-const generateToken = require("../utils/generateToken");
-const sendEmail = require("../utils/sendEmail");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-// Now you can use the imported 'client' and 'database1' in your routes
-
-// For example:
+const { ObjectId } = require("mongodb");
+const sendEmail = require("../utils/sendEmail");
+const generateToken = require("../utils/generateToken");
 const { usersCollection } = require("../models/usersCollectionStructure");
-
-const User = usersCollection;
-// ... (Use the usersCollection in your signup and login routes)
 const { roomsCollection } = require("../models/roomsCollectionStructure");
+
+const MAX_ALLOWED_ROOMS = 3; // Example limit for free users
+const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
+
+// User Registration
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
+
   try {
-    const userExists = await User.findOne({ email });
+    // Check if user exists
+    const userExists = await usersCollection.findOne({ email });
     if (userExists)
-      return res.status(408).json({ message: "User already exists" });
+      return res.status(409).json({ message: "User already exists" });
+
+    // Create verification token
     const verificationToken = crypto.randomBytes(32).toString("hex");
-    const user = await User.create({
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Save user
+    const newUser = {
       username,
       email,
-      password,
+      password: hashedPassword,
       verificationToken,
-    });
+      isVerified: false,
+      createdRooms: [],
+      adminRooms: [],
+    };
+    await usersCollection.insertOne(newUser);
+
+    // Send verification email
     const verifyUrl = `${req.protocol}://${req.get(
       "host"
     )}/api/users/verify/${verificationToken}`;
+    const message = `Verify your email by clicking the link: ${verifyUrl}`;
 
-    const message = `Verify your email by clicking the Link: ${verifyUrl}`;
     await sendEmail({
-      email: user.email,
+      email: email,
       subject: "Email Verification",
       message,
     });
-    res
-      .status(201)
-      .json({ message: "User registered. Verification email sent." });
+
+    res.status(201).json({
+      message: "User registered successfully. Verification email sent.",
+    });
   } catch (error) {
-    res.status(500).json({ message: "Error registering user", error });
+    res
+      .status(500)
+      .json({ message: "Error registering user", error: error.message });
   }
 };
 
+// Email Verification
 const verifyEmail = async (req, res) => {
   const { token } = req.params;
+
   try {
-    const user = await User.findOne({ verificationToken: token });
+    const user = await usersCollection.findOne({ verificationToken: token });
     if (!user)
-      return res.status(400).json({ message: "Invalid or expired token " });
-    user.isVerified = true;
-    user.verificationToken = undefined;
-    await user.save();
-    res.status(200).json({ message: "Email verified successfully." });
-  } catch (error) {
-    res.status(500).json({ message: "Error verifying email ", error });
-  }
-};
-//User Login
-const loginUser = async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const user = await User.findOne({ email });
-    if (user && (await user.matchPassword(password))) {
-      if (!user.isverified)
-        return res
-          .status(401)
-          .json({ message: "Please verify your email to login." });
-      res.json({
-        _id: user._id,
-        username: user.username,
-        email: user.email,
-        token: generateToken(user._id),
-      });
-    } else {
-      res.status(401).json({ message: "Invalid email or password. " });
-    }
-  } catch (error) {
-    res.status(500).json({ message: "Error Logging in", error });
-  }
-};
-//Get User Dashboard
-const getUserDashboard = (req, res) => {
-  res.json({ message: "Welcome to your dashboard, ${req.user.username}!" });
-};
+      return res.status(400).json({ message: "Invalid or expired token" });
 
-const users = async (req, res) => {
-  try {
-    const user = new User(req.body);
-    await user.save();
-    res.status(201).send(user);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-};
-
-const getusers = async (req, res) => {
-  try {
-    const users = await User.find();
-    res.status(200).send(users);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-};
-
-const usersid = async (req, res) => {
-  try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    if (!user) {
-      return res.status(404).send();
-    }
-    res.status(200).send(user);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-};
-const deleteusers = async (req, res) => {
-  try {
-    const user = await User.findByldAndDelete(req.params.id);
-    if (luser) {
-      return res.status(404).send();
-    }
-    res.status(200).send(user);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-};
-
-const oldlogin = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    // Find the user
-    const user = await usersCollection.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "User not found." });
-    }
-
-    // Compare passwords
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return res.status(400).json({ message: "Invalid password." });
-    }
-
-    // Create a JWT token
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
-      expiresIn: "2h",
-    });
-    res.status(200).json({ message: "Login successful.", token });
-  } catch (error) {
-    res.status(500).json({ message: "Error logging in.", error });
-  }
-};
-const oldsignup = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-    console.log(name, email, password);
-    // Hash the password
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-    // Check if the user already exists
-    const existingUser = await usersCollection.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "User already exists." });
-    }
-
-    // Insert the new user
-    const result = await usersCollection.insertOne({
-      name,
-      email,
-      password: hashedPassword,
-    });
-
-    res
-      .status(201)
-      .json({ message: "User created.", userId: result.insertedId });
-  } catch (error) {
-    res.status(500).json({ message: "Error creating user.", error });
-  }
-};
-const profile = async (req, res) => {
-  const { name, email, oldPassword, newPassword, userId } = req.body; // Assuming the request may include one or more of these fields
-
-  try {
-    const usersCollection = client.db(database1).collection("users");
-    const user = await usersCollection.findOne({
-      _id: ObjectId.createFromHexString(userId),
-    });
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    // If newPassword is provided, verify old password before updating
-    if (newPassword) {
-      if (oldPassword !== user.password) {
-        return res.status(401).json({ message: "Invalid old password" });
-      }
-    }
-
-    // Construct the update query based on the fields provided in the request
-    let updateQuery = {};
-    if (name) {
-      updateQuery.name = name;
-    }
-    if (email) {
-      updateQuery.email = email;
-    }
-    if (newPassword) {
-      updateQuery.password = newPassword;
-    }
-
-    // Update the user's profile based on the provided fields
-    const result = await usersCollection.findOneAndUpdate(
-      { _id: ObjectId.createFromHexString(userId) },
-      { $set: updateQuery },
-      { returnOriginal: false }
+    // Update user verification status
+    await usersCollection.updateOne(
+      { _id: user._id },
+      { $set: { isVerified: true, verificationToken: null } }
     );
 
-    if (result) {
-      res.status(200).json({
-        message: "User profile updated successfully",
-        user: result,
-      });
-    } else {
-      res.status(404).json({ message: "User not found" });
-    }
+    res.status(200).json({ message: "Email verified successfully" });
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Error updating user profile", error: error.message });
+      .json({ message: "Error verifying email", error: error.message });
   }
 };
-const addUserToRoom = async (req, res) => {
-  const { roomId, userId } = req.body;
+
+// User Login
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    // Check if the user is an admin of the room before adding a user
-    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
-    if (user && user.adminRooms.includes(roomId)) {
-      // User is an admin of the room, proceed with adding user logic
-    } else {
-      res
+    const user = await usersCollection.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // Verify password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch)
+      return res.status(401).json({ message: "Invalid email or password" });
+
+    if (!user.isVerified)
+      return res
         .status(403)
-        .json({ message: "Unauthorized to add user to this room" });
-    }
+        .json({ message: "Please verify your email to login" });
 
-    // Ajouter la logique pour vérifier les autorisations et l'ajout de l'utilisateur à la salle de discussion spécifiée
+    // Generate JWT token
+    const token = generateToken(user._id);
 
-    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
-    if (room) {
-      room.users.push(userId);
-      await roomsCollection.updateOne(
-        { _id: ObjectId(roomId) },
-        { $set: { users: room.users } }
-      );
-      res.status(200).json({ message: "User added to room successfully" });
-    } else {
-      res.status(404).json({ message: "Room not found" });
-    }
+    res.status(200).json({
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      token,
+    });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error adding user to room", error: error.message });
+    res.status(500).json({ message: "Error logging in", error: error.message });
   }
 };
-const blockUserFromChat = async (req, res) => {
-  const { roomId, userIdToBlock } = req.body;
-  try {
-    // Check if the user is an admin of the room before adding a user
-    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
-    if (user && user.adminRooms.includes(roomId)) {
-      // User is an admin of the room, proceed with adding user logic
-    } else {
-      res
-        .status(403)
-        .json({ message: "Unauthorized to add user to this room" });
-    }
 
-    // Ajouter la logique pour vérifier les autorisations et bloquer l'utilisateur de la salle de discussion spécifiée
-
-    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
-    if (room) {
-      const updatedUsers = room.users.filter((user) => user !== userIdToBlock);
-      await roomsCollection.updateOne(
-        { _id: ObjectId(roomId) },
-        { $set: { users: updatedUsers } }
-      );
-      res.status(200).json({ message: "User blocked in room successfully" });
-    } else {
-      res.status(404).json({ message: "Room not found" });
-    }
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error blocking user in room", error: error.message });
-  }
-};
+// Create a Room
 const createRoom = async (req, res) => {
-  const { roomId, userId } = req.body;
+  const { userId, roomName } = req.body;
+
   try {
-    // Ajouter la logique pour vérifier la limite et les autorisations avant la création de la salle de discussion
     const user = await usersCollection.findOne({ _id: ObjectId(userId) });
-    if (user && user.createdRooms.length < MAX_ALLOWED_ROOMS) {
-      // Logique de création de la salle de discussion
-      res.status(200).json({ message: "Room created successfully" });
-    } else {
-      res.status(403).json({ message: "Not allowed to create more rooms" });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // Check room creation limit for free users
+    if (user.createdRooms.length >= MAX_ALLOWED_ROOMS) {
+      return res
+        .status(403)
+        .json({ message: "Room creation limit reached. Upgrade your plan." });
     }
+
+    // Create a new room
+    const newRoom = {
+      name: roomName,
+      creator: ObjectId(userId),
+      users: [userId],
+    };
+    const result = await roomsCollection.insertOne(newRoom);
+
+    // Update user's created rooms
+    await usersCollection.updateOne(
+      { _id: ObjectId(userId) },
+      { $push: { createdRooms: result.insertedId } }
+    );
+
+    res.status(201).json({ message: "Room created successfully" });
   } catch (error) {
     res
       .status(500)
       .json({ message: "Error creating room", error: error.message });
   }
 };
-const deleteRoom = async (req, res) => {
-  try {
-    const user = await usersCollection.findOne({ _id: ObjectId(userId) });
-    if (user && user.adminRooms.includes(roomId)) {
-      // User is an admin of the room, proceed with adding user logic
-    } else {
-      res
-        .status(403)
-        .json({ message: "Unauthorized to add user to this room" });
-    }
-    const roomId = req.params.id;
-    // Ajouter la logique pour vérifier les autorisations et supprimer la salle de discussion spécifiée
 
-    const result = await roomsCollection.deleteOne({
-      _id: ObjectId(roomId),
-      creator: ObjectId(userId),
-    });
-    if (result.deletedCount > 0) {
-      res.status(200).json({ message: "Room deleted successfully" });
-    } else {
-      res.status(403).json({ message: "Not allowed to delete this room" });
-    }
+// Add User to Room
+const addUserToRoom = async (req, res) => {
+  const { roomId, userId } = req.body;
+
+  try {
+    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    if (!room) return res.status(404).json({ message: "Room not found" });
+
+    // Add user to room
+    await roomsCollection.updateOne(
+      { _id: ObjectId(roomId) },
+      { $addToSet: { users: userId } }
+    );
+
+    res.status(200).json({ message: "User added to room successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error adding user to room", error: error.message });
+  }
+};
+
+// Block User from Room
+const blockUserFromRoom = async (req, res) => {
+  const { roomId, userIdToBlock } = req.body;
+
+  try {
+    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    if (!room) return res.status(404).json({ message: "Room not found" });
+
+    // Remove user from room
+    await roomsCollection.updateOne(
+      { _id: ObjectId(roomId) },
+      { $pull: { users: userIdToBlock } }
+    );
+
+    res.status(200).json({ message: "User blocked from room successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error blocking user from room", error: error.message });
+  }
+};
+
+// Delete Room
+const deleteRoom = async (req, res) => {
+  const { roomId, userId } = req.body;
+
+  try {
+    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    if (!room) return res.status(404).json({ message: "Room not found" });
+
+    if (String(room.creator) !== String(userId))
+      return res.status(403).json({ message: "Unauthorized to delete room" });
+
+    // Delete room
+    await roomsCollection.deleteOne({ _id: ObjectId(roomId) });
+
+    // Remove room from user's createdRooms
+    await usersCollection.updateOne(
+      { _id: ObjectId(userId) },
+      { $pull: { createdRooms: ObjectId(roomId) } }
+    );
+
+    res.status(200).json({ message: "Room deleted successfully" });
   } catch (error) {
     res
       .status(500)
       .json({ message: "Error deleting room", error: error.message });
   }
 };
+
 module.exports = {
   registerUser,
   verifyEmail,
   loginUser,
-  getUserDashboard,
-  users,
-  getusers,
-  usersid,
-  deleteusers,
-  oldlogin,
-  oldsignup,
-  profile,
-  addUserToRoom,
-  blockUserFromChat,
   createRoom,
+  addUserToRoom,
+  blockUserFromRoom,
   deleteRoom,
 };
