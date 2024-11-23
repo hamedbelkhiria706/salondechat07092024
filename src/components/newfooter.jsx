@@ -16,7 +16,7 @@ const footer = () => {
           Mentions légales
         </Link>{" "}
         |
-        <Link to="/about" className="text-white">
+        <Link to="/contact" className="text-white">
           Contactez-nous
         </Link>
       </p>
