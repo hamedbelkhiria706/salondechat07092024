@@ -6,8 +6,8 @@ import Navbar from "./components/MainNavbar";
 import Footer from "./components/newfooter";
 import Plans from "./Pages/Plans";
 import Login from "./Pages/AuthPage";
-import MentionsLegales from "./components/MentionsLegales";
-import PolitiqueDeConfidentialite from "./components/PolitiqueDeConfidentialite";
+import MentionsLegales from "./pages/MentionsLegales";
+import PolitiqueDeConfidentialite from "./pages/PolitiqueDeConfidentialite";
 function App() {
   return (
     <Router>
