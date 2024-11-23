@@ -8,9 +8,9 @@ const footer = () => {
         &copy; 2024 Application de Chat en Temps Réel | Tous droits réservés.
       </p>
       <p>
-        <a href="politique.html" className="text-white">
+        <Link to="/politiquedeconfidentialite" className="text-white">
           Politique de confidentialité
-        </a>
+        </Link>
         |{" "}
         <Link to="/mentionslegales" className="text-white">
           Mentions légales
