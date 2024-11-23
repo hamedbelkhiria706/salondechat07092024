@@ -6,6 +6,7 @@ import TestimonialCard from "../components/TestimonialCard";
 import FAQItem from "../components/FAQItem";
 import "../styles/global.css";
 import "../styles/decorationacceuil.css";
+import QuiSommesNous from "./QuiSommesNous";
 
 const HomePage = () => {
   return (
@@ -30,7 +31,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      <QuiSommesNous/>
       <section id="testimonials" className="py-5">
         <div className="container">
           <h2 className="text-center mb-4">Témoignages</h2>
