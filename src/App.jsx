@@ -6,8 +6,9 @@ import Navbar from "./components/MainNavbar";
 import Footer from "./components/newfooter";
 import Plans from "./Pages/Plans";
 import Login from "./Pages/AuthPage";
-import MentionsLegales from "./components/MentionsLegales";
-import PolitiqueDeConfidentialite from "./components/PolitiqueDeConfidentialite";
+import MentionsLegales from "./Pages/MentionsLegales";
+import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
+import Chatroom from "./components/Chatroom";
 function App() {
   return (
     <Router>
@@ -17,8 +18,12 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/mentionslegales" element={<MentionsLegales/>}/>
-        <Route path="politiquedeconfidentialite" element={<PolitiqueDeConfidentialite/>}/>
+        <Route path="/mentionslegales" element={<MentionsLegales />} />
+        <Route
+          path="/politiquedeconfidentialite"
+          element={<PolitiqueDeConfidentialite />}
+        />
+        <Route path="/chatroom/:username" element={<Chatroom />} />
       </Routes>
       <Footer></Footer>
     </Router>
