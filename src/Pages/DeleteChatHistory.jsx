@@ -9,9 +9,9 @@ const deletechathistory = () => {
         <h1>Sauvegarder l'Historique des Chats</h1>
         <p>Vous pouvez sauvegarder votre historique des chats ici.</p>
         <button className="btn btn-primary">Sauvegarder l'historique</button>
-        <a href="/profile" className="btn btn-secondary mt-3">
+        <Link href="/profile" className="btn btn-secondary mt-3">
           Retour au profil
-        </a>
+        </Link>
       </div>
     </main>
   );
