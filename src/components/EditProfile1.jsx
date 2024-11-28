@@ -1,5 +1,5 @@
 import React from "react";
-import "./stylescss/global.css";
+import "../styles/global.css";
 
 
 const editprofile = () => {
