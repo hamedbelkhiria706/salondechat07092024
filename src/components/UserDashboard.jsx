@@ -33,7 +33,7 @@ const UserDashboard = () => {
                 {chatData.length > 0 ? (
                     <ChatHistory data={chatData} />
                 ) : (
-                    <p>No chat history available.</p>
+                    <p>Pas d'historique de chat dispo.</p>
                 )}
             </div>
 
