@@ -14,7 +14,7 @@ const UserDashboard = () => {
             // Replace with your API call
            // const response = await fetch('/api/chat-history');  
            // const data = await response.json();
-          const data=[]
+          const data=[{message:"1",owner:"2",item:"encours"}]
             setChatData(data);
         }
 
