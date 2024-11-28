@@ -3,6 +3,10 @@ import "../styles/global.css";
 
 
 const editprofile = () => {
+  const submitted=(e)=>{
+    e.preventDefault();
+    alert('Mis à jour')
+  }
   return (
     <main>
       <div className="container mt-5">
@@ -10,13 +14,13 @@ const editprofile = () => {
 
         <div className="row mt-4">
           <div className="col-12 col-md-8 offset-md-2">
-            <form>
+            <form onSubmit={submitted}>
               <div className="form-group">
                 <label for="firstName">Prénom</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="firstName"
+                  id="firstName" required
                   placeholder="Entrez votre prénom"
                 />
               </div>
@@ -24,7 +28,7 @@ const editprofile = () => {
               <div className="form-group">
                 <label for="lastName">Nom de Famille</label>
                 <input
-                  type="text"
+                  type="text" required
                   className="form-control"
                   id="lastName"
                   placeholder="Entrez votre nom de famille"
@@ -36,7 +40,7 @@ const editprofile = () => {
                 <input
                   type="email"
                   className="form-control"
-                  id="email"
+                  id="email" required
                   placeholder="Entrez votre adresse email"
                 />
               </div>
@@ -45,7 +49,7 @@ const editprofile = () => {
                 <label for="bio">Bio</label>
                 <textarea
                   className="form-control"
-                  id="bio"
+                  id="bio" required
                   rows="3"
                   placeholder="Parlez-nous de vous-même"
                 ></textarea>
