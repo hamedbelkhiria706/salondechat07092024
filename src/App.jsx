@@ -9,6 +9,7 @@ import Login from "./Pages/AuthPage";
 import MentionsLegales from "./Pages/MentionsLegales";
 import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
 import Chatroom from "./components/Chatroom";
+import UserDashboard from "./components/UserDashboard";
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
           element={<PolitiqueDeConfidentialite />}
         />
         <Route path="/chatroom/:username" element={<Chatroom />} />
+        <Route path="/dashboard" element={<UserDashboard/>}/>
       </Routes>
       <Footer></Footer>
     </Router>
