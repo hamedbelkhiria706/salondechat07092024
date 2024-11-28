@@ -52,6 +52,11 @@ const UserDashboard = () => {
                 <button onClick={() => navigate('/editprofile')}>
                     Changer infos de profil
                 </button>
+                <p>Abonnement</p>
+                <button onClick={() => navigate('/abonnement')}>
+                    Abonnement
+                </button>
+                
             </div>
         </div>
     );
