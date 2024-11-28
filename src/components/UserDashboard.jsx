@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import '../styles/UserDashboard.css';  
 import ChatHistory from './MessageItem';  
 import Statistics from './Statistics';  
-
+import {useNavigate} from 'react-router-dom'
 const UserDashboard = () => {
     const [chatData, setChatData] = useState([]);
-    
+    const navigate=useNavigate()    
      
     useEffect(() => {
          
@@ -49,7 +49,7 @@ const UserDashboard = () => {
             <div className="profile-settings">
                 <h2>Préférences de profil</h2>
                 <p>Gérer votre compte et préférences</p>
-                <button onClick={() => alert('En cours d\'implémentation')}>
+                <button onClick={() => navigate('/editprofile')}>
                     Changer infos de profil
                 </button>
             </div>

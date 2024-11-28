@@ -10,6 +10,7 @@ import MentionsLegales from "./Pages/MentionsLegales";
 import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
 import Chatroom from "./components/Chatroom";
 import UserDashboard from "./components/UserDashboard";
+import EditProfile from "./components/EditProfile1";
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
         />
         <Route path="/chatroom/:username" element={<Chatroom />} />
         <Route path="/dashboard" element={<UserDashboard/>}/>
+        <Route path='/editprofile' element={<EditProfile/>}/>
       </Routes>
       <Footer></Footer>
     </Router>
