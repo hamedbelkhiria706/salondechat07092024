@@ -14,7 +14,8 @@ const UserDashboard = () => {
             // Replace with your API call
            // const response = await fetch('/api/chat-history');  
            // const data = await response.json();
-          const data=[{message:"1",owner:"2",item:"encours"}]
+          const data=[{
+            message:{text:"sdfsdf",user:"sami"},isOwner:true,showUsername:true}]
             setChatData(data);
         }
 
@@ -31,7 +32,15 @@ const UserDashboard = () => {
             <div className="chat-history">
                 <h2>Historique de chat</h2>
                 {chatData.length > 0 ? (
-                    <ChatHistory data={chatData} />
+                    chatData.map((chatData1,index)=><>
+                    
+                    <ChatHistory 
+                        key={index}
+            message={chatData1.message}
+            isOwner={chatData1.isOwner}
+            showUsername={chatData1.showUsername}
+                        
+                        /></>)
                 ) : (
                     <p>Pas d'historique de chat dispo.</p>
                 )}
