@@ -2,7 +2,12 @@ import React from 'react'
 
 function Profile() {
   return (
-    <div>Profile</div>
+     
+<main>
+<div className="container mt-5">
+<h1>Profile</h1>
+</div>
+    </main>
   )
 }
 
