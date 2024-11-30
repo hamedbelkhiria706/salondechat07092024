@@ -1,6 +1,6 @@
 import React, { useRef } from "react";  
 import "../styles/global.css";
-
+import {Link} from 'react-router-dom'
 const EditProfile = () => {
     const formRef = useRef();  
     const submitted = (e) => {
