@@ -11,7 +11,7 @@ const exportdata = () => {
         <p>Cliquez ci-dessous pour exporter vos données.</p>
         <button onClick={()=>{alert('données exportés csv')}} className="btn btn-primary">
           Exporter mes données
-        </button>
+        </button><br/>
         <Link to="/profile" className="btn btn-secondary mt-3">
           Retour au profil
         </Link>
