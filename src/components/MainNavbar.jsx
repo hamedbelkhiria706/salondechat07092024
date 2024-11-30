@@ -2,19 +2,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import Dropdown from "react-bootstrap/Dropdown";
-import { useState } from "react";
 
 function MainNavbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating logged-in status
-  const userName = "John Doe"; // Example user name
-  const userAvatar = "https://via.placeholder.com/40"; // Placeholder user avatar image URL
-
-  const handleLogout = () => {
-    console.log("User logged out"); // Replace with actual logout logic
-    setIsLoggedIn(false);
-  };
-
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container>
@@ -52,32 +41,9 @@ function MainNavbar() {
               Contact
             </Nav.Link>
           </Nav>
-          {isLoggedIn ? (
-            <Dropdown align="end">
-              <Dropdown.Toggle
-                variant="light"
-                id="user-avatar-dropdown"
-                className="d-flex align-items-center border-0 bg-transparent"
-              >
-                <img
-                  src={userAvatar}
-                  alt="User Avatar"
-                  className="rounded-circle me-2"
-                  width={32}
-                  height={32}
-                />
-                <span className="text-light">{userName}</span>
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
-                <Dropdown.Item onClick={handleLogout}>Disconnect</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          ) : (
-            <Button variant="warning" href="/login">
-              Login
-            </Button>
-          )}
+          <Button variant="warning" href="/login">
+            Login
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
