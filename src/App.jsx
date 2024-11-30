@@ -26,7 +26,7 @@ function App() {
         <Route
           path="/politiquedeconfidentialite"
           element={<PolitiqueDeConfidentialite />}
-        />
+        /> {/** ddd */}
         <Route path="/chatroom/:username" element={<Chatroom />} />
         <Route path="/dashboard" element={<UserDashboard/>}/>
         <Route path='/editprofile' element={<EditProfile/>}/>
