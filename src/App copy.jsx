@@ -5,14 +5,14 @@ import ContactPage from "./Pages/Contact";
 import Navbar from "./components/MainNavbar";
 import Footer from "./components/newfooter";
 import Plans from "./Pages/Plans";
-import Login from "./Pages/AuthPage";
+import Login from "./Pages/Login";
 import MentionsLegales from "./Pages/MentionsLegales";
 import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
 import Chatroom from "./components/Chatroom";
 import UserDashboard from "./components/UserDashboard";
 import EditProfile from "./components/EditProfile1";
 import DynamicChatSalon from "./components/DynamicSalonChat";
-import Password from "./components/password"
+import Password from "./components/password";
 function App() {
   return (
     <Router>
@@ -26,12 +26,12 @@ function App() {
         <Route
           path="/politiquedeconfidentialite"
           element={<PolitiqueDeConfidentialite />}
-        /> {/** ddd */}
+        />
         <Route path="/chatroom/:username" element={<Chatroom />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/abonnement" element={<DynamicChatSalon />} />
-        <Route path="/password" element={<Password/>}/>
+        <Route path="/password" element={<Password />} />
       </Routes>
       <Footer></Footer>
     </Router>
