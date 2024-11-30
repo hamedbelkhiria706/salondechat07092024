@@ -11,6 +11,7 @@ import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
 import Chatroom from "./components/Chatroom";
 import UserDashboard from "./components/UserDashboard";
 import EditProfile from "./components/EditProfile1";
+import Password from "./components/password";
 import DynamicChatSalon from "./components/DynamicSalonChat";
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/dashboard" element={<UserDashboard/>}/>
         <Route path='/editprofile' element={<EditProfile/>}/>
         <Route path="/abonnement" element={<DynamicChatSalon/>}/>
+        <Route path="/password" element={<Password/>}/>
       </Routes>
       <Footer></Footer>
     </Router>
