@@ -47,6 +47,10 @@ const password = () => {
         <Link to="/profile" className="btn btn-secondary mt-3">
           Retour au profil
         </Link>
+        
+        <Link to="/editprofile" className="btn btn-secondary mt-3">
+          Changer profile
+        </Link>
       </div>
     </main>
   );
