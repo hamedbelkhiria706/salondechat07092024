@@ -1,7 +1,6 @@
 import React from "react";
-import Jumbotron from "../components/Jumbotron";
+import Hero from "../components/Hero";
 import FeatureCard from "../components/FeatureCard";
-import PricingCard from "../components/PricingCard";
 import TestimonialCard from "../components/TestimonialCard";
 import FAQItem from "../components/FAQItem";
 import "../styles/global.css";
@@ -10,8 +9,8 @@ import QuiSommesNous from "./QuiSommesNous";
 
 const HomePage = () => {
   return (
-    <main>
-      <Jumbotron />
+    <main className=" px-4 py-5 bg-dark m-0">
+      <Hero />
       <section id="features" className="py-5">
         <div className="container">
           <h2 className="text-center mb-4">Nos Fonctionnalités</h2>
@@ -31,7 +30,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <QuiSommesNous/>
+      <QuiSommesNous />
       <section id="testimonials" className="py-5">
         <div className="container">
           <h2 className="text-center mb-4">Témoignages</h2>
