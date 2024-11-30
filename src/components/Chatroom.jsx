@@ -17,6 +17,12 @@ const Chatroom = ({
 
   return (
     <Container fluid>
+       <h4>Bienvenue dans la salle de chat</h4>
+            <p>
+              Rejoignez la salle de chat pour discuter instantanément avec vos
+              amis et collègues. Participez à des conversations en groupe ou en
+              tête-à-tête, partagez des fichiers et échangez en temps réel.
+            </p>
       <MessageList messages={messages} username={username} />
       <MessageInput onSendMessage={handleSendMessage} />
     </Container>

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";  
 import "../styles/global.css";
-
+import {Link} from 'react-router-dom'
 const EditProfile = () => {
     const formRef = useRef();  
     const submitted = (e) => {
@@ -64,6 +64,12 @@ const EditProfile = () => {
                                 Enregistrer les Modifications
                             </button>
                         </form>
+                        <Link to="/profile" className="btn btn-secondary mt-3">
+          Retour au profil
+        </Link><br/>
+        <Link to="/password" className="btn btn-secondary mt-3">
+          Changer mot de passe
+        </Link>
                     </div>
                 </div>
             </div>
