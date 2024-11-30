@@ -66,7 +66,7 @@ const EditProfile = () => {
                         </form>
                         <Link to="/profile" className="btn btn-secondary mt-3">
           Retour au profil
-        </Link>
+        </Link><br/>
         <Link to="/password" className="btn btn-secondary mt-3">
           Changer mot de passe
         </Link>
