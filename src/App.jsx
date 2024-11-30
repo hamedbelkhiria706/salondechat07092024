@@ -27,9 +27,9 @@ function App() {
           element={<PolitiqueDeConfidentialite />}
         />
         <Route path="/chatroom/:username" element={<Chatroom />} />
-        <Route path="/dashboard" element={<UserDashboard/>}/>
-        <Route path='/editprofile' element={<EditProfile/>}/>
-        <Route path="/abonnement" element={<DynamicChatSalon/>}/>
+        <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="/editprofile" element={<EditProfile />} />
+        <Route path="/abonnement" element={<DynamicChatSalon />} />
       </Routes>
       <Footer></Footer>
     </Router>
