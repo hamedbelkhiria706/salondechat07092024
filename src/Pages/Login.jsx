@@ -13,9 +13,9 @@ function Login() {
         className="d-flex flex-column text-center p-4 bg-dark rounded "
         style={{ maxWidth: "28rem", margin: "0 auto" }}
       >
-        <h1 className="text-2xl font-semibold text-white">Welcome Back!</h1>
+        <h1 className="text-2xl font-semibold text-white">Bienvenue chez nous!</h1>
         <p className="text-sm text-white-50">
-          Sign in to your account and start chatting!
+          Connectez vous et commencez à chatter!
         </p>
         <div className="d-flex flex-column" style={{ gap: "20px" }}>
           <button className="w-100 border-0 rounded p-2 bg-white">
@@ -46,7 +46,7 @@ function Login() {
                   <path fill="none" d="M0 0h48v48H0z"></path>
                 </svg>
               </div>
-              <span className="flex-grow-1">Continue with Google</span>
+              <span className="flex-grow-1">Continuer avec Google</span>
             </div>
           </button>
           <button className="w-100 border-0 rounded p-2 bg-primary">
@@ -62,7 +62,7 @@ function Login() {
               >
                 <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path>
               </svg>
-              <span className="flex-grow-1">Continue with Facebook</span>
+              <span className="flex-grow-1">Continuer avec Facebook</span>
             </div>
           </button>
           <div className="d-flex align-items-center" style={{ gap: "20px" }}>
@@ -84,7 +84,7 @@ function Login() {
                 <path fill="none" d="M0 0h24v24H0z"></path>
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
               </svg>
-              <span className="flex-grow-1">Email and Password</span>
+              <span className="flex-grow-1">Email et Mot de Passe</span>
             </div>
           </button>
         </div>
