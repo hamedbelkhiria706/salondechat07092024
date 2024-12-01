@@ -52,16 +52,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-5 bg-light">
+      <section id="faq" className="py-5 bg-dark">
         <div className="container">
           <h2 className="text-center mb-4">FAQ</h2>
           <div className="accordion" id="faqAccordion">
-            <FAQItem
+            <FAQItem  
               id={1}
               question="Comment puis-je m'inscrire ?"
               answer="L'inscription est simple. Cliquez sur le bouton 'S'inscrire' en haut à droite et suivez les instructions."
             />
-            <FAQItem
+            <FAQItem  
               id={2}
               question="Est-ce que l'application est sécurisée ?"
               answer="Oui, nous utilisons des technologies de pointe pour garantir la sécurité de vos données et conversations."

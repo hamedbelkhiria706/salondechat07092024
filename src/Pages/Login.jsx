@@ -67,7 +67,7 @@ function Login() {
           </button>
           <div className="d-flex align-items-center" style={{ gap: "20px" }}>
             <div className="bg-secondary w-100" style={{ height: "1px" }}></div>
-            <span className="text-white">or</span>
+            <span className="text-white">ou bien</span>
             <div className="bg-secondary w-100" style={{ height: "1px" }}></div>
           </div>
           <button className="w-100 border-0 rounded p-2 bg-warning">
