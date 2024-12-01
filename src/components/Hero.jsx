@@ -13,11 +13,11 @@ function Hero() {
         />
       </div>
       <div className="col-lg-6">
-        <h1 className="mb-4 text-white">Talk to strangers, Make friends!</h1>
-        <p>
-          Experience a random chat alternative to find friends, connect with
-          people, and chat with strangers from all over the world!
-        </p>
+      <h1 className="mb-4 text-white">Parlez à des inconnus, Faites-vous des amis !</h1>
+<p>
+  Découvrez une alternative de chat aléatoire pour trouver des amis, vous connecter avec des gens et discuter avec des inconnus du monde entier !
+</p>
+
 
         <a className="btn btn-primary px-10 py-3 text-xl" href="/login">
           <span className="d-flex" style={{ gap: "20px" }}>
@@ -37,7 +37,7 @@ function Hero() {
                 d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
               ></path>
             </svg>
-            Start Chat
+            Commencer le Chat
           </span>
         </a>
       </div>
