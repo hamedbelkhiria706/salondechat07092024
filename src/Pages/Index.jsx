@@ -4,12 +4,13 @@ import FeatureCard from "../components/FeatureCard";
 import TestimonialCard from "../components/TestimonialCard";
 import FAQItem from "../components/FAQItem";
 import "../styles/global.css";
-import "../styles/decorationacceuil.css";
+ import "../styles/decorationacceuil.css";
+ 
 import QuiSommesNous from "./QuiSommesNous";
 
 const HomePage = () => {
   return (
-    <main className=" px-4 py-5 bg-dark m-0">
+    <main className=" px-4 py-5  bg-dark m-0">
       <Hero />
       <section id="features" className="py-5">
         <div className="container">
