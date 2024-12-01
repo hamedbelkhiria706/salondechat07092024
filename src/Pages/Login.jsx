@@ -89,9 +89,9 @@ function Login() {
           </button>
         </div>
         <span className="text-sm text-white-50 mt-2">
-          Don't have an account yet?
+          Vous n'avez pas encore de compte?
           <a className="link text-info" data-discover="true" href="/register">
-            Register Now!
+            Inscrivez-vous maintenant!
           </a>
         </span>
       </div>
