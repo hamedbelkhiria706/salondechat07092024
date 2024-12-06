@@ -3,7 +3,7 @@ import React from 'react';
 
 function PolitiqueDeConfidentialite() {
   return (
-    <div>
+    <main>
       <h1>Politique de Confidentialité</h1>
       <p>
         Politique de confidentialité de Salon de chat. La présente Politique de confidentialité décrit la façon dont vos informations personnelles sont recueillies, utilisées et partagées lorsque vous vous rendez sur https://salondechat.com (le « Site ») ou que vous y effectuez un achat.
@@ -135,7 +135,7 @@ sousse, sousse, sousse, 4060, Tunisie
 Propulsé par Shopify
 www.shopify.fr
 </p>
-        </div>
+        </main>
 )
 }
 

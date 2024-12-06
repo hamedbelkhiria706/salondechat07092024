@@ -10,7 +10,7 @@ import QuiSommesNous from "./QuiSommesNous";
 
 const HomePage = () => {
   return (
-    <main className=" px-4 py-5  bg-dark m-0">
+    <main className=" px-4 py-5m-0">
       <Hero />
       <section id="features" className="py-5">
         <div className="container">
@@ -52,7 +52,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-5 bg-dark">
+      <section id="faq" className="py-5">
         <div className="container">
           <h2 className="text-center mb-4">FAQ</h2>
           <div className="accordion" id="faqAccordion">
