@@ -31,13 +31,13 @@ const ContactPage = () => {
     }
   };
   return (
-    <main className="bg-dark">
-      <header className="mt-5 bg-dark">
+    <main  >
+      <header className="mt-5  ">
         <div className="row justify-content-center">
           <div className="col-md-12">
             <div className="wrapper">
               <div className="row no-gutters mb-5">
-                <div className="col text-white">
+                <div className="col  ">
                   <div className="w-100 p-md-5 p-4">
                     <h1 className="mb-4">Nous contacter</h1>
                     <div id="form-message-warning" className="mb-4"></div>

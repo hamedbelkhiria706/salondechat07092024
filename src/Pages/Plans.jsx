@@ -3,7 +3,7 @@ import PricingCard from "../components/PricingCard";
 
 function Plans() {
   return (
-    <section id="pricing" className="py-5 bg-dark">
+    <section id="pricing" className="py-5  ">
       <div className="container">
         <h2 className="text-center mb-4">Plans Tarifaires</h2>
         <div className="row">
