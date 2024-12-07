@@ -42,7 +42,7 @@ function MainNavbar() {
             </Nav.Link>
           </Nav>
           <Button variant="warning" href="/login">
-            Login
+            Connexion
           </Button>
         </Navbar.Collapse>
       </Container>

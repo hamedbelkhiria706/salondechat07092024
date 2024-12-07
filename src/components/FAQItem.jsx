@@ -2,11 +2,11 @@ import React from "react";
 
 const FAQItem = ({ question, answer, id }) => {
   return (
-    <div className="card">
-      <div className="card-header" id={`faqHeading${id}`}>
+    <div className="card bg-dark">
+      <div className="card-header bg-dark" id={`faqHeading${id}`}>
         <h2 className="mb-0">
           <button
-            className="btn btn-link"
+            className="btn btn-link text-white"
             type="button"
             data-toggle="collapse"
             data-target={`#faqCollapse${id}`}
@@ -19,7 +19,7 @@ const FAQItem = ({ question, answer, id }) => {
       </div>
       <div
         id={`faqCollapse${id}`}
-        className="collapse"
+        className="collapse text-white"
         aria-labelledby={`faqHeading${id}`}
         data-parent="#faqAccordion"
       >

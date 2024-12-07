@@ -31,18 +31,18 @@ const ContactPage = () => {
     }
   };
   return (
-    <main>
-      <header className="mt-5">
+    <main  >
+      <header className="mt-5  ">
         <div className="row justify-content-center">
           <div className="col-md-12">
             <div className="wrapper">
               <div className="row no-gutters mb-5">
-                <div className="col">
+                <div className="col  ">
                   <div className="w-100 p-md-5 p-4">
-                    <h1 className="mb-4">Contact Us</h1>
+                    <h1 className="mb-4">Nous contacter</h1>
                     <div id="form-message-warning" className="mb-4"></div>
                     <div id="form-message-success" className="mb-4">
-                      Your message was sent, thank you!
+                      Votre message a été envoyé merci!
                     </div>
                     <form
                       method="POST"
@@ -56,7 +56,7 @@ const ContactPage = () => {
                         <div className="col-md-6">
                           <div className="form-group">
                             <label className="label" htmlFor="name">
-                              Full Name
+                              Nom
                             </label>
                             <input
                               type="text"
@@ -70,14 +70,14 @@ const ContactPage = () => {
                               onChange={handleNameChange}
                             />
                             <div className="invalid-feedback">
-                              Please provide a valid name.
+                              Merci de donner un nom valide.
                             </div>
                           </div>
                         </div>
                         <div className="col-md-6">
                           <div className="form-group">
                             <label className="label" htmlFor="email">
-                              Email Address
+                              Addresse Email
                             </label>
                             <input
                               type="email"
@@ -89,14 +89,14 @@ const ContactPage = () => {
                               required
                             />
                             <div className="invalid-feedback">
-                              Please enter a valid email address.
+                              Merci de donner un email valide.
                             </div>
                           </div>
                         </div>
                         <div className="col-md-12">
                           <div className="form-group">
                             <label className="label" htmlFor="subject">
-                              Subject
+                              Motif de contact
                             </label>
                             <input
                               type="text"
@@ -108,7 +108,7 @@ const ContactPage = () => {
                               onChange={handleSubjectChange}
                             />
                             <div className="invalid-feedback">
-                              Please provide a subject.
+                              Merci de fournir un motif de contact.
                             </div>
                           </div>
                         </div>
@@ -127,7 +127,7 @@ const ContactPage = () => {
                               required
                             ></textarea>
                             <div className="invalid-feedback">
-                              Please enter a message.
+                              Merci de fournir un message.
                             </div>
                           </div>
                         </div>
@@ -152,7 +152,7 @@ const ContactPage = () => {
                           </div>
                           <div className="text">
                             <p>
-                              <span>Address:</span> 198 West 21th Street, Suite
+                              <span>Addresse:</span> 198 West 21th Street, Suite
                               721 New York NY 10016
                             </p>
                           </div>
@@ -165,7 +165,7 @@ const ContactPage = () => {
                           </div>
                           <div className="text">
                             <p>
-                              <span>Phone:</span>
+                              <span>Téléphone:</span>
                               <a href="tel://1234567920">+ 1235 2355 98</a>
                             </p>
                           </div>
@@ -179,8 +179,8 @@ const ContactPage = () => {
                           <div className="text">
                             <p>
                               <span>Email:</span>
-                              <a href="mailto:info@yoursite.com">
-                                info@yoursite.com
+                              <a href="mailto:info@salondechat.com">
+                                info@salondechat.com
                               </a>
                             </p>
                           </div>
@@ -193,7 +193,7 @@ const ContactPage = () => {
                           </div>
                           <div className="text">
                             <p>
-                              <span>Website</span> <a href="#">yoursite.com</a>
+                              <span>Website</span> <a href="salondechat.com">salondechat.com</a>
                             </p>
                           </div>
                         </div>

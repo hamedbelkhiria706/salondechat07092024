@@ -15,6 +15,7 @@ import DynamicChatSalon from "./components/DynamicSalonChat";
 import Password from "./components/password"
 import Profile from "./components/Profile";
 import ExportData from "./components/exportdata";
+import Register from "./components/register"
 function App() {
   return (
     <Router>
@@ -36,6 +37,7 @@ function App() {
         <Route path="/password" element={<Password/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/exportdata" element={<ExportData/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
       <Footer></Footer>
     </Router>

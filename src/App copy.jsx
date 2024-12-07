@@ -13,6 +13,9 @@ import UserDashboard from "./components/UserDashboard";
 import EditProfile from "./components/EditProfile1";
 import DynamicChatSalon from "./components/DynamicSalonChat";
 import Password from "./components/password";
+import Register from "./Pages/Register";
+import Notifications from './Pages/Notifications';
+import './styles/global.css'
 function App() {
   return (
     <Router>
@@ -23,6 +26,7 @@ function App() {
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
         <Route path="/mentionslegales" element={<MentionsLegales />} />
+        <Route path='/notifications' element={<Notifications/>}/>
         <Route
           path="/politiquedeconfidentialite"
           element={<PolitiqueDeConfidentialite />}
@@ -32,6 +36,7 @@ function App() {
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/abonnement" element={<DynamicChatSalon />} />
         <Route path="/password" element={<Password />} />
+        <Route path="/register" element={<Register/>}/>
       </Routes>
       <Footer></Footer>
     </Router>

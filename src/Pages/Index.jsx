@@ -4,12 +4,13 @@ import FeatureCard from "../components/FeatureCard";
 import TestimonialCard from "../components/TestimonialCard";
 import FAQItem from "../components/FAQItem";
 import "../styles/global.css";
-import "../styles/decorationacceuil.css";
+ import "../styles/decorationacceuil.css";
+ import "../styles/amelioration1.css"
 import QuiSommesNous from "./QuiSommesNous";
 
 const HomePage = () => {
   return (
-    <main className=" px-4 py-5 bg-dark m-0">
+    <main className=" px-4 py-5m-0">
       <Hero />
       <section id="features" className="py-5">
         <div className="container">
@@ -51,16 +52,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-5 bg-light">
+      <section id="faq" className="py-5">
         <div className="container">
           <h2 className="text-center mb-4">FAQ</h2>
           <div className="accordion" id="faqAccordion">
-            <FAQItem
+            <FAQItem  
               id={1}
               question="Comment puis-je m'inscrire ?"
               answer="L'inscription est simple. Cliquez sur le bouton 'S'inscrire' en haut à droite et suivez les instructions."
             />
-            <FAQItem
+            <FAQItem  
               id={2}
               question="Est-ce que l'application est sécurisée ?"
               answer="Oui, nous utilisons des technologies de pointe pour garantir la sécurité de vos données et conversations."
