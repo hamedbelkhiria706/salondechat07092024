@@ -20,11 +20,11 @@ app.use(express.static(path.join(__dirname, "../src/public")));
 
 const usersRouter = require("./routes/usersRoutes");
 
-app.use('/users',usersRouter)
+
 const chatRouter = require("./routes/chatRoutes");
 const publicRouter = require("./routes/publicRoutes");
 const adminRouter = require("./routes/adminRoutes");
-
+ 
  //const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 // Middleware setup
 app.use(express.json());

@@ -16,6 +16,11 @@ import Password from "./components/password";
 import Register from "./Pages/Register";
 import Notifications from './Pages/Notifications';
 import './styles/global.css'
+
+/*
+
+
+*/
 function App() {
   return (
     <Router>
