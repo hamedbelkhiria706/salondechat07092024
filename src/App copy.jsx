@@ -31,7 +31,7 @@ function App() {
           path="/politiquedeconfidentialite"
           element={<PolitiqueDeConfidentialite />}
         />
-        <Route path="/user/:id/chatroom/:username" element={<Chatroom />} />
+        <Route path="/user/:id/chatroom" element={<Chatroom />} />
         <Route path="/user/:id/dashboard" element={<UserDashboard />} />
         <Route path="/user/:id/editprofile" element={<EditProfile />} />
         <Route path="/user/:id/abonnement" element={<DynamicChatSalon />} />
