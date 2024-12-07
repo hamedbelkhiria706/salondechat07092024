@@ -26,16 +26,16 @@ function App() {
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
         <Route path="/mentionslegales" element={<MentionsLegales />} />
-        <Route path='/notifications' element={<Notifications/>}/>
+        <Route path='/user/:id/notifications' element={<Notifications/>}/>
         <Route
           path="/politiquedeconfidentialite"
           element={<PolitiqueDeConfidentialite />}
         />
-        <Route path="/chatroom/:username" element={<Chatroom />} />
-        <Route path="/dashboard" element={<UserDashboard />} />
-        <Route path="/editprofile" element={<EditProfile />} />
-        <Route path="/abonnement" element={<DynamicChatSalon />} />
-        <Route path="/password" element={<Password />} />
+        <Route path="/user/:id/chatroom/:username" element={<Chatroom />} />
+        <Route path="/user/:id/dashboard" element={<UserDashboard />} />
+        <Route path="/user/:id/editprofile" element={<EditProfile />} />
+        <Route path="/user/:id/abonnement" element={<DynamicChatSalon />} />
+        <Route path="/user/:id/password" element={<Password />} />
         <Route path="/register" element={<Register/>}/>
       </Routes>
       <Footer></Footer>
