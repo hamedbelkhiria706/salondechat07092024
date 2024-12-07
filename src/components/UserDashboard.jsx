@@ -49,11 +49,11 @@ const UserDashboard = () => {
             <div className="profile-settings">
                 <h2>Préférences de profil</h2>
                 <p>Gérer votre compte et préférences</p>
-                <button onClick={() => navigate('/editprofile')}>
+                <button onClick={() => navigate('/user/id/editprofile')}>
                     Changer infos de profil
                 </button>
                 <p>Abonnement</p>
-                <button onClick={() => navigate('/abonnement')}>
+                <button onClick={() => navigate('/user/id/abonnement')}>
                     Abonnement
                 </button>
                 
