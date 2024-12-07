@@ -223,6 +223,12 @@ const deleteRoom = async (req, res) => {
       .json({ message: "Error deleting room", error: error.message });
   }
 };
+const express = require('express'); 
+
+
+const router = express.Router()
+
+router.post('/register', registerUser); router.post('/verify-email', verifyEmail); router.post('/login', loginUser); router.post('/create-room', createRoom); router.post('/add-user-to-room', addUserToRoom); router.post('/block-user-from-room', blockUserFromRoom); router.delete('/delete-room', deleteRoom);
 
 module.exports = {
   registerUser,
