@@ -64,10 +64,10 @@ const EditProfile = () => {
                                 Enregistrer les Modifications
                             </button>
                         </form>
-                        <Link to="/profile" className="btn btn-secondary mt-3">
+                        <Link to="/user/id/profile" className="btn btn-secondary mt-3">
           Retour au profil
         </Link><br/>
-        <Link to="/password" className="btn btn-secondary mt-3">
+        <Link to="/user/id/password" className="btn btn-secondary mt-3">
           Changer mot de passe
         </Link>
                     </div>
