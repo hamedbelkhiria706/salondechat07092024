@@ -223,13 +223,35 @@ const deleteRoom = async (req, res) => {
       .json({ message: "Error deleting room", error: error.message });
   }
 };
-const express = require('express'); 
+const getUserDashboard=async(req,res)=>{
 
+}
 
-const router = express.Router()
+const users=async(req,res)=>{
 
-router.post('/register', registerUser); router.post('/verify-email', verifyEmail); router.post('/login', loginUser); router.post('/create-room', createRoom); router.post('/add-user-to-room', addUserToRoom); router.post('/block-user-from-room', blockUserFromRoom); router.delete('/delete-room', deleteRoom);
+}
+const getusers=async(req,res)=>{
+  
+}
 
+const usersid=async(req,res)=>{
+  
+}
+const deleteusers=async(req,res)=>{
+
+}
+const oldlogin=async(req,res)=>{
+
+}
+const oldsignup=async(req,res)=>{
+
+}
+const profile=async(req,res)=>{
+
+}
+const blockUserFromChat=async(req,res)=>{
+  
+}
 module.exports = {
   registerUser,
   verifyEmail,
@@ -238,4 +260,13 @@ module.exports = {
   addUserToRoom,
   blockUserFromRoom,
   deleteRoom,
+  getUserDashboard,
+  users,
+  getusers,
+  usersid,
+  deleteusers,
+  oldlogin,
+  oldsignup,
+  profile, 
+  blockUserFromChat, 
 };
