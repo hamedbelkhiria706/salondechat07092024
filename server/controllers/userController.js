@@ -231,7 +231,9 @@ const getUserDashboard=async(req,res)=>{
 }
 
 const users=async(req,res)=>{
+  const user=await usersCollection.find({})
 
+  res.send(user)
 }
 const getusers=async(req,res)=>{
   const user=await usersCollection.find({})
@@ -278,14 +280,77 @@ const oldlogin=async(req,res)=>{
   }
 }
 const oldsignup=async(req,res)=>{
+  const { username, email, password } = req.body;
 
+  try {
+    // Check if user exists
+    const userExists = await usersCollection.findOne({ email });
+    if (userExists)
+      return res.status(409).json({ message: "User already exists" });
+
+    // Create verification token
+    const verificationToken = crypto.randomBytes(32).toString("hex");
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Save user
+    const newUser = {
+      username,
+      email,
+      password: hashedPassword,
+      verificationToken,
+      isVerified: false,
+      createdRooms: [],
+      adminRooms: [],
+    };
+    await usersCollection.insertOne(newUser);
+
+    // Send verification email
+    const verifyUrl = `${req.protocol}://${req.get(
+      "host"
+    )}/api/users/verify/${verificationToken}`;
+    const message = `Verify your email by clicking the link: ${verifyUrl}`;
+
+    await sendEmail({
+      email: email,
+      subject: "Email Verification",
+      message,
+    });
+
+    res.status(201).json({
+      message: "User registered successfully. Verification email sent.",
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error registering user", error: error.message });
+  }
 }
 const profile=async(req,res)=>{
+  const user=await usersCollection.find({_id:req.params.id})
+  res.send(user)
+}
+const blockUserFromChat = async (req, res) => {
+  const { roomId, userId } = req.body;
 
+  try {
+    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+
+    if (!room) return res.status(404).json({ message: "Room not found" });
+
+    // Supprimer l'utilisateur de la salle
+    await roomsCollection.updateOne(
+      { _id: ObjectId(roomId) },
+      { $pull: { users: userId } } // Utilisation de $pull pour retirer l'utilisateur
+    );
+
+    res.status(200).json({ message: "User banned from room successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Error banning user from room", error: error.message });
+  }
 }
-const blockUserFromChat=async(req,res)=>{
-  
-}
+
 module.exports = {
   registerUser,
   verifyEmail,
