@@ -224,6 +224,9 @@ const deleteRoom = async (req, res) => {
   }
 };
 const getUserDashboard=async(req,res)=>{
+ const user=await usersCollection.find({})
+
+ res.send(user)
 
 }
 
@@ -231,7 +234,9 @@ const users=async(req,res)=>{
 
 }
 const getusers=async(req,res)=>{
-  
+  const user=await usersCollection.find({})
+
+ res.send(user)
 }
 
 const usersid=async(req,res)=>{
