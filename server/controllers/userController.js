@@ -240,13 +240,42 @@ const getusers=async(req,res)=>{
 }
 
 const usersid=async(req,res)=>{
-  
+  const user=await usersCollection.find({_id:req.params.id})
+  res.send(user)
 }
 const deleteusers=async(req,res)=>{
-
+  const result=await usersCollection.findByIdAndDelete(req.params.id)
+  res.send(result)
 }
 const oldlogin=async(req,res)=>{
+  const { email, password } = req.body;
 
+  try {
+    const user = await usersCollection.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // Verify password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch)
+      return res.status(401).json({ message: "Invalid email or password" });
+
+    if (!user.isVerified)
+      return res
+        .status(403)
+        .json({ message: "Please verify your email to login" });
+
+    // Generate JWT token
+    const token = generateToken(user._id);
+
+    res.status(200).json({
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      token,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error logging in", error: error.message });
+  }
 }
 const oldsignup=async(req,res)=>{
 
