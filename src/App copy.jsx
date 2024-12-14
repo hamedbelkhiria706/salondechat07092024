@@ -21,8 +21,8 @@ import UserProfile from "./components/UserProfile";
 // import Settings from "./components/Settings";
 import ExportData from './components/exportdata';
 // Import global styles
-// import './styles/global.css';
-
+ import './styles/global.css';
+import Password from './components/password'
 // Import Navbar and Footer
 import Navbar from "./components/MainNavbar";
 // import Footer from "./components/Footer";
@@ -54,6 +54,7 @@ function App() {
 <Route path="/user/:userId/notifications" element={<Notifications />} />
 <Route path="/user/:userId/exportdata" element={<ExportData />} />  
 <Route path="/user/:userId/editprofile" element={<EditProfile />} />   
+<Route path="/user/:userId/password" element={<Password />} /> 
         {/*  
         
         
