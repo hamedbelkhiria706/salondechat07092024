@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+//Building empty pages
 // Importation des pages principales
 import HomePage from "./Pages/Index";
 import ContactPage from "./Pages/Contact";
