@@ -12,7 +12,7 @@ const exportdata = () => {
         <button onClick={()=>{alert('données exportés csv')}} className="btn btn-primary">
           Exporter mes données
         </button><br/>
-        <Link to="/profile" className="btn btn-secondary mt-3">
+        <Link to="/user/userid/profile" className="btn btn-secondary mt-3">
           Retour au profil
         </Link>
       </div>

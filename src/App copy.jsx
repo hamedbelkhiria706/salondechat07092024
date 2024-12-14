@@ -19,7 +19,7 @@ import EditProfile from "./components/EditProfile1";
 // import CreateChatroom from "./components/CreateChatroom";
 import UserProfile from "./components/UserProfile";
 // import Settings from "./components/Settings";
-
+import ExportData from './components/exportdata';
 // Import global styles
 // import './styles/global.css';
 
@@ -47,16 +47,17 @@ function App() {
           element={<PolitiqueDeConfidentialite />}
         />
           {/* Routes utilisateur (authentifiées) */}
-<Route path="/user/:userId" element={<UserProfile />} />
+<Route path="/user/:userId/profile" element={<UserProfile />} />
 
 <Route path="/user/:userId/dashboard" element={<UserDashboard />} />
 
 <Route path="/user/:userId/notifications" element={<Notifications />} />
-      
+<Route path="/user/:userId/exportdata" element={<ExportData />} />  
+<Route path="/user/:userId/editprofile" element={<EditProfile />} />   
         {/*  
         
         
-        <Route path="/user/:userId/editprofile" element={<EditProfile />} />
+        
         <Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
         <Route path="/user/:userId/chatrooms/new" element={<CreateChatroom />} />
         <Route path="/user/:userId/chatrooms/:chatroomId" element={<Chatroom />} />
