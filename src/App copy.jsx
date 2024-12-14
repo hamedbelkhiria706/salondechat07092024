@@ -25,7 +25,7 @@ import ExportData from './components/exportdata';
 import Password from './components/password'
 // Import Navbar and Footer
 import Navbar from "./components/MainNavbar";
-// import Footer from "./components/Footer";
+import Footer from "./components/newfooter";
 
 function App() {
   return (
@@ -69,7 +69,7 @@ function App() {
       </Routes>
 
       {/* Pied de page */}
-      {/* <Footer /> */}
+      <Footer />  
     </Router>
   );
 }
