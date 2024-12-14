@@ -46,13 +46,16 @@ function App() {
           path="/politiquedeconfidentialite"
           element={<PolitiqueDeConfidentialite />}
         />
+          {/* Routes utilisateur (authentifiées) */}
 <Route path="/user/:userId" element={<UserProfile />} />
 
 <Route path="/user/:userId/dashboard" element={<UserDashboard />} />
-        {/* Routes utilisateur (authentifiées) */}
+
+<Route path="/user/:userId/notifications" element={<Notifications />} />
+      
         {/*  
         
-        <Route path="/user/:userId/notifications" element={<Notifications />} />
+        
         <Route path="/user/:userId/editprofile" element={<EditProfile />} />
         <Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
         <Route path="/user/:userId/chatrooms/new" element={<CreateChatroom />} />
