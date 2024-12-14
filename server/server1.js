@@ -1,46 +1,48 @@
 const express = require("express");
+ 
 const path = require("path");
 const dotenv = require("dotenv");
-const { connectDB } = require("./config/db"); // Ensure this exists and is implemented
-const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 dotenv.config();
-
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; // Use .env file for port configuration if available
+const uri = process.env.MONGO_URI || "mongodb://localhost:27017"; // Use .env file for MongoDB URI if available
+const databaseName = process.env.DB_NAME || "salonchatdboscarf28092024";
+const {JWT_SECRET,
+    connectDB,
+    database1}=require('./config/db.js')
 
-// Middleware
+// Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "../src/build")));
+app.use(express.static(path.join(__dirname, "../src/public")));
+// Import routes
 
-// Routes
 const usersRouter = require("./routes/usersRoutes");
+
+
 const chatRouter = require("./routes/chatRoutes");
 const publicRouter = require("./routes/publicRoutes");
 const adminRouter = require("./routes/adminRoutes");
+ 
+ //const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+// Middleware setup
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "../src/public")));
 
 app.use("/api/admin", adminRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/chat", chatRouter);
 app.use("/api/public", publicRouter);
+// Route definitions
+ 
 
-// React Frontend Catch-All Route
+// Catch-all route for React frontend
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../src/build", "index.html"));
-});
-
-// Error Handling
-app.use(notFound);
-app.use(errorHandler);
-
-// Start Server
+    res.sendFile(path.join(__dirname, "../src/build", "index.html"));
+  })
 app.listen(port, async () => {
-  try {
     await connectDB();
-    console.log(`Server running on http://localhost:${port}`);
-  } catch (error) {
-    console.error("Database connection failed:", error);
-    process.exit(1);
-  }
-});
+    console.log(`Server is running on http://localhost:${port}`);
+  });

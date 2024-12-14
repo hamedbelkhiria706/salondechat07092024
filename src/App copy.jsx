@@ -17,7 +17,7 @@ import Notifications from "./Pages/Notifications";
 // import Chatroom from "./components/Chatroom";
 import EditProfile from "./components/EditProfile1";
 // import CreateChatroom from "./components/CreateChatroom";
-// import UserProfile from "./components/UserProfile";
+import UserProfile from "./components/UserProfile";
 // import Settings from "./components/Settings";
 
 // Import global styles
@@ -46,10 +46,12 @@ function App() {
           path="/politiquedeconfidentialite"
           element={<PolitiqueDeConfidentialite />}
         />
+<Route path="/user/:userId" element={<UserProfile />} />
 
+<Route path="/user/:userId/dashboard" element={<UserDashboard />} />
         {/* Routes utilisateur (authentifiées) */}
-        {/* <Route path="/user/:userId" element={<UserProfile />} />
-        <Route path="/user/:userId/dashboard" element={<UserDashboard />} />
+        {/*  
+        
         <Route path="/user/:userId/notifications" element={<Notifications />} />
         <Route path="/user/:userId/editprofile" element={<EditProfile />} />
         <Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
