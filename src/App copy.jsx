@@ -13,7 +13,7 @@ import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
 // Importation des pages utilisateur
 import UserDashboard from "./components/UserDashboard";
 import Notifications from "./Pages/Notifications";
-// import ChatroomsList from "./components/ChatroomsList";
+  import ChatroomsList from "./components/ChatRoomList";
 import Chatroom from "./components/Chatroom";
 import EditProfile from "./components/EditProfile1";
 // import CreateChatroom from "./components/CreateChatroom";
@@ -56,11 +56,12 @@ function App() {
 <Route path="/user/:userId/editprofile" element={<EditProfile />} />   
 <Route path="/user/:userId/password" element={<Password />} /> 
 <Route path="/user/:userId/chatrooms/:chatroomId" element={<Chatroom />} />
+<Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
         {/*  
         
         
         
-        <Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
+        
         <Route path="/user/:userId/chatrooms/new" element={<CreateChatroom />} />
         
         <Route path="/user/:userId/settings" element={<Settings />} /> */}
