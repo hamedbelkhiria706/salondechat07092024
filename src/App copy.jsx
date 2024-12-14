@@ -13,14 +13,20 @@ import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
 // Importation des pages utilisateur
 import UserDashboard from "./components/UserDashboard";
 import Notifications from "./Pages/Notifications";
-import ChatroomsList from "./components/ChatroomsList";
-import Chatroom from "./components/Chatroom";
+// import ChatroomsList from "./components/ChatroomsList";
+// import Chatroom from "./components/Chatroom";
 import EditProfile from "./components/EditProfile1";
-import DynamicChatSalon from "./components/DynamicSalonChat";
-import Password from "./components/password";
-import Register from "./Pages/Register";
-import Notifications from './Pages/Notifications';
-import './styles/global.css'
+// import CreateChatroom from "./components/CreateChatroom";
+// import UserProfile from "./components/UserProfile";
+// import Settings from "./components/Settings";
+
+// Import global styles
+// import './styles/global.css';
+
+// Import Navbar and Footer
+import Navbar from "./components/MainNavbar";
+// import Footer from "./components/Footer";
+
 function App() {
   return (
     <Router>
@@ -59,7 +65,7 @@ function App() {
       </Routes>
 
       {/* Pied de page */}
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }
