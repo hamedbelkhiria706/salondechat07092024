@@ -24,10 +24,6 @@
     "vite-plugin-css": "^1.0.4",
     "vite-plugin-react": "^4.0.1"
   },
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
-  },
   "target": "es6",
   "name": "salonchat07092024-git",
   "version": "1.0.0",
