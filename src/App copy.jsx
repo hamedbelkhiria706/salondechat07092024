@@ -48,20 +48,14 @@ function App() {
         />
 
         {/* Routes utilisateur (authentifiées) */}
-        <Route path="/user/:userId" element={<UserProfile />} />
+        {/* <Route path="/user/:userId" element={<UserProfile />} />
         <Route path="/user/:userId/dashboard" element={<UserDashboard />} />
         <Route path="/user/:userId/notifications" element={<Notifications />} />
         <Route path="/user/:userId/editprofile" element={<EditProfile />} />
         <Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
-        <Route
-          path="/user/:userId/chatrooms/new"
-          element={<CreateChatroom />}
-        />
-        <Route
-          path="/user/:userId/chatrooms/:chatroomId"
-          element={<Chatroom />}
-        />
-        <Route path="/user/:userId/settings" element={<Settings />} />
+        <Route path="/user/:userId/chatrooms/new" element={<CreateChatroom />} />
+        <Route path="/user/:userId/chatrooms/:chatroomId" element={<Chatroom />} />
+        <Route path="/user/:userId/settings" element={<Settings />} /> */}
       </Routes>
 
       {/* Pied de page */}
