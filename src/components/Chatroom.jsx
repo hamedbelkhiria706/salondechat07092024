@@ -8,7 +8,7 @@ const Chatroom = ({
   messagesHistory = [{ id: 0, user: "salah", text: "aaaaaaaa" }],
 }) => {
   const [messages, setMessages] = useState(messagesHistory || []);
-  const { id } = useParams(); const username = id || "Guest" // Fallback to "Guest"
+  const { userId } = useParams(); const username = userId || "Guest" // Fallback to "Guest"
 
   const handleSendMessage = (text) => {
     const newMessage = { id: Date.now(), user: username, text }; // Unique ID
