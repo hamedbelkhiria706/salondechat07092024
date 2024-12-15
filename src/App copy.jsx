@@ -32,7 +32,6 @@ function App() {
     <Router>
       {/* Barre de navigation */}
       <Navbar />
-
       {/* Routes */}
       <Routes>
         {/* Routes principales */}
@@ -47,25 +46,18 @@ function App() {
           element={<PolitiqueDeConfidentialite />}
         />
           {/* Routes utilisateur (authentifiées) */}
-<Route path="/user/:userId/profile" element={<UserProfile />} />
+    <Route path="/user/:userId/profile" element={<UserProfile />} />
 
-<Route path="/user/:userId/dashboard" element={<UserDashboard />} />
+    <Route path="/user/:userId/dashboard" element={<UserDashboard />} />
 
-<Route path="/user/:userId/notifications" element={<Notifications />} />
-<Route path="/user/:userId/exportdata" element={<ExportData />} />  
-<Route path="/user/:userId/editprofile" element={<EditProfile />} />   
-<Route path="/user/:userId/password" element={<Password />} /> 
-<Route path="/user/:userId/chatrooms/:chatroomId" element={<Chatroom />} />
-<Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
-<Route path="/user/:userId/settings" element={<Settings />} />  
-       
-        
-        
-        
-        
-        <Route path="/user/:userId/chatrooms/new" element={<CreateChatroom />} />
-        
-        
+    <Route path="/user/:userId/notifications" element={<Notifications />} />
+    <Route path="/user/:userId/exportdata" element={<ExportData />} />  
+    <Route path="/user/:userId/editprofile" element={<EditProfile />} />   
+    <Route path="/user/:userId/password" element={<Password />} /> 
+    <Route path="/user/:userId/chatrooms/:chatroomId" element={<Chatroom />} />
+    <Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
+    <Route path="/user/:userId/settings" element={<Settings />} />  
+    <Route path="/user/:userId/chatrooms/new" element={<CreateChatroom />} />
       </Routes>
 
       {/* Pied de page */}
