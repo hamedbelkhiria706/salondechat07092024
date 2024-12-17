@@ -2,7 +2,11 @@ import React from 'react'
 
 function ChatRoomList() {
   return (
-    <div>ChatRoomList</div>
+    <div>
+      <h1>
+      Liste de chat rooms
+      </h1>
+      </div>
   )
 }
 
