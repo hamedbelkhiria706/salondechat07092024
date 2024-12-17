@@ -2,7 +2,7 @@ import React from 'react'
 
 function Settings() {
   return (
-    <div>Paramètres du compte</div>
+    <div><h1>Paramètres du compte</h1></div>
   )
 }
 
