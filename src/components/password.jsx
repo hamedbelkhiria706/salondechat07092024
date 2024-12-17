@@ -1,7 +1,17 @@
 import React from "react";
 import "../styles/global.css";
 import {Link} from 'react-router-dom'
+import {useRef} from "react";
+
 const password = () => {
+  const cp=useRef("")
+  const np=useRef("")
+  const cnp=useRef("")
+  const passwordreset=()=>{
+    console.log(cp)
+    console.log(np)
+    console.log(cnp)
+  }
   return (
     <main>
       <div className="container mt-5">
@@ -9,11 +19,11 @@ const password = () => {
 
         <form>
           <div className="form-group">
-            <label for="current-password">Mot de passe actuel</label>
+            <label for="current-password" >Mot de passe actuel</label>
             <input
               type="password"
               className="form-control"
-              id="current-password"
+              id="current-password" ref={cp}
               placeholder="Entrez votre mot de passe actuel"
               required
             />
@@ -23,7 +33,7 @@ const password = () => {
             <input
               type="password"
               className="form-control"
-              id="new-password"
+              id="new-password" ref={np}
               placeholder="Entrez un nouveau mot de passe"
               required
             />
@@ -35,12 +45,12 @@ const password = () => {
             <input
               type="password"
               className="form-control"
-              id="confirm-password"
+              id="confirm-password" ref={cnp}
               placeholder="Confirmez le nouveau mot de passe"
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="button" onClick={()=>{passwordreset()}} className="btn btn-primary">
             Mettre à jour le mot de passe
           </button>
         </form>
