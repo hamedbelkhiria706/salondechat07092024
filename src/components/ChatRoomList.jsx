@@ -6,6 +6,7 @@ function ChatRoomList() {
       <h1>
       Liste de chat rooms
       </h1>
+      
       </div>
   )
 }

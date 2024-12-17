@@ -33,7 +33,7 @@ const Notifications = () => {
             Sauvegarder les paramètres
           </button>
         </form>
-        <Link to="/profile" className="btn btn-secondary mt-3">
+        <Link to="/user/userid/profile" className="btn btn-secondary mt-3">
           Retour au profil
         </Link>
       </div>
