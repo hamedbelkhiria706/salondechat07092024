@@ -1,11 +1,11 @@
 import React from "react";
-
+import logo from '../assets/CnP_29122024_104427-ezgif.com-resize.png'
 function Hero() {
   return (
     <div className="container d-flex flex-column-reverse text-center text-lg-left flex-lg-row-reverse align-items-center gap-5 py-5 text-white">
       <div className="col-10 col-sm-8 col-lg-6">
         <img
-          src=""
+          src={logo}
           className="d-block mx-lg-auto img-fluid"
           width="700"
           height="500"
