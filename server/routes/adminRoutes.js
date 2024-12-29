@@ -9,14 +9,14 @@ const { adminCollection } = require("../models/adminsCollectionStructure");
 
 const {
   getAdminDashboard,
-  getAllUsers,
+  getAllAdmins,
   manageUsersSubscriptions, // Corrected name here
   login,
 } = require("../controllers/adminController");
 
 router.post("/dashboard", getAdminDashboard);
 
-router.post("/users", getAllUsers);
+router.post("/admins", getAllAdmins);
 
 router.put("/subscriptions/:userId", manageUsersSubscriptions);
 

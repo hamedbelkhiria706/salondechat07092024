@@ -1,16 +1,17 @@
-const User = require("../models/usersCollectionStructure");
+const {adminCollection} = require("../models/adminsCollectionStructure");
 
 //Get admin dashboard
 const getAdminDashboard = (req, res) => {
   res.json({ message: "Welcome to the admin dashboard" });
 };
 //Get all users
-const getAllUsers = async (req, res) => {
+const getAllAdmins = async (req, res) => {
   try {
-    const users = await User.find().select("-password");
-    res.json(users);
+    const admins = await adminCollection.find().select("-password");
+    res.json(admins);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching users", error });
+    console.log(error)
+    res.status(500).json({ message: "Error fetching admins", error });
   }
 };
 //Manage users subscriptions
@@ -59,7 +60,7 @@ const login = async (req, res) => {
 };
 module.exports = {
   getAdminDashboard,
-  getAllUsers,
+  getAllAdmins,
   manageUsersSubscriptions,
   login,
 };
