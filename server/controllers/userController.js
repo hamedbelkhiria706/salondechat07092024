@@ -5,7 +5,7 @@ const { ObjectId } = require("mongodb");
 const sendEmail = require("../utils/sendEmail");
 const generateToken = require("../utils/generateToken");
 const { usersCollection } = require("../models/usersCollectionStructure");
-const { roomsCollection } = require("../models/roomsCollectionStructure");
+const { roomsCollections } = require("../models/roomsCollectionStructure");
 
 const MAX_ALLOWED_ROOMS = 3; // Example limit for free users
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
@@ -136,7 +136,7 @@ const createRoom = async (req, res) => {
       creator: ObjectId(userId),
       users: [userId],
     };
-    const result = await roomsCollection.insertOne(newRoom);
+    const result = await roomsCollections.insertOne(newRoom);
 
     // Update user's created rooms
     await usersCollection.updateOne(
@@ -157,11 +157,11 @@ const addUserToRoom = async (req, res) => {
   const { roomId, userId } = req.body;
 
   try {
-    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    const room = await roomsCollections.findOne({ _id: ObjectId(roomId) });
     if (!room) return res.status(404).json({ message: "Room not found" });
 
     // Add user to room
-    await roomsCollection.updateOne(
+    await roomsCollections.updateOne(
       { _id: ObjectId(roomId) },
       { $addToSet: { users: userId } }
     );
@@ -179,11 +179,11 @@ const blockUserFromRoom = async (req, res) => {
   const { roomId, userIdToBlock } = req.body;
 
   try {
-    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    const room = await roomsCollections.findOne({ _id: ObjectId(roomId) });
     if (!room) return res.status(404).json({ message: "Room not found" });
 
     // Remove user from room
-    await roomsCollection.updateOne(
+    await roomsCollections.updateOne(
       { _id: ObjectId(roomId) },
       { $pull: { users: userIdToBlock } }
     );
@@ -201,14 +201,14 @@ const deleteRoom = async (req, res) => {
   const { roomId, userId } = req.body;
 
   try {
-    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    const room = await roomsCollections.findOne({ _id: ObjectId(roomId) });
     if (!room) return res.status(404).json({ message: "Room not found" });
 
     if (String(room.creator) !== String(userId))
       return res.status(403).json({ message: "Unauthorized to delete room" });
 
     // Delete room
-    await roomsCollection.deleteOne({ _id: ObjectId(roomId) });
+    await roomsCollections.deleteOne({ _id: ObjectId(roomId) });
 
     // Remove room from user's createdRooms
     await usersCollection.updateOne(
@@ -335,12 +335,12 @@ const blockUserFromChat = async (req, res) => {
   const { roomId, userId } = req.body;
 
   try {
-    const room = await roomsCollection.findOne({ _id: ObjectId(roomId) });
+    const room = await roomsCollections.findOne({ _id: ObjectId(roomId) });
 
     if (!room) return res.status(404).json({ message: "Room not found" });
 
     // Supprimer l'utilisateur de la salle
-    await roomsCollection.updateOne(
+    await roomsCollections.updateOne(
       { _id: ObjectId(roomId) },
       { $pull: { users: userId } } // Utilisation de $pull pour retirer l'utilisateur
     );
