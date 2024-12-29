@@ -1,12 +1,13 @@
 const {adminCollection} = require("../models/adminsCollectionStructure");
-const {usersCollections}=require('../models/usersCollectionStructure');
-const User = usersCollections;
+const {usersCollection}=require('../models/usersCollectionStructure');
+
 //Get admin dashboard
 const getAdminDashboard = (req, res) => {
   res.json({ message: "Welcome to the admin dashboard" });
 };
 
 const testUser=async(req,res)=>{
+  const User=usersCollection;
   try {
     const users = await User.find().select("-password");
     res.json(users);
