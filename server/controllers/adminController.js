@@ -5,6 +5,16 @@ const User = usersCollections;
 const getAdminDashboard = (req, res) => {
   res.json({ message: "Welcome to the admin dashboard" });
 };
+
+const testUser=async(req,res)=>{
+  try {
+    const users = await User.find().select("-password");
+    res.json(users);
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: "Error fetching admins", error });
+  }
+}
 //Get all users
 const getAllAdmins = async (req, res) => {
   try {
@@ -64,4 +74,5 @@ module.exports = {
   getAllAdmins,
   manageUsersSubscriptions,
   login,
+  testUser
 };

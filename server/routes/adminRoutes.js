@@ -8,12 +8,15 @@ const jwt = require("jsonwebtoken");
 const { adminCollection } = require("../models/adminsCollectionStructure");
 
 const {
+  testUser,
   getAdminDashboard,
   getAllAdmins,
   manageUsersSubscriptions, // Corrected name here
   login,
 } = require("../controllers/adminController");
 
+
+router.post('/currentusers',testUser);
 router.post("/dashboard", getAdminDashboard);
 
 router.post("/admins", getAllAdmins);
