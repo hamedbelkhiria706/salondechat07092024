@@ -1,5 +1,6 @@
 const {adminCollection} = require("../models/adminsCollectionStructure");
-
+const {usersCollections}=require('../models/usersCollectionStructure');
+const User = usersCollections;
 //Get admin dashboard
 const getAdminDashboard = (req, res) => {
   res.json({ message: "Welcome to the admin dashboard" });
