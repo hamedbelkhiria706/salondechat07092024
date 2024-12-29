@@ -10,6 +10,7 @@ async function connectDB() {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+  console.log('connected')
 }
 module.exports = {
   JWT_SECRET,
