@@ -27,6 +27,7 @@ import Password from './components/password'
 import Navbar from "./components/MainNavbar";
 import Footer from "./components/newfooter";
 import LoginEmailMDP from "./Pages/LoginEmailMDP";
+import RegisterEmailPassword from "./Pages/RegisterEmailPassword";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
         <Route path="/eplogin" element={<LoginEmailMDP/>}/>
+        <Route path="/epregister" element={<RegisterEmailPassword/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/mentionslegales" element={<MentionsLegales />} />
         <Route
