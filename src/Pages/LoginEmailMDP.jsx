@@ -40,7 +40,7 @@ function LoginEmailMDP() {
               ></input>
         <br/>
         {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="sumbit">Envoyer</button>
+        <button type="sumbit" disabled={isValid}>Envoyer</button>
         </form>
     </main>
   )
