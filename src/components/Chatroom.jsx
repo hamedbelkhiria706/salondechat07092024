@@ -5,7 +5,7 @@ import MessageList from "./MessageList";
 import MessageInput from "./MessageInput";
 
 const Chatroom = ({
-  messagesHistory = [{ id: 0, user: "salah", text: "aaaaaaaa" }],
+  messagesHistory = [{ id: 0, user: "salah", text: "bonjour" }],
 }) => {
   const [messages, setMessages] = useState(messagesHistory || []);
   const { userId } = useParams(); const username = userId || "Guest" // Fallback to "Guest"
