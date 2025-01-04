@@ -17,10 +17,7 @@ function RegisterEmailPassword() {
               setError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.');
           }
         };
-        const handleChange = () => {
-           
-          validatePassword(password);
-        };
+        
       const handleSubmit=(e)=>{
           e.preventDefault();
           console.log(email)
