@@ -27,7 +27,7 @@ function LoginEmailMDP() {
         console.log(password)
     }
   return (
-    <div>
+    <main>
         <h1>Connexion par login et mot de passe</h1>
         <form onSubmit={handleSubmit}>
         <h2>Email:</h2>
@@ -45,7 +45,7 @@ function LoginEmailMDP() {
         {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="sumbit">Envoyer</button>
         </form>
-    </div>
+    </main>
   )
 }
 

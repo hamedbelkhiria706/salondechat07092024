@@ -27,7 +27,7 @@ function RegisterEmailPassword() {
           console.log(password)
       }
     return (
-      <div>
+      <main  >
           <h1>Inscription par login et mot de passe</h1>
           <form onSubmit={handleSubmit}>
           <h2>Email:</h2>
@@ -45,7 +45,7 @@ function RegisterEmailPassword() {
           {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
           <button type="sumbit">Envoyer</button>
           </form>
-      </div>
+      </main>
     )
 }
 
