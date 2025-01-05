@@ -36,7 +36,7 @@ router.post("/register", registerUser);
 
 router.get("/verify/:token", verifyEmail);
 
-router.get("/login", loginUser);
+router.post("/login", loginUser);
 
 router.get("/dashboard", authMiddleware, getUserDashboard);
 

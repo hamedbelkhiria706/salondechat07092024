@@ -92,29 +92,31 @@ const loginUser = async (req, res) => {
   try {
     const user = await usersCollection.find({ email:email });
     console.log(user)
-    if (user.length==0) return res.status(404).json({ message: "User not found" });
-
+    if (user.length==0) return res.status(200).json({ message: "User not found" });
+    console.log('passed 1')
     // Verify password
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user[0].password);
     if (!isMatch)
-      return res.status(401).json({ message: "Invalid email or password" });
-
+      return res.status(200).json({ message: "Invalid email or password" });
+    console.log('passed 2')
     if (!user.isVerified)
-      return res
-        .status(403)
-        .json({ message: "Please verify your email to login" });
-
+      console.log('Please verify your email to login')
+      //return res
+      //  .status(200)
+      //  .json({ message: "Please verify your email to login" });
+    console.log('passed 3')
     // Generate JWT token
+     
     const token = generateToken(user._id);
 
     res.status(200).json({
       _id: user._id,
       username: user.username,
       email: user.email,
-      token,
+      verificationToken:token,
     });
   } catch (error) {
-    res.status(500).json({ message: "Error logging in", error: error.message });
+    res.status(200).json({ message: "Error logging in", error: error.message });
   }
 };
 
