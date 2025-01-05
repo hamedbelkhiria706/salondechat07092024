@@ -40,7 +40,7 @@ function RegisterEmailPassword() {
                 ></input>
           <br/> {/* confirmer email sans conf compte */}
           {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
-          <button type="sumbit" disabled={isValid}>Envoyer</button>
+          <button type="sumbit" disabled={!isValid}>Envoyer</button>
           </form>
       </main>
     )
