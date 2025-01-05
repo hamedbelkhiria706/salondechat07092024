@@ -12,7 +12,9 @@ function LoginEmailMDP() {
       try { const response = await axios.post(apiUrl+'/api/users/login',
       // 
  { email: email, password: password });
-  setData(response.data); }
+  setData(response.data);
+  console.log(data)
+}
    catch (error) { console.log('Error making POST request:', error); } };
     const validatePassword = (password) => {
        
@@ -36,7 +38,7 @@ function LoginEmailMDP() {
         console.log(email)
         console.log(password)
         handlePostRequest()
-        console.log(data)
+        
     }
   return (
     <main>

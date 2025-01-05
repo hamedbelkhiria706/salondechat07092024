@@ -16,7 +16,8 @@ function RegisterEmailPassword() {
         try { const response = await axios.post(apiUrl+'/api/users/register',
         // 
    { email: email, password: password });
-    setData(response.data); }
+    setData(response.data);
+    console.log(data) }
      catch (error) { console.log('Error making POST request:', error); } };
       const validatePassword = (password) => {
           // Regex for password validation
