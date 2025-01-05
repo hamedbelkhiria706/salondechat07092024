@@ -22,8 +22,8 @@ function LoginEmailMDP() {
         if (passwordRegex.test(password)) {
             setIsValid(true);
             setError(''); // Clear error message if valid
-            handlePostRequest()
-            console.log(data)
+            
+            
         } else {
             setIsValid(false);
             setError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.');
@@ -31,10 +31,12 @@ function LoginEmailMDP() {
          
       };
       
-    const handleSubmit=(e)=>{
+    const handleSubmit=async (e)=>{
         e.preventDefault();
         console.log(email)
         console.log(password)
+        handlePostRequest()
+        console.log(data)
     }
   return (
     <main>
