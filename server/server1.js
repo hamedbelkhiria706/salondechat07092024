@@ -11,7 +11,8 @@ const databaseName = process.env.DB_NAME || "salonchatdboscarf28092024";
 const {JWT_SECRET,
     connectDB,
     database1}=require('./config/db.js')
-
+const cors = require('cors');
+app.use(cors());
 // Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
