@@ -13,11 +13,12 @@ const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 // User Registration
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
-
+  console.log('register called')
   try {
     // Check if user exists
-    const userExists = await usersCollection.findOne({ email });
-    if (userExists)
+    const userExists = await usersCollection.find({ email:email });
+    console.log(userExists)
+    if (userExists.length > 0)
       return res.status(409).json({ message: "User already exists" });
 
     // Create verification token
@@ -27,19 +28,19 @@ const registerUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Save user
-    const newUser = {
-      username,
-      email,
-      password: hashedPassword,
-      verificationToken,
-      isVerified: false,
-      createdRooms: [],
-      adminRooms: [],
-    };
-    await usersCollection.insertOne(newUser);
-
+    const newUser = { username: email,
+       // Ensure 'email' is defined before this line 
+       email: email,
+       //  // Explicitly set 'email' to avoid any confusion 
+       password: hashedPassword, 
+       verificationToken,
+        isVerified: false, 
+        createdRooms: [],
+         adminRooms: [], };
+     
+    const user = await usersCollection.create(newUser);
     // Send verification email
-    const verifyUrl = `${req.protocol}://${req.get(
+    /*const verifyUrl = `${req.protocol}://${req.get(
       "host"
     )}/api/users/verify/${verificationToken}`;
     const message = `Verify your email by clicking the link: ${verifyUrl}`;
@@ -48,14 +49,14 @@ const registerUser = async (req, res) => {
       email: email,
       subject: "Email Verification",
       message,
-    });
-
+    });*/
+    console.log(user)
     res.status(201).json({
       message: "User registered successfully. Verification email sent.",
     });
   } catch (error) {
     res
-      .status(500)
+      .status(200)
       .json({ message: "Error registering user", error: error.message });
   }
 };

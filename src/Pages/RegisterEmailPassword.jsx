@@ -1,10 +1,23 @@
  
 import React,{useState} from 'react'
+import axios from 'axios'
+const apiUrl = import.meta.env.VITE_API_URL;
+/*
+axios.defaults.withCredentials = true; 
+axios.defaults.xsrfCookieName = 'XSRF-TOKEN'; 
+axios.defaults.xsrfHeaderName = 'X-XSRF-TOKEN';*/
 function RegisterEmailPassword() {
   const [email,setEmail]=useState('')
       const [password,setPassword]=useState('')
       const [isValid, setIsValid] = useState(false);
       const [error, setError] = useState('');
+      const [data,setData]=useState('')
+      const handlePostRequest = async () => { 
+        try { const response = await axios.post(apiUrl+'/api/users/register',
+        // 
+   { email: email, password: password });
+    setData(response.data); }
+     catch (error) { console.log('Error making POST request:', error); } };
       const validatePassword = (password) => {
           // Regex for password validation
           const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
@@ -22,6 +35,8 @@ function RegisterEmailPassword() {
           e.preventDefault();
           console.log(email)
           console.log(password)
+          handlePostRequest()
+          console.log(data)
       }
     return (
       <main  >

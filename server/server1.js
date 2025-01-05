@@ -2,7 +2,7 @@ const express = require("express");
  
 const path = require("path");
 const dotenv = require("dotenv");
-
+//const csurf = require('csurf')
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000; // Use .env file for port configuration if available
@@ -15,6 +15,7 @@ const cors = require('cors');
 app.use(cors());
 // Middleware setup
 app.use(express.json());
+//app.use(csurf({ cookie: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../src/public")));
 // Import routes
