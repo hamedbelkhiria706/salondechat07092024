@@ -1,4 +1,6 @@
 import React,{useState} from 'react'
+import axios from 'axios'
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function LoginEmailMDP() {
     const [email,setEmail]=useState('')
@@ -6,6 +8,7 @@ function LoginEmailMDP() {
     const [isValid, setIsValid] = useState(false);
     const [error, setError] = useState('');
     const validatePassword = (password) => {
+       
         // Regex for password validation
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
         
@@ -16,6 +19,7 @@ function LoginEmailMDP() {
             setIsValid(false);
             setError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.');
         }
+         
       };
       
     const handleSubmit=(e)=>{
