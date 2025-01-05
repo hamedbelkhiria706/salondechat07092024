@@ -6,7 +6,7 @@ const sendEmail = require("../utils/sendEmail");
 const generateToken = require("../utils/generateToken");
 const { usersCollection } = require("../models/usersCollectionStructure");
 const { roomsCollections } = require("../models/roomsCollectionStructure");
-
+ 
 const MAX_ALLOWED_ROOMS = 3; // Example limit for free users
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 
@@ -25,15 +25,16 @@ const registerUser = async (req, res) => {
     const verificationToken = crypto.randomBytes(32).toString("hex");
 
     // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
+    const bcryptjs1=bcrypt;
+    const hashedPassword = await bcryptjs1.hash(password, 10);
+    console.log('Hashed Password:', hashedPassword);
     // Save user
     const newUser = { username: email,
        // Ensure 'email' is defined before this line 
        email: email,
        //  // Explicitly set 'email' to avoid any confusion 
        password: hashedPassword, 
-       verificationToken,
+       verifcationToken:verificationToken,
         isVerified: false, 
         createdRooms: [],
          adminRooms: [], };
