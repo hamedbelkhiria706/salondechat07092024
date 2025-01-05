@@ -7,6 +7,13 @@ function LoginEmailMDP() {
     const [password,setPassword]=useState('')
     const [isValid, setIsValid] = useState(false);
     const [error, setError] = useState('');
+    const [data,setData]=useState()
+    const handlePostRequest = async () => { 
+      try { const response = await axios.post(apiUrl+'/api/users/login',
+      // 
+ { email: email, password: password });
+  setData(response.data); }
+   catch (error) { console.error('Error making POST request:', error); } };
     const validatePassword = (password) => {
        
         // Regex for password validation
@@ -15,6 +22,8 @@ function LoginEmailMDP() {
         if (passwordRegex.test(password)) {
             setIsValid(true);
             setError(''); // Clear error message if valid
+            handlePostRequest()
+            console.log(data)
         } else {
             setIsValid(false);
             setError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.');
