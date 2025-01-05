@@ -90,8 +90,9 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
   console.log('login called')
   try {
-    const user = await usersCollection.findOne({ email });
-    if (!user) return res.status(404).json({ message: "User not found" });
+    const user = await usersCollection.find({ email:email });
+    console.log(user)
+    if (user.length==0) return res.status(404).json({ message: "User not found" });
 
     // Verify password
     const isMatch = await bcrypt.compare(password, user.password);
