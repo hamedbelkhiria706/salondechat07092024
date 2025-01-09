@@ -97,7 +97,7 @@ const loginUser = async (req, res) => {
     // Verify password
     const isMatch = await bcrypt.compare(password, user[0].password);
     if (!isMatch)
-      return res.status(200).json({ message: "Invalid email or password" });
+      return res.status(400).json({ message: "Invalid email or password" });
     console.log('passed 2')
     if (!user.isVerified)
       console.log('Please verify your email to login')

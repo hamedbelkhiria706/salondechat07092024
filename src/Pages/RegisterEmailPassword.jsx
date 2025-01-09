@@ -22,7 +22,7 @@ function RegisterEmailPassword() {
   setResult('Inscription faite avec succès.');
   }
      catch (error) { console.log('Error making POST request:', error);
-setResponse('Inscription déjà faite.');
+setResult('Inscription déjà faite.');
 
       } };
       const validatePassword = (password) => {
