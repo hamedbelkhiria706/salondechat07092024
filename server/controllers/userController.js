@@ -57,7 +57,7 @@ const registerUser = async (req, res) => {
     });
   } catch (error) {
     res
-      .status(200)
+      .status(400)
       .json({ message: "Error registering user", error: error.message });
   }
 };
