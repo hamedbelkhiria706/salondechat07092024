@@ -17,7 +17,10 @@ function LoginEmailMDP() {
   setResult('Connexion faite avec succès.')
   console.log(data)
 }
-   catch (error) { console.log('Error making POST request:', error); } };
+   catch (error) { console.log('Error making POST request:', error);
+
+    setResult('Erreur login ou mot de passe');
+    } };
     const validatePassword = (password) => {
        
         // Regex for password validation

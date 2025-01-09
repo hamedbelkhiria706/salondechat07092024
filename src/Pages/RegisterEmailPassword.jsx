@@ -21,7 +21,10 @@ function RegisterEmailPassword() {
     console.log(data);
   setResult('Inscription faite avec succès.');
   }
-     catch (error) { console.log('Error making POST request:', error); } };
+     catch (error) { console.log('Error making POST request:', error);
+setResponse('Inscription déjà faite.');
+
+      } };
       const validatePassword = (password) => {
           // Regex for password validation
           const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
