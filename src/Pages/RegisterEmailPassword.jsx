@@ -12,12 +12,15 @@ function RegisterEmailPassword() {
       const [isValid, setIsValid] = useState(false);
       const [error, setError] = useState('');
       const [data,setData]=useState('')
+      const [result,setResult]=useState('')
       const handlePostRequest = async () => { 
         try { const response = await axios.post(apiUrl+'/api/users/register',
         // 
    { email: email, password: password });
     setData(response.data);
-    console.log(data) }
+    console.log(data);
+  setResult('Inscription faite avec succès.');
+  }
      catch (error) { console.log('Error making POST request:', error); } };
       const validatePassword = (password) => {
           // Regex for password validation
@@ -57,6 +60,7 @@ function RegisterEmailPassword() {
           <br/> {/* confirmer email sans conf compte */}
           {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
           <button type="sumbit" disabled={!isValid}>Envoyer</button>
+          {result}
           </form>
       </main>
     )

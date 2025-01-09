@@ -7,12 +7,14 @@ function LoginEmailMDP() {
     const [password,setPassword]=useState('')
     const [isValid, setIsValid] = useState(false);
     const [error, setError] = useState('');
-    const [data,setData]=useState('')
+    const [data,setData]=useState('');
+    const [result,setResult]=useState('')
     const handlePostRequest = async () => { 
       try { const response = await axios.post(apiUrl+'/api/users/login',
       // 
  { email: email, password: password });
   setData(response.data);
+  setResult('Connexion faite avec succès.')
   console.log(data)
 }
    catch (error) { console.log('Error making POST request:', error); } };
@@ -57,6 +59,7 @@ function LoginEmailMDP() {
               ></input>
         <br/>
         {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
+        {result}
         <button type="sumbit" disabled={!isValid}>Envoyer</button>
         </form>
     </main>
