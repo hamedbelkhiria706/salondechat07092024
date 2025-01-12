@@ -87,12 +87,13 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
   console.log('login called')
   try {
-    const user = await usersCollection.find({ email:email });
+    const user = await usersCollection.findOne({ email:email });
     console.log(user)
-    if (user.length==0) return res.status(200).json({ message: "User not found" });
+    if (!user) return res.status(400).json({ message: "User not found" });
     console.log('passed 1')
     // Verify password
-    const isMatch = await bcrypt.compare(password, user[0].password);
+    const isMatch = await user.matchPassword(password)
+    console.log(isMatch)
     if (!isMatch)
       return res.status(400).json({ message: "Invalid email or password" });
     console.log('passed 2')
