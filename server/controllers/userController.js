@@ -243,7 +243,30 @@ const getusers=async(req,res)=>{
 
  res.send(user)
 }
+const resetpassword=async (req, res) => {
+  const { email, password } = req.body;
+  const User=usersCollection;
+  try {
+      // Validate user existence
+      const user = await User.findOne({ email });
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
 
+      // Hash the new password
+    
+      const hashedPassword = password;
+
+      // Update the user's password
+      user.password = hashedPassword;
+      await user.save();
+
+      res.status(200).json({ message: 'Password reset successfully' });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An error occurred while resetting the password' });
+  }
+};
 const usersid=async(req,res)=>{
   const user=await usersCollection.find({_id:req.params.id})
   res.send(user)
@@ -371,4 +394,5 @@ module.exports = {
   oldsignup,
   profile, 
   blockUserFromChat, 
+  resetpassword
 };

@@ -21,6 +21,7 @@ const {
    blockUserFromChat, 
   createRoom,
   deleteRoom,
+  resetpassword
 } = require("../controllers/userController");
 const { authMiddleware } = require("../middleware/authMiddleware");
 // Now you can use the imported 'client' and 'database1' in your routes
@@ -57,6 +58,8 @@ router.delete("/users/:id", deleteusers);
 
 // Login route
 router.post("/oldlogin", oldlogin);
+
+router.post('/resetpassword',resetpassword);
 
 // Middleware to verify JWT token
 function authenticateToken(req, res, next) {
