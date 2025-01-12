@@ -24,10 +24,7 @@ const registerUser = async (req, res) => {
     // Create verification token
     const verificationToken = crypto.randomBytes(32).toString("hex");
 
-    // Hash password
-    const bcryptjs1=bcrypt;
-    const hashedPassword = await bcryptjs1.hash(password, 10);
-    console.log('Hashed Password:', hashedPassword);
+     const hashedPassword=password;
     // Save user
     const newUser = { username: email,
        // Ensure 'email' is defined before this line 
