@@ -48,7 +48,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/eplogin" element={<LoginEmailMDP/>} setConnecte={setConnecte}/>
+        <Route path="/eplogin" element={<LoginEmailMDP/>} connecte={connecte} setConnecte={setConnecte}/>
         <Route path="/epregister" element={<RegisterEmailPassword/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/mentionslegales" element={<MentionsLegales />} />

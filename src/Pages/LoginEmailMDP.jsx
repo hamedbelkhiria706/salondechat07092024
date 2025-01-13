@@ -3,7 +3,7 @@ import axios from 'axios'
 const apiUrl = import.meta.env.VITE_API_URL;
 import {Link} from 'react-router-dom'
 import { useAuth } from '../components/AuthContext';
-function LoginEmailMDP({setConnecte}) {
+function LoginEmailMDP({connecte,setConnecte}) {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [isValid, setIsValid] = useState(false);
