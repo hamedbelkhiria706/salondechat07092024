@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //Building empty pages
 // Importation des pages principales
@@ -31,13 +31,14 @@ import RegisterEmailPassword from "./Pages/RegisterEmailPassword";
 import ResetPassword from "./Pages/ResetPassword";
 import { AuthProvider } from "./components/AuthContext";
 function App() {
+  const [connecte,setConnecte]=useState(false);
   return (
     <>
   
     
     <Router>
     <AuthProvider>
-    <Navbar />
+    <Navbar connecte={connecte} setConnecte={setConnecte}/>
       {/* Barre de navigation */}
       
       {/* Routes */}
@@ -47,7 +48,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/eplogin" element={<LoginEmailMDP/>}/>
+        <Route path="/eplogin" element={<LoginEmailMDP/>} setConnecte={setConnecte}/>
         <Route path="/epregister" element={<RegisterEmailPassword/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/mentionslegales" element={<MentionsLegales />} />

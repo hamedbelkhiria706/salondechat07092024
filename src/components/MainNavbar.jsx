@@ -5,9 +5,10 @@ import Button from "react-bootstrap/Button";
 import {useState} from 'react';
 import {Link} from 'react-router-dom'
 import {useAuth} from './AuthContext'
-function MainNavbar() {
+function MainNavbar({ connecte, setConnecte }) {
   //const [ loggedIn, setLoggedIn ] = useState(false);
   const {loggedIn,setLoggedIn}=useAuth();
+
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container>
@@ -46,13 +47,16 @@ function MainNavbar() {
             </Nav.Link>
           </Nav>
           
-          {loggedIn ? (
+          {connecte ? (
             <>
                
                 <Nav.Link className="nav-link" to="/profile">Profile</Nav.Link>
                
                
-                <Button className="nav-link btn btn-link" onClick={() => setLoggedIn(false)}>
+                <Button className="nav-link btn btn-link" onClick={() => {setLoggedIn(false);
+
+                  setConnecte(false);
+                }}>
                   Logout
                 </Button>
                
