@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios'
 const apiUrl = import.meta.env.VITE_API_URL;
-
+import {Link} from 'react-router-dom'
 function LoginEmailMDP() {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
@@ -64,7 +64,8 @@ function LoginEmailMDP() {
         {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
         {result}
         <button type="sumbit" disabled={!isValid}>Envoyer</button>
-        </form>
+        </form><br/>
+        <Link to='/resetpassword'><span className="flex-grow-1">Redéfinir votre mot de passe</span></Link>
     </main>
   )
 }

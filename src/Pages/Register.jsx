@@ -91,9 +91,12 @@ function Register() {
       </div>
       <span className="text-sm text-white-50 mt-2">
         Vous avez un compte?
-        <a className="link text-info" data-discover="true" href="/login">
+        <Link className="link text-info" data-discover="true" to="/login">
           Connectez-vous maintenant!
-        </a>
+        </Link>
+        <br/>
+          <Link to='/resetpassword'><span className="flex-grow-1">Redéfinir votre mot de passe</span></Link>
+               
       </span>
     </div>
   </div>

@@ -1,6 +1,7 @@
  
 import React,{useState} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 const apiUrl = import.meta.env.VITE_API_URL;
 /*
 axios.defaults.withCredentials = true; 
@@ -65,6 +66,8 @@ setResult('Inscription déjà faite.');
           <button type="sumbit" disabled={!isValid}>Envoyer</button>
           {result}
           </form>
+          <br/>
+           <Link to='/resetpassword'><span className="flex-grow-1">Redéfinir votre mot de passe</span></Link>
       </main>
     )
 }

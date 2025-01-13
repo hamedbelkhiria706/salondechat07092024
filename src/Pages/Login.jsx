@@ -90,9 +90,10 @@ function Login() {
         </div>
         <span className="text-sm text-white-50 mt-2">
           Vous n'avez pas encore de compte?
-          <a className="link text-info" data-discover="true" href="/register">
+          <Link className="link text-info" data-discover="true" to="/register">
             Inscrivez-vous maintenant!
-          </a>
+          </Link><br/>
+          <Link to='/resetpassword'><span className="flex-grow-1">Redéfinir votre mot de passe</span></Link>
         </span>
       </div>
     </div>
