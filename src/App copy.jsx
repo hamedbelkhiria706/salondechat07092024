@@ -29,12 +29,17 @@ import Footer from "./components/newfooter";
 import LoginEmailMDP from "./Pages/LoginEmailMDP";
 import RegisterEmailPassword from "./Pages/RegisterEmailPassword";
 import ResetPassword from "./Pages/ResetPassword";
-
+import { AuthProvider } from "./components/AuthContext";
 function App() {
   return (
+    <>
+  
+    
     <Router>
+    <AuthProvider>
+    <Navbar />
       {/* Barre de navigation */}
-      <Navbar />
+      
       {/* Routes */}
       <Routes>
         {/* Routes principales */}
@@ -68,7 +73,10 @@ function App() {
 
       {/* Pied de page */}
       <Footer />  
+      </AuthProvider>
     </Router>
+    
+    </>
   );
 }
 

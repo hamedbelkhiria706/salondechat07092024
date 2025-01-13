@@ -2,8 +2,12 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-
+import {useState} from 'react';
+import {Link} from 'react-router-dom'
+import {useAuth} from './AuthContext'
 function MainNavbar() {
+  //const [ loggedIn, setLoggedIn ] = useState(false);
+  const {loggedIn,setLoggedIn}=useAuth();
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container>
@@ -41,9 +45,26 @@ function MainNavbar() {
               Contact
             </Nav.Link>
           </Nav>
-          <Button variant="warning" href="/login">
-            Connexion
-          </Button>
+          
+          {loggedIn ? (
+            <>
+               
+                <Nav.Link className="nav-link" to="/profile">Profile</Nav.Link>
+               
+               
+                <Button className="nav-link btn btn-link" onClick={() => setLoggedIn(false)}>
+                  Logout
+                </Button>
+               
+            </>
+          ) : (<>
+            <Button className="nav-link" >
+                <Link to="/register">Inscription</Link>
+              </Button>
+         <Button variant="warning">
+         <Link to="/login">Connexion</Link>
+       </Button></>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
