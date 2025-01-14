@@ -4,10 +4,10 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import {useState} from 'react';
 import {Link} from 'react-router-dom'
-import {useAuth} from './AuthContext'
+ 
 function MainNavbar({ connecte, setConnecte }) {
   //const [ loggedIn, setLoggedIn ] = useState(false);
-  const {loggedIn,setLoggedIn}=useAuth();
+   
 
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
