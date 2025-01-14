@@ -6,7 +6,7 @@ import {useState} from 'react';
 import {Link} from 'react-router-dom'
  
 function MainNavbar({ connecte, setConnecte }) {
-  //const [ loggedIn, setLoggedIn ] = useState(false);
+   
    
 
   return (
@@ -50,10 +50,10 @@ function MainNavbar({ connecte, setConnecte }) {
           {connecte ? (
             <>
                
-                <Nav.Link className="nav-link" to="/profile">Profile</Nav.Link>
+                <Nav.Link  as={Link} className="nav-link" to="/profile">Profile</Nav.Link>
                
                
-                <Button className="nav-link btn btn-link" onClick={() => {setLoggedIn(false);
+                <Button className="nav-link btn btn-link" onClick={() => {
 
                   setConnecte(false);
                 }}>
@@ -62,11 +62,11 @@ function MainNavbar({ connecte, setConnecte }) {
                
             </>
           ) : (<>
-            <Button className="nav-link" >
-                <Link to="/register">Inscription</Link>
+            <Button className="nav-link" as={Link} to="/register">
+                 Inscription 
               </Button>
-         <Button variant="warning">
-         <Link to="/login">Connexion</Link>
+         <Button variant="warning" as={Link} to="/login">
+         Connexion
        </Button></>
           )}
         </Navbar.Collapse>
