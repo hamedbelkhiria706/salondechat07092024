@@ -29,7 +29,7 @@ import Footer from "./components/newfooter";
 import LoginEmailMDP from "./Pages/LoginEmailMDP";
 import RegisterEmailPassword from "./Pages/RegisterEmailPassword";
 import ResetPassword from "./Pages/ResetPassword";
-import { AuthProvider } from "./components/AuthContext";
+
 function App() {
   const [connecte,setConnecte]=useState(false);
   return (
@@ -37,7 +37,7 @@ function App() {
   
     
     <Router>
-    <AuthProvider>
+    
     <Navbar connecte={connecte} setConnecte={setConnecte}/>
       {/* Barre de navigation */}
       
@@ -74,7 +74,7 @@ function App() {
 
       {/* Pied de page */}
       <Footer />  
-      </AuthProvider>
+      
     </Router>
     
     </>

@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios'
 const apiUrl = import.meta.env.VITE_API_URL;
 import {Link} from 'react-router-dom'
-import { useAuth } from '../components/AuthContext';
+
 function LoginEmailMDP({connecte,setConnecte}) {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
@@ -10,7 +10,7 @@ function LoginEmailMDP({connecte,setConnecte}) {
     const [error, setError] = useState('');
     const [data,setData]=useState('');
     const [result,setResult]=useState('')
-    const { logIn,loggedIn,setLoggedIn } = useAuth(); 
+    
     const handlePostRequest = async () => { 
       try { const response = await axios.post(apiUrl+'/api/users/login',
       // 
@@ -19,7 +19,7 @@ function LoginEmailMDP({connecte,setConnecte}) {
   setResult('Connexion faite avec succès.')
   setConnecte(true);
   
-  console.log(data)
+  console.log(data);
 }
    catch (error) { console.log('Error making POST request:', error);
 
