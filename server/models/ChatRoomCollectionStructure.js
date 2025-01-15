@@ -3,8 +3,13 @@ const mongoose = require("mongoose");
 
 // ChatRoom Schema
 const chatRoomSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  users: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
+   
+   
+  _id: mongoose.Schema.Types.ObjectId,
+    name: { type: String, required: true },
+    creator: { type: mongoose.Schema.Types.ObjectId, required: true },
+    users: [{ type: mongoose.Schema.Types.ObjectId }],
+    createdAt: { type: Date, required: true },
 });
 const ChatRoom = mongoose.model("ChatRoom", chatRoomSchema);
-module.exports = { ChatRoom };
+module.exports = { ChatRoom,roomsCollections:ChatRoom,chatRoomsCollection:ChatRoom };

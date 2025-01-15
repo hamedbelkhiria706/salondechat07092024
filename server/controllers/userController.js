@@ -5,7 +5,7 @@ const { ObjectId } = require("mongodb");
 const sendEmail = require("../utils/sendEmail");
 const generateToken = require("../utils/generateToken");
 const { usersCollection } = require("../models/usersCollectionStructure");
-const { roomsCollections } = require("../models/roomsCollectionStructure");
+const { roomsCollections } = require("../models/ChatRoomCollectionStructure");
  
 const MAX_ALLOWED_ROOMS = 3; // Example limit for free users
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
