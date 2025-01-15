@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.use(authMiddleware);
 
-router.post("/", createChatRoom);
+router.post("/createchatroom", createChatRoom);
 
-router.post("/", getChatrooms);
+router.post("/getchatrooms", getChatrooms);
 module.exports = router;
