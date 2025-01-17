@@ -1,6 +1,15 @@
 import React from 'react'
 
 function ChatRoomList() {
+
+  const handlePostRequest = async () => { 
+    try { const response = await axios.post(apiUrl+'/api/users/chatroom');
+    }catch(exception){
+
+    }
+
+console.log(data);
+}
   return (
     <div>
       <h1>

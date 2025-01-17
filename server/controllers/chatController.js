@@ -77,5 +77,22 @@ const getChatrooms = async (req, res) => {
     res.status(500).json({ message: "Error fetching chatrooms", error });
   }
 };
-
-module.exports = { createChatRoom, getChatrooms ,createChatRoom1,updateChatRoomCreatorPut};
+const getChatroomsByUser = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const chatRoom=await chatRoom.find({creator: userId});
+    res.status(201).json(chatRoom);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching chatrooms", error });
+  }
+};
+const getChatroomsByUserMember = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const chatRoom=await chatRoom.find({ users: userId, creator: { $ne: userId } });
+    res.status(201).json(chatRoom);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching chatrooms", error });
+  }
+};
+module.exports = { createChatRoom,getChatroomsByUser,getChatroomsByUserMember, getChatrooms ,createChatRoom1,updateChatRoomCreatorPut};
