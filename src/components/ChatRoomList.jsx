@@ -17,6 +17,9 @@ console.log(data);
       Liste de chat rooms
       </h1>
       <Button onClick={handlePostRequest}>Test</Button>
+      <ul>
+        <li></li>
+      </ul>
       <h2>Chatroom 1</h2>
       <h2>Chatroom 2</h2>
       <h2>Chatroom 3</h2>
