@@ -85,8 +85,10 @@ const getChatroomsByUser = async (req, res) => {
     
     const userId = req.body._id;
     console.log(userId);
-    const chatRoom=await ChatRoom.find({creator: userId});
-    res.status(201).json(chatRoom);
+    const chatRoom=await ChatRoom.find({creator: userId}).select('name -_id');
+    const namesArray = chatRoom.map(room => room.name);
+     console.log(namesArray)
+    res.status(201).send(namesArray);
   } catch (error) {
      
     res.status(201).json([]);
