@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, "../src/public")));
 
 app.use("/api/admin", adminRouter);
 app.use("/api/users", usersRouter);
-app.use("/api/chat", chatRouter);
+app.use("/api/chatroom", chatRouter);
 app.use("/api/public", publicRouter);
 // Route definitions
  

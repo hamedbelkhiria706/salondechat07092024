@@ -71,25 +71,31 @@ const createChatRoom1 = async (req, res) => {
  
 const getChatrooms = async (req, res) => {
   try {
-    const chatRoom=await chatRoom.find({});
+    const chatRoom=await ChatRoom.find({});
+    console.log(chatRoom)
     res.status(201).json(chatRoom);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error fetching chatrooms", error });
   }
 };
 const getChatroomsByUser = async (req, res) => {
   try {
-    const userId = req.user._id;
-    const chatRoom=await chatRoom.find({creator: userId});
+     
+    
+    const userId = req.body._id;
+    console.log(userId);
+    const chatRoom=await ChatRoom.find({creator: userId});
     res.status(201).json(chatRoom);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching chatrooms", error });
+     
+    res.status(201).json([]);
   }
 };
 const getChatroomsByUserMember = async (req, res) => {
   try {
     const userId = req.user._id;
-    const chatRoom=await chatRoom.find({ users: userId, creator: { $ne: userId } });
+    const chatRoom=await ChatRoom.find({ users: userId, creator: { $ne: userId } });
     res.status(201).json(chatRoom);
   } catch (error) {
     res.status(500).json({ message: "Error fetching chatrooms", error });

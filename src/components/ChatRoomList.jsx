@@ -2,11 +2,16 @@ import React from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 const apiUrl = import.meta.env.VITE_API_URL;
+import { useParams } from 'react-router-dom';
 function ChatRoomList() {
-
+  const { userId } = useParams();
   const handlePostRequest = async () => { 
-    try { const response = await axios.post(apiUrl+'/api/users/chatroom/tgetchatrooms');
+    
+    try { const response = await axios.post(apiUrl+'/api/chatroom/tgetchatroomsbyuser'
+,{_id:userId}
+    );
     console.log(response)
+    console.log(userId)
     }catch(exception){
       console.log(exception)
     }
