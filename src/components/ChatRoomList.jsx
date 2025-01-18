@@ -14,6 +14,7 @@ function ChatRoomList({token}) {
     );
      
     if (response && response?.data) {
+      console.log(response.data)
     setTab(response.data)
     }
   else{
@@ -28,24 +29,24 @@ function ChatRoomList({token}) {
 useEffect(()=>{
 
   handlePostRequest()
+  
 },
 [])
+
   return (
     <div>
       <h1>
       Liste de chat rooms
       </h1>
-      <h2>Nombre : {tab.length}</h2>
-      {JSON.stringify(tab)}
+      <h2>Nombre : {}</h2>
+     {JSON.stringify(tab)}
       <Button onClick={handlePostRequest}>Recharger</Button>
      
       <ul >
          
-      {tab.map((e,i)=>{
-        return <li key={i}>
-           {e} 
-           </li>    
-        })
+      {tab.map(function(e,i){
+       return <li key={i}> {e}</li>      
+      })
       }
       </ul>
        
