@@ -1,3 +1,4 @@
+//react redux non nécessaire
 import React,{useState} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //Building empty pages
