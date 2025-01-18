@@ -29,9 +29,9 @@ import Footer from "./components/newfooter";
 import LoginEmailMDP from "./Pages/LoginEmailMDP";
 import RegisterEmailPassword from "./Pages/RegisterEmailPassword";
 import ResetPassword from "./Pages/ResetPassword";
-
 function App() {
   const [connecte,setConnecte]=useState(false);
+  const [token,setToken]=useState({})
   return (
     <>
   
@@ -48,7 +48,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/eplogin" element={<LoginEmailMDP connecte={connecte} setConnecte={setConnecte}/>} />
+        <Route path="/eplogin" element={<LoginEmailMDP connecte={connecte} setConnecte={setConnecte} setToken={setToken}/> } />
         <Route path="/epregister" element={<RegisterEmailPassword/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/mentionslegales" element={<MentionsLegales />} />
@@ -67,7 +67,7 @@ function App() {
     <Route path="/user/:userId/editprofile" element={<EditProfile />} />   
     <Route path="/user/:userId/password" element={<Password />} /> 
     <Route path="/user/:userId/chatrooms/:chatroomId" element={<Chatroom />} />
-    <Route path="/user/:userId/chatrooms" element={<ChatroomsList />} />
+    <Route path="/user/:userId/chatrooms" element={<ChatroomsList token={token}/>} />
     <Route path="/user/:userId/settings" element={<Settings />} />  
     <Route path="/user/:userId/chatrooms/new" element={<CreateChatroom />} />
       </Routes>

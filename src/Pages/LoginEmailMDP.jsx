@@ -3,7 +3,7 @@ import axios from 'axios'
 const apiUrl = import.meta.env.VITE_API_URL;
 import {Link} from 'react-router-dom'
 
-function LoginEmailMDP({connecte,setConnecte}) {
+function LoginEmailMDP({connecte,setConnecte,setToken}) {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [isValid, setIsValid] = useState(false);
@@ -16,7 +16,9 @@ function LoginEmailMDP({connecte,setConnecte}) {
       // 
  { email: email, password: password });
   setData(response.data);
+  setToken(response.data);
   setResult('Connexion faite avec succès.')
+  console.log(response.data)
   setConnecte(true);
   
   console.log(data);
@@ -44,8 +46,7 @@ function LoginEmailMDP({connecte,setConnecte}) {
       
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(email)
-        console.log(password)
+         
         handlePostRequest()
         
     }

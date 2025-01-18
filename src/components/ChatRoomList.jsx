@@ -3,8 +3,9 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 const apiUrl = import.meta.env.VITE_API_URL;
 import { useParams } from 'react-router-dom';
-function ChatRoomList() {
+function ChatRoomList({token}) {
   const { userId } = useParams();
+  console.log(token);
   const [tab,setTab]=useState([])
   const handlePostRequest = async () => { 
     
