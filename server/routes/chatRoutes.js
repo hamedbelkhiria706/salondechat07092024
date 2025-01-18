@@ -23,4 +23,6 @@ router.post("/createchatroom", createChatRoom);
 router.post("/createchatroom1", createChatRoom1);
 router.put("/chatroom/:id/:creator", updateChatRoomCreatorPut); 
 router.post("/getchatrooms", getChatrooms);
+router.post("/tgetchatroomsbyuser", getChatroomsByUser);
+router.post("/tgetchatroomsbyusermember", getChatroomsByUserMember);
 module.exports = router;
