@@ -1,15 +1,17 @@
 import React from 'react'
 import axios from 'axios'
+import Button from 'react-bootstrap/Button';
+const apiUrl = import.meta.env.VITE_API_URL;
 function ChatRoomList() {
 
   const handlePostRequest = async () => { 
     try { const response = await axios.post(apiUrl+'/api/users/chatroom/tgetchatrooms');
     console.log(response)
     }catch(exception){
-
+      console.log(exception)
     }
 
-console.log(data);
+ 
 }
   return (
     <div>
