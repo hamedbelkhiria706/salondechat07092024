@@ -30,6 +30,7 @@ const dynamicsalonchat = () => {
     const updatedRooms = [...createdRooms];
     updatedRooms.splice(index, 1);
     setCreatedRooms(updatedRooms);
+    
     setTotalRooms(totalRooms + 1);
   };
 
