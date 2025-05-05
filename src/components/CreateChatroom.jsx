@@ -99,7 +99,7 @@ function CreateChatroom({ token, userId }) {
                     ) : (
                         'Créer le Salon'
                     )}
-                </Button>
+                </Button> 
             </Form>
         </div>
     );
