@@ -2,36 +2,48 @@ import React, { useState } from "react";
 
 import "../styles/global.css";
 
-console.log("hello world");
-const dynamicsalonchat = () => {
-  let [totalRooms, setTotalRooms] = useState(0);
+const subscriptionOptionsData = [
+  { id: "sub1", price: 30, maxRooms: 9, label: "30 € - 9 salons" },
+  { id: "sub2", price: 20, maxRooms: 3, label: "20 € - 3 salons supplémentaires" },
+  { id: "sub3", price: 10, maxRooms: 1, label: "10 € - 1 salon supplémentaire" },
+];
+
+const DynamicSalonChat = () => {
+  let [availableSlots, setAvailableSlots] = useState(0);
   let [totalPayments, setTotalPayments] = useState(0);
 
   let [createdRooms, setCreatedRooms] = useState([]);
   let [newRooms, setNewRooms] = useState([]);
+
   const handleClick = (price, maxRooms) => {
     setTotalPayments((prevPayments) => prevPayments + price);
-    setTotalRooms((prevRooms) => prevRooms + maxRooms);
+    setAvailableSlots((prevSlots) => prevSlots + maxRooms);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const roomNames = newRooms.filter((roomName) => roomName.trim());
-    setCreatedRooms([...createdRooms, ...roomNames]);
-    setTotalRooms(totalRooms - roomNames.length);
+    if (roomNames.length > 0) {
+      setCreatedRooms((prevCreatedRooms) => [...prevCreatedRooms, ...roomNames]);
+      setAvailableSlots((prevSlots) => prevSlots - roomNames.length);
+      alert(`${roomNames.length} salon(s) créé(s) avec succès !`);
+    } else {
+      alert("Veuillez nommer au moins un salon.");
+    }
     setNewRooms([]);
-    alert(`${roomNames.length} salon(s) créé(s) avec succès !`);
   };
+
   const handleRoomNameChange = (index, value) => {
     const updatedRooms = [...newRooms];
     updatedRooms[index] = value;
     setNewRooms(updatedRooms);
   };
+
   const removeRoom = (index) => {
     const updatedRooms = [...createdRooms];
     updatedRooms.splice(index, 1);
     setCreatedRooms(updatedRooms);
-
-    setTotalRooms(totalRooms + 1);
+    setAvailableSlots((prevSlots) => prevSlots + 1);
   };
 
   return (
@@ -40,50 +52,31 @@ const dynamicsalonchat = () => {
         <h1 className="text-center mb-4">Achetez un Abonnement</h1>
         <h4>Choisissez votre abonnement :</h4>
         <div id="subscriptionOptions" className="mb-4">
-          {" "}
-          <button
-            className="btn btn-primary"
-            data-price={30}
-            data-maxrooms={9}
-            onClick={() => handleClick(30, 9)}
-          >
-            {" "}
-            30 € - 9 salons{" "}
-          </button>{" "}
-          <button
-            className="btn btn-primary"
-            data-price={20}
-            data-maxrooms={3}
-            onClick={() => handleClick(20, 3)}
-          >
-            {" "}
-            20 € - 3 salons supplémentaires{" "}
-          </button>{" "}
-          <button
-            className="btn btn-primary"
-            data-price={10}
-            data-maxrooms={1}
-            onClick={() => handleClick(10, 1)}
-          >
-            {" "}
-            10 € - 1 salon supplémentaire{" "}
-          </button>{" "}
-        </div>{" "}
+          {subscriptionOptionsData.map((option) => (
+            <button
+              key={option.id}
+              className="btn btn-primary me-2"
+              onClick={() => handleClick(option.price, option.maxRooms)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
         <div id="subscriptionStatus">
           {" "}
-          Total payé : {totalPayments} € - Salons autorisés : {totalRooms}{" "}
+          Total payé : {totalPayments} € - Salons autorisés à créer : {availableSlots}{" "}
         </div>
         <h4 className="mt-5">Salons Créés</h4>
-        <ul id="createdRoomsList" className="list-group mt-3"></ul>
+        {/* L'ancien ul vide a été supprimé ici */}
         <h4>Créer des Salons de Chat</h4>
-        <div id="subscriptionStatus" className="mt-4"></div>
+        {/* L'ancien div vide a été supprimé ici */}
         <form
           id="chatRoomForm"
           onSubmit={handleSubmit}
           style={{ display: totalPayments > 0 ? "block" : "none" }}
         >
           <div id="roomInputs">
-            {[...Array(totalRooms)].map((_, index) => (
+            {[...Array(availableSlots)].map((_, index) => (
               <div className="form-group" key={index}>
                 <label htmlFor={`roomName${index + 1}`}>
                   Nom du Salon {index + 1} :
@@ -99,7 +92,7 @@ const dynamicsalonchat = () => {
             ))}
           </div>
           <div>Salons crées:</div>
-          <ul id="createdRoomsList">
+          <ul id="createdRoomsList" className="list-group mt-3 mb-3">
             {" "}
             {createdRooms.map((room, index) => (
               <li
@@ -125,4 +118,4 @@ const dynamicsalonchat = () => {
     </main>
   );
 };
-export default dynamicsalonchat;
+export default DynamicSalonChat;
