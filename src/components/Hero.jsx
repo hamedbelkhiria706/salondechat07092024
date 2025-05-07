@@ -1,26 +1,32 @@
 import React from "react";
 import logo from '../assets/CnP_29122024_104427-ezgif.com-resize.png'
+
+// Supposons que vous ayez un fichier CSS importé, par exemple App.css ou un fichier spécifique au composant
+ import '../styles/Hero.css'; 
+
 function Hero() {
   return (
-    <div className="container d-flex flex-column-reverse text-center text-lg-left flex-lg-row-reverse align-items-center gap-5 py-5 text-white">
+    <section className="container d-flex flex-column-reverse text-center text-lg-left flex-lg-row-reverse align-items-center gap-5 py-5 text-white">
       <div className="col-10 col-sm-8 col-lg-6">
         <img
           src={logo}
           className="d-block mx-lg-auto img-fluid"
+          alt="Logo de ChatnPartage, une plateforme pour parler à des inconnus et se faire des amis"
           width="700"
           height="500"
           loading="lazy"
         />
       </div>
       <div className="col-lg-6">
-      <h1 className="mb-4 text-white">Parlez à des inconnus, Faites-vous des amis !</h1>
-<p>
-  Découvrez une alternative de chat aléatoire pour trouver des amis, vous connecter avec des gens et discuter avec des inconnus du monde entier !
-</p>
+        <h1 className="mb-4 text-white">Parlez à des inconnus, Faites-vous des amis !</h1>
+        <p>
+          Découvrez une alternative de chat aléatoire pour trouver des amis, vous connecter avec des gens et discuter avec des inconnus du monde entier !
+        </p>
 
-
-        <a className="btn btn-primary px-10 py-3 text-xl" href="/login">
-          <span className="d-flex" style={{ gap: "20px" }}>
+        {/* Si px-10, py-3, text-xl sont des classes personnalisées, assurez-vous qu'elles sont définies.
+            Exemple avec une classe personnalisée pour le gap : "button-inner-spacing" */}
+        <a className="btn btn-primary px-10 py-3 text-xl" href="/login"> {/* Supposons que px-10, py-3, text-xl sont valides ou personnalisées */}
+          <span className="d-flex align-items-center" style={{ gap: "0.75rem" }}> {/* Ou utilisez une classe CSS : className="d-flex align-items-center button-inner-spacing" */}
             <svg
               stroke="currentColor"
               fill="none"
@@ -41,8 +47,14 @@ function Hero() {
           </span>
         </a>
       </div>
-    </div>
+    </section>
   );
 }
 
 export default Hero;
+
+/* Exemple de CSS pour remplacer le style en ligne (à mettre dans votre fichier CSS) :
+.button-inner-spacing {
+  gap: 20px; // ou 1.25rem par exemple
+}
+*/

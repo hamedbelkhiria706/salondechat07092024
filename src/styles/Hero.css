@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Styles for the Hero Component
+   ========================================================================== */
+
+/*
+ * Spacing for the content (icon and text) within the call-to-action button.
+ * This class is applied to the <span> element inside the <a> button.
+ */
+.button-inner-spacing {
+  gap: 1.25rem; /* 20px, assuming 1rem = 16px */
+}
+
+/* ==========================================================================
+   Custom Utility Classes (used in Hero.jsx)
+   ========================================================================== */
+
+/*
+ * If these classes (`px-10`, `text-xl`) are not provided by a global CSS
+ * framework (like Tailwind CSS), define them here.
+ * If they are intended for global use, consider moving them to a global stylesheet.
+ */
+
+.px-10 {
+  padding-left: 2.5rem;  /* Example: 40px */
+  padding-right: 2.5rem; /* Example: 40px */
+}
+
+.text-xl {
+  font-size: 1.25rem; /* Example: 20px */
+  /* You might also want to define a line-height for larger text sizes */
+  /* line-height: 1.75rem; */
+}
