@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
 
 const MessageInput = ({ onSendMessage }) => {
   const [newMessage, setNewMessage] = useState("");
@@ -13,21 +12,23 @@ const MessageInput = ({ onSendMessage }) => {
   };
 
   return (
-    <div className="d-flex w-100 mt-3 gap-3">
+    <form onSubmit={handleSendMessage} className="d-flex w-100 mt-3 gap-3">
       <input
         type="text"
-        className="form-control mr-3"
+        className="form-control"
         placeholder="Type a message..."
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") handleSendMessage(e); // Prevent refresh
-        }}
+        aria-label="Type a message"
       />
-      <button className="btn btn-primary" onClick={handleSendMessage}>
+      <button
+        type="submit"
+        className="btn btn-primary"
+        disabled={!newMessage.trim()}
+      >
         Send
       </button>
-    </div>
+    </form>
   );
 };
 
