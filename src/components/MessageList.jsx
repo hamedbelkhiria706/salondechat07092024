@@ -1,35 +1,44 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import MessageItem from "./MessageItem";
 
 function MessageList({ messages, username }) {
-  let prevUser = null;
-  console.log(messages);
-
   return (
     <Card className="w-100" style={{ maxHeight: "200px", overflowY: "auto" }}>
       {messages.map((message, index) => {
-        const isOwner = message.user === username; // Example condition for owner
+        const isOwner = message.user === username;
 
-        // Determine whether the username should be shown (only show if the user changes)
-        const showUsername = message.user !== prevUser;
+        // Determine whether the username should be shown:
+        // Show if it's the first message OR if the current message's user
+        // is different from the previous message's user.
+        const prevMessage = messages[index - 1];
+        const showUsername = !prevMessage || prevMessage.user !== message.user;
 
-        const messageComponent = (
+        // Assuming each message has a unique 'id' property.
+        // If not, using 'index' is a fallback but less ideal if the list can change order.
+        return (
           <MessageItem
-            key={index}
+            key={message.id || index} // Prefer a stable 'id' if available
             message={message}
             isOwner={isOwner}
-            showUsername={showUsername} // Pass whether to show username
+            showUsername={showUsername}
           />
         );
-
-        // Update prevUser for the next iteration
-        prevUser = message.user;
-
-        return messageComponent;
       })}
     </Card>
   );
 }
 
-export default MessageList;
+MessageList.propTypes = {
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // Assuming an id for key prop
+      text: PropTypes.string.isRequired,
+      user: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  username: PropTypes.string.isRequired,
+};
+
+export default React.memo(MessageList);
