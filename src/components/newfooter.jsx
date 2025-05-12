@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/global.css";
 import { Link } from "react-router-dom";
-const footer = () => {
+const Footer = () => {
   return (
     <footer className="bg-dark text-white p-4 text-center">
       <p>
@@ -23,4 +23,4 @@ const footer = () => {
     </footer>
   );
 };
-export default footer;
+export default Footer;
