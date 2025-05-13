@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 const TestimonialCard = ({ quote, author }) => {
   return (
     <div className="col-md-4">
@@ -10,5 +10,8 @@ const TestimonialCard = ({ quote, author }) => {
     </div>
   );
 };
-
+TestimonialCard.propTypes = {
+  quote: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+};
 export default TestimonialCard;
