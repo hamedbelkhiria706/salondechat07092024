@@ -1,4 +1,80 @@
-body { font-family: Arial, sans-serif;  margin: 0; padding: 0; background-color: #ace;}
- .container {background-color: #abc; max-width: 800px; margin: 0 auto; padding: 20px;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 10px; }
-  h1 { margin-bottom: 20px;  background-color: #4CAF50; padding: 10px; border-radius: 10px; text-align: center; } 
-p { font-size: 18px; line-height: 1.6; margin-bottom: 10px;color:white }
+/*
+  File: amelioration.css
+  Purpose: Provides specific styling improvements or overrides.
+  Note: Review for conflicts or redundancies with global.css, style.css,
+        and amelioration1.css for better maintainability.
+*/
+
+/*
+  General body styles.
+  - `font-family` provides a standard sans-serif font.
+  - `margin: 0;` and `padding: 0;` are often set by a global reset (e.g., in global.css via `*`).
+    Including them here ensures they are applied if no global reset is active for this scope.
+  - `background-color: #AACCFF;` sets a light blue-cyan background.
+  - Be aware that `body` is styled in multiple CSS files (e.g., style.css, global.css, UserDashboard.css).
+    The final applied style will depend on CSS import order and specificity.
+*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #AACCFF; /* Light blue-cyan (formerly #ace) */
+}
+
+/*
+  Container for main content sections.
+  - `background-color: #AABBCC;` sets a light greyish-blue background.
+  - `max-width: 800px;` limits the container's width for better readability on wide screens.
+  - `margin: 20px auto;` centers the container and adds vertical spacing.
+    (Original was `margin: 0 auto;` - `20px` added for common vertical spacing, similar to other containers in your project).
+  - `padding: 20px;` provides internal spacing.
+  - `box-shadow` adds a subtle depth effect.
+  - `border-radius: 10px;` creates rounded corners.
+*/
+.container {
+  background-color: #AABBCC; /* Light greyish-blue (formerly #abc) */
+  max-width: 800px;
+  margin: 20px auto; /* Centered with vertical spacing */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/*
+  Styling for main headings (H1).
+  - `background-color: #4CAF50;` gives a distinct green background.
+  - `color: white;` ensures text is readable on the green background.
+  - `padding: 15px;` for better visual balance (original was 10px).
+  - `margin-top: 0;` can be useful if h1 is the first child in a padded container to avoid double spacing.
+  - `margin-bottom: 20px;` provides space below the heading.
+  - `border-radius: 8px;` for slightly rounded corners (original was 10px, 8px can look neater inside a 10px radius container).
+  - `text-align: center;` centers the heading text.
+*/
+h1 {
+  background-color: #4CAF50; /* Green background */
+  color: white;              /* White text for contrast on green background */
+  padding: 15px;             /* Ample padding around the text */
+  margin-top: 0; /* Assuming h1 might be the first element in .container */
+  margin-bottom: 20px;       /* Space below the heading */
+  border-radius: 8px;        /* Slightly rounded corners */
+  text-align: center;        /* Center-aligns the heading text */
+}
+
+/*
+  Styling for paragraph text.
+  - `font-size: 18px;` (consider using `1.125rem` for better accessibility and scalability).
+  - `line-height: 1.6;` improves readability.
+  - `margin-bottom: 10px;` adds space below paragraphs.
+  - `color: #333333;` provides good contrast against the light backgrounds
+    of `body` (#AACCFF) and `.container` (#AABBCC) defined in this file.
+    Note: The original had `color: white;`. Your file `amelioration1.css` also specifies `p { color: white; }`.
+    If white text is generally desired, the backgrounds for `body` and `.container` (when styled by this file)
+    would need to be significantly darker to ensure readability.
+    Using `#333333` here makes these paragraphs readable with the current light backgrounds in this file.
+*/
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #333333; /* Dark gray for text, changed from original 'white' for contrast */
+}
