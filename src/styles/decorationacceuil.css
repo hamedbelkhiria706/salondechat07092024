@@ -7,3 +7,30 @@ h2 {
 .blockquote-responsive {
   font-size: 5vw;
 }
+
+/* Add styles for paragraphs */
+p {
+  color: #555; /* Dark grey for readability */
+  line-height: 1.6; /* Improve line spacing */
+  margin-bottom: 15px; /* Space below paragraphs */
+}
+
+/* Add styles for links */
+a {
+  color: #007bff; /* A standard blue for links */
+  text-decoration: none; /* Remove default underline */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+a:hover {
+  color: #0056b3; /* Darker blue on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Add basic responsive image style */
+img {
+  max-width: 100%; /* Ensure images don't overflow their container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Make image a block element */
+  margin: 20px auto; /* Center images and add vertical space */
+}
