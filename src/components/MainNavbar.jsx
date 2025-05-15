@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container"; // Ajout de l'import manquant
 import { Link } from "react-router-dom";
 import Logo from "./Logo"; // Import the new Logo component
 
-function MainNavbar({ connecte, setConnecte }) {
+export default function MainNavbar({ connecte, setConnecte }) {
 
 
   const handleLogout = () => {
