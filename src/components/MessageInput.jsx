@@ -1,35 +1,26 @@
-import React, { useState } from "react";
+// Exemple de structure dans MessageInput.jsx
+import React, { useState } from 'react';
 
-const MessageInput = ({ onSendMessage }) => {
-  const [newMessage, setNewMessage] = useState("");
+function MessageInput({ onSendMessage }) {
+  const [inputValue, setInputValue] = useState('');
 
-  const handleSendMessage = (event) => {
-    event.preventDefault(); // Prevent page refresh
-    if (newMessage.trim()) {
-      onSendMessage(newMessage);
-      setNewMessage(""); // Clear input field
+  const handleSubmit = () => {
+    if (inputValue.trim()) {
+      onSendMessage(inputValue);
+      setInputValue('');
     }
   };
 
   return (
-    <form onSubmit={handleSendMessage} className="d-flex w-100 mt-3 gap-3">
+    <div className="message-input-area"> {/* Utilisation de .message-input-area */}
       <input
         type="text"
-        className="form-control"
-        placeholder="Type a message..."
-        value={newMessage}
-        onChange={(e) => setNewMessage(e.target.value)}
-        aria-label="Type a message"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Tapez votre message..."
+        onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
       />
-      <button
-        type="submit"
-        className="btn btn-primary"
-        disabled={!newMessage.trim()}
-      >
-        Send
-      </button>
-    </form>
+      <button onClick={handleSubmit}>Envoyer</button>
+    </div>
   );
-};
-
-export default MessageInput;
+}
