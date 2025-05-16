@@ -1,0 +1,44 @@
+/* src/styles/components/_button.css */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: var(--color-text-base);
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: var(--spacing-sm) var(--spacing-md); /* Utilise les variables */
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  border-radius: var(--border-radius-base);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(var(--color-primary), 0.25); /* Adaptez la couleur du focus */
+}
+
+.btn.disabled, .btn:disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Bouton Primaire */
+.btn-primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
+  border-color: darken(var(--color-primary), 10%); /* Nécessite un préprocesseur ou JS pour darken, sinon mettez une valeur fixe */
+}
+/* ... autres types de boutons (secondary, danger, etc.) */

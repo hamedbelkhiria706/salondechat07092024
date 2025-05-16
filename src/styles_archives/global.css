@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styles de base pour le corps de la page */
+body {
+  font-family: "Arial", sans-serif; /* Ou votre police préférée */
+  line-height: 1.6;
+  background-color: #f4f4f4; /* Couleur de fond claire par défaut */
+  color: #333; /* Couleur de texte foncée par défaut */
+  /* Les styles pour main, header, footer, section qui étaient ici ont été retirés */
+  /* car ils entraient en conflit direct avec les styles définis dans style.css et potentiellement d'autres fichiers. */
+  /* Si un thème spécifique (par exemple, sombre) est souhaité pour ces sections, */
+  /* il devrait être appliqué de manière plus ciblée ou dans le fichier de thème principal (ex: style.css). */
+}

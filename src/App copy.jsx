@@ -22,7 +22,7 @@ import UserProfile from "./components/UserProfile";
  import Settings from "./components/Settings";
 import ExportData from './components/exportdata';
 // Import global styles
- import './styles/global.css';
+ import './styles/main.css';
 import Password from './components/password'
 // Import Navbar and Footer
 import Navbar from "./components/MainNavbar";

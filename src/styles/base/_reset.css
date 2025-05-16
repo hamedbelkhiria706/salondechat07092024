@@ -1,0 +1,72 @@
+/* src/styles/base/_reset.css */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+  margin: 0; /* Assurez-vous que body n'a pas de marges par défaut */
+}
+
+main {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit; /* Hérite de la taille de police du parent par défaut */
+  font-weight: inherit; /* Hérite du poids de police du parent par défaut */
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none; /* Enlève le soulignement par défaut */
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%; /* Rend les images responsives par défaut */
+}
+
+ul,
+ol {
+  list-style: none; /* Enlève les puces/numéros par défaut */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer;
+}

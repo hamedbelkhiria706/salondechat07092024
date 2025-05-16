@@ -1,0 +1,44 @@
+/* src/styles/base/_variables.css */
+:root {
+  /* Couleurs */
+  --color-primary: #007bff;
+  --color-primary-dark: #0056b3;
+  --color-secondary: #6c757d;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  --color-light: #f8f9fa;
+  --color-dark: #343a40;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-text-base: #333333;
+  --color-text-muted: #6c757d;
+  --color-text-inverted: var(--color-white); /* Pour texte sur fond sombre */
+
+  --color-background-body: #f4f4f4;
+  --color-background-light: var(--color-white);
+  --color-background-dark: var(--color-dark);
+
+  /* Typographie */
+  --font-family-sans-serif: "Arial", sans-serif; /* Votre police principale */
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --font-size-base: 1rem; /* Généralement 16px */
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+
+  --line-height-base: 1.6;
+
+  /* Espacements */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem;  /* 8px */
+  --spacing-md: 1rem;    /* 16px */
+  --spacing-lg: 1.5rem;  /* 24px */
+  --spacing-xl: 2rem;    /* 32px */
+
+  /* Bordures */
+  --border-radius-base: 0.25rem; /* 4px */
+  --border-color: #dee2e6;
+}

@@ -1,0 +1,21 @@
+/* src/styles/main.css */
+
+/* 1. Fondations */
+@import url('base/_reset.css');
+@import url('base/_variables.css'); /* Si vous l'utilisez */
+@import url('base/_typography.css');
+
+/* 2. Layout */
+/* @import url('layout/_containers.css'); */
+/* @import url('layout/_header.css'); */
+/* ... autres fichiers de layout */
+
+/* 3. Composants */
+@import url('components/_button.css');
+@import url('components/_form.css'); /* À créer en extrayant de style.css */
+@import url('components/_navbar.css'); /* À créer en extrayant de navbar.css */
+@import url('components/_chat.css'); /* À créer en extrayant de chatstyle.css */
+/* ... autres composants */
+
+/* 4. Utilitaires (souvent en dernier pour pouvoir surcharger si besoin) */
+@import url('utils/_helpers.css');

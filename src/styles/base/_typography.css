@@ -1,0 +1,58 @@
+/* src/styles/base/_typography.css */
+body {
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-base);
+  background-color: var(--color-background-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500; /* Ou une autre valeur par défaut */
+  line-height: 1.2;
+}
+
+h1 { font-size: calc(var(--font-size-base) * 2.5); }   /* ~40px */
+h2 { font-size: calc(var(--font-size-base) * 2); }     /* ~32px */
+h3 { font-size: calc(var(--font-size-base) * 1.75); }  /* ~28px */
+h4 { font-size: calc(var(--font-size-base) * 1.5); }   /* ~24px */
+h5 { font-size: calc(var(--font-size-base) * 1.25); }  /* ~20px */
+h6 { font-size: var(--font-size-base); }             /* ~16px */
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md); /* Espace sous les paragraphes */
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none; /* Déjà dans reset, mais peut être réaffirmé */
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg); /* Indentation pour les listes */
+}
+
+ul li, ol li {
+  margin-bottom: var(--spacing-sm);
+}
+
+blockquote {
+  margin: 0 0 var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 4px solid var(--border-color);
+  background-color: var(--color-light); /* Un fond léger pour les citations */
+  font-style: italic;
+}
