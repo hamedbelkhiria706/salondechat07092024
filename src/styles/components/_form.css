@@ -1,0 +1,58 @@
+/* components/_form.css */
+
+.form-group {
+  margin-bottom: 1rem; /* Espace entre les groupes de formulaire (label + input) */
+}
+
+.form-label {
+  display: block; /* Fait en sorte que le label prenne toute la largeur */
+  margin-bottom: 0.5rem; /* Espace entre le label et l'input */
+  font-weight: bold;
+  color: #333; /* Couleur de texte sombre pour une bonne lisibilité */
+}
+
+.form-control {
+  display: block;
+  width: 100%; /* L'input prend toute la largeur disponible */
+  padding: 0.75rem 1rem; /* Remplissage interne pour une meilleure apparence */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da; /* Bordure standard */
+  border-radius: 0.25rem; /* Coins arrondis */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff; /* Couleur de bordure au focus */
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Ombre portée au focus */
+}
+
+/* Styles spécifiques pour les boutons dans les formulaires */
+.form-button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+  background-color: #007bff; /* Couleur de fond bleue par défaut */
+  color: #fff; /* Texte blanc */
+}
+
+.form-button:hover {
+  background-color: #0056b3; /* Bleu plus foncé au survol */
+  color: #fff;
+}

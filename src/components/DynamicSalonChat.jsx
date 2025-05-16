@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../styles/global.css";
+ 
 
 const subscriptionOptionsData = [
   { id: "sub1", price: 30, maxRooms: 9, label: "30 € - 9 salons" },

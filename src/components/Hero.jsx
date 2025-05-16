@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../assets/CnP_29122024_104427-ezgif.com-resize.png'
 
 // Supposons que vous ayez un fichier CSS importé, par exemple App.css ou un fichier spécifique au composant
- import '../styles/Hero.css'; 
+ 
 
 function Hero() {
   return (

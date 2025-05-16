@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
-// import FAQItem from "../components/FAQItem";
-import "../styles/global.css";
-import "../styles/decorationacceuil.css";
+ 
 
 const ContactPage = () => {
   const [nom, setNom] = useState("");

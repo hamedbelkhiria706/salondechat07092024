@@ -1,7 +1,7 @@
 // Exemple de structure dans MessageInput.jsx
 import React, { useState } from 'react';
 
-function MessageInput({ onSendMessage }) {
+export default function MessageInput({ onSendMessage }) {
   const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = () => {

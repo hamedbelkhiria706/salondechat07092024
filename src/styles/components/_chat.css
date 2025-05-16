@@ -1,0 +1,67 @@
+/* src/styles/components/_chat.css */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px); /* Exemple de hauteur, ajustez selon votre layout */
+  max-width: 800px; /* Limite la largeur du chat */
+  margin: var(--spacing-md, 1rem) auto; /* Centre le chat */
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: var(--border-radius-base, 0.25rem);
+  background-color: var(--color-background-light, #fff);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden; /* Pour gérer le défilement interne */
+}
+
+.chat-header {
+  padding: var(--spacing-md, 1rem);
+  background-color: var(--color-primary, #007bff);
+  color: var(--color-text-inverted, #fff);
+  font-size: var(--font-size-lg, 1.25rem);
+  text-align: center;
+  border-bottom: 1px solid darken(var(--color-primary, #007bff), 10%); /* Fonction darken hypothétique, utilisez une valeur fixe ou une autre variable */
+}
+
+.messages-area {
+  flex-grow: 1;
+  padding: var(--spacing-md, 1rem);
+  overflow-y: auto; /* Permet le défilement des messages */
+  background-color: var(--color-background-body, #f4f4f4); /* Fond légèrement différent pour la zone des messages */
+}
+
+.message {
+  margin-bottom: var(--spacing-md, 1rem);
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  border-radius: var(--border-radius-base, 0.25rem);
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.message.my-message {
+  background-color: var(--color-primary, #007bff);
+  color: var(--color-text-inverted, #fff);
+  margin-left: auto; /* Aligne à droite */
+  border-bottom-right-radius: 0; /* Style "bulle" */
+}
+
+.message.other-message {
+  background-color: var(--color-light, #f8f9fa); /* Couleur pour les messages des autres */
+  color: var(--color-text-base, #333);
+  border: 1px solid var(--border-color, #ccc);
+  margin-right: auto; /* Aligne à gauche */
+  border-bottom-left-radius: 0; /* Style "bulle" */
+}
+
+.input-area {
+  display: flex;
+  padding: var(--spacing-md, 1rem);
+  border-top: 1px solid var(--border-color, #ccc);
+  background-color: var(--color-background-light, #fff);
+}
+
+.input-area .form-control { /* Cible l'input dans la zone de saisie */
+  flex-grow: 1;
+  margin-right: var(--spacing-sm, 0.5rem);
+}
+
+/* .input-area .btn { ... } /* Styles spécifiques pour le bouton d'envoi dans le chat */

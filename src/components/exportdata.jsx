@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/global.css";
+ 
 import {Link} from 'react-router-dom'
 
 // Suggestion: Utiliser PascalCase pour les noms de composants React.

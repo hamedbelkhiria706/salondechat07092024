@@ -3,9 +3,7 @@ import Hero from "../components/Hero";
 import FeatureCard from "../components/FeatureCard";
 import TestimonialCard from "../components/TestimonialCard";
 import FAQItem from "../components/FAQItem";
-import "../styles/global.css";
- import "../styles/decorationacceuil.css";
- import "../styles/amelioration1.css"
+ 
 import QuiSommesNous from "./QuiSommesNous";
 
 const HomePage = () => {

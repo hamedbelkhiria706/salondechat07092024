@@ -1,7 +1,6 @@
 import React from "react";
 
-import "../styles/global.css";
-import "../styles/chatstyle.css";
+ 
 import { Link } from "react-router-dom";
 const deleteAccount = () => {
   return (
