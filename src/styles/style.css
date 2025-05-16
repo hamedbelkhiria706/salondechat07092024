@@ -71,3 +71,49 @@ footer {
     padding: 10px;
   }
 }
+
+/* --- Extension Examples --- */
+
+/* Form Styles */
+form {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Utility Classes */
+
+/* Add a margin bottom */
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* Add other utility classes as needed (e.g., .mt-10, .p-15, .text-center) */
