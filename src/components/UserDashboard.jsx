@@ -5,8 +5,8 @@ import MessageItem from './MessageItem'; // Renamed for clarity
 import Statistics from './Statistics';  
 import { useNavigate } from 'react-router-dom';
 
-// Предположим, что у вас есть доступ к ID пользователя, например, из контекста или props
-// const userId = getCurrentUserId(); // Замените это реальной логикой получения ID пользователя
+ 
+const userId = getCurrentUserId();   
 
 const UserDashboard = () => {
     const [chatData, setChatData] = useState([]);
