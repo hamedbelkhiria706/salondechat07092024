@@ -1,32 +1,62 @@
 import React from "react";
 import { useState } from "react";
- 
 
 const ContactPage = () => {
-  const [nom, setNom] = useState("");
-  const [email,setEmail]=useState("");
-  const [subject,setSubject]=useState("");
-  const handleNameChange = (e) => {
-    setNom(e.target.value);
-    console.log(nom);
+  const initialFormData = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   };
-  const handleEmailChange=(e)=>{
-    setEmail(e.target.value);
-  }
-  const handleSubjectChange=(e)=>{
-    setSubject(e.target.value)
-  }
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState(initialFormData);
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    // Clear error for the field being edited
+    if (errors[name]) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: null,
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Le nom est requis.";
+    if (!formData.email.trim()) {
+      newErrors.email = "L'email est requis.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "L'adresse email n'est pas valide.";
+    }
+    if (!formData.subject.trim()) newErrors.subject = "Le motif est requis.";
+    if (!formData.message.trim()) newErrors.message = "Le message est requis.";
+    return newErrors;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!nom) {
-      console.log("Entrer votre nom");
+    setSuccessMessage("");
+    setErrors({});
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
     }
-    if(!email){
-      console.log("Entrer votre email");
-    }
-    if(!subject){
-      console.log("Entrer le sujet")
-    }
+    setLoading(true);
+    // Simuler un appel API
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    console.log("Form data submitted:", formData);
+    setSuccessMessage("Votre message a été envoyé avec succès ! Merci.");
+    setFormData(initialFormData); // Réinitialiser le formulaire
+    setLoading(false);
   };
   return (
     <main  >
@@ -37,11 +67,11 @@ const ContactPage = () => {
               <div className="row no-gutters mb-5">
                 <div className="col  ">
                   <div className="w-100 p-md-5 p-4">
-                    <h1 className="mb-4">Nous contacter</h1>
-                    <div id="form-message-warning" className="mb-4"></div>
-                    <div id="form-message-success" className="mb-4">
-                      Votre message a été envoyé merci!
-                    </div>
+                    <h1 className="mb-4 text-center">Nous contacter</h1>
+                    {loading && <div className="alert alert-info text-center">Envoi en cours...</div>}
+                    {successMessage && <div className="alert alert-success text-center">{successMessage}</div>}
+                    {/* Les erreurs spécifiques aux champs seront affichées sous chaque champ */}
+
                     <form
                       method="POST"
                       id="contactForm"
@@ -54,22 +84,24 @@ const ContactPage = () => {
                         <div className="col-md-6">
                           <div className="form-group">
                             <label className="label" htmlFor="name">
-                              Nom
+                              Nom complet
                             </label>
                             <input
                               type="text"
                               className="form-control"
                               name="name"
                               id="name"
-                              placeholder="Name"
-                              required
+                              placeholder="Votre nom complet"
+                              value={formData.name}
+                              onChange={handleInputChange}
                               pattern="[A-Za-zÀ-ÿ ']+"
                               title="Please enter a valid name (letters and spaces only)."
-                              onChange={handleNameChange}
                             />
-                            <div className="invalid-feedback">
-                              Merci de donner un nom valide.
-                            </div>
+                            {errors.name && (
+                              <div className="invalid-feedback d-block">
+                                {errors.name}
+                              </div>
+                            )}
                           </div>
                         </div>
                         <div className="col-md-6">
@@ -83,12 +115,14 @@ const ContactPage = () => {
                               name="email"
                               id="email"
                               placeholder="Email"
-                              onChange={handleEmailChange}
-                              required
+                              value={formData.email}
+                              onChange={handleInputChange}
                             />
-                            <div className="invalid-feedback">
-                              Merci de donner un email valide.
-                            </div>
+                            {errors.email && (
+                              <div className="invalid-feedback d-block">
+                                {errors.email}
+                              </div>
+                            )}
                           </div>
                         </div>
                         <div className="col-md-12">
@@ -102,12 +136,14 @@ const ContactPage = () => {
                               name="subject"
                               id="subject"
                               placeholder="Subject"
-                              required
-                              onChange={handleSubjectChange}
+                              value={formData.subject}
+                              onChange={handleInputChange}
                             />
-                            <div className="invalid-feedback">
-                              Merci de fournir un motif de contact.
-                            </div>
+                            {errors.subject && (
+                              <div className="invalid-feedback d-block">
+                                {errors.subject}
+                              </div>
+                            )}
                           </div>
                         </div>
                         <div className="col-md-12">
@@ -122,26 +158,30 @@ const ContactPage = () => {
                               cols="30"
                               rows="4"
                               placeholder="Message"
-                              required
+                              value={formData.message}
+                              onChange={handleInputChange}
                             ></textarea>
-                            <div className="invalid-feedback">
-                              Merci de fournir un message.
-                            </div>
+                            {errors.message && (
+                              <div className="invalid-feedback d-block">
+                                {errors.message}
+                              </div>
+                            )}
                           </div>
                         </div>
                         <div className="col-md-12">
                           <div className="form-group">
                             <input
                               type="submit"
-                              value="Send Message"
+                              value={loading ? "Envoi en cours..." : "Envoyer le Message"}
                               className="btn btn-primary"
+                              disabled={loading}
                             />
                             <div className="submitting"></div>
                           </div>
                         </div>
                       </div>
                     </form>
-                    
+
                     <div className="row">
                       <div className="col-md-3">
                         <div className="dbox w-100 text-center">
