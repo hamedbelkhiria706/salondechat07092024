@@ -83,8 +83,7 @@ function MentionsLegales() {
 
                 <h3>7.1 Responsables de la collecte des données personnelles</h3>
 
-                <p>Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l'Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est : salon de chat. <a href="https://salondechat.com">https://salondechat.com</a>est représenté par walid ben abdesalam, son représentant légal</p>
-
+                <p>Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l'Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est : salon de chat. <a href="https://salondechat.com">https://salondechat.com</a> est représenté par walid ben abdesalam, son représentant légal</p>
                 <p>En tant que responsable du traitement des données qu'il collecte, <a href="https://salondechat.com">https://salondechat.com</a> s'engage à respecter le cadre des dispositions légales en vigueur. Il lui appartient notamment au Client d'établir les finalités de ses traitements de données, de fournir à ses prospects et clients, à partir de la collecte de leurs consentements, une information complète sur le traitement de leurs données personnelles et de maintenir un registre des traitements conforme à la réalité.
                 Chaque fois que <a href="https://salondechat.com">https://salondechat.com</a> traite des Données Personnelles, <a href="https://salondechat.com">https://salondechat.com</a> prend toutes les mesures raisonnables pour s'assurer de l'exactitude et de la pertinence des Données Personnelles au regard des finalités pour lesquelles <a href="https://salondechat.com">https://salondechat.com</a> les traite.</p>
                  
@@ -152,7 +151,7 @@ function MentionsLegales() {
                 <p>
                 Dans la limite de leurs attributions respectives et pour les finalités rappelées ci-dessus, les principales personnes susceptibles d'avoir accès aux données des Utilisateurs de <a href="https://salondechat.com">https://salondechat.com</a> sont principalement les agents de notre service client.</p>
                 
-                <div ng-bind-html="rgpdHTML"></div>
+                <div><p>Ce modèle de mentions légales est proposé par le <a href="https://fr.orson.io/1371/generateur-mentions-legales" title="générateur de mentions légales RGPD d">générateur de mentions légales RGPD d'Orson.io</a></p></div>
 
 
                 <h2>8. Notification d'incident</h2>
@@ -173,8 +172,7 @@ function MentionsLegales() {
                 <h2>9. Liens hypertextes « cookies » et balises (“tags”) internet</h2>
                 <p>
                 Le site <a href="https://salondechat.com">https://salondechat.com</a> contient un certain nombre de liens hypertextes vers d'autres sites, mis en place avec l'autorisation de <a href="https://salondechat.com">https://salondechat.com</a>. Cependant, <a href="https://salondechat.com">https://salondechat.com</a> n'a pas la possibilité de vérifier le contenu des sites ainsi visités, et n'assumera en conséquence aucune responsabilité de ce fait.</p>
-                Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l'accessibilité à tout ou partie des Services proposés par le site.
-                <p></p>
+                <p>Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l'accessibilité à tout ou partie des Services proposés par le site.</p>
 
                 <h3>9.1. « COOKIES »</h3>
                  <p>
@@ -194,8 +192,7 @@ function MentionsLegales() {
                  <p>
                 Ces types de cookies ne sont déposés sur vos terminaux qu'à condition que vous y consentiez, en continuant votre navigation sur le Site Internet ou l'application mobile de <a href="https://salondechat.com">https://salondechat.com</a>. À tout moment, l'Utilisateur peut néanmoins revenir sur son consentement à ce que <a href="https://salondechat.com">https://salondechat.com</a> dépose ce type de cookies.</p>
                  
-                <h3>Article 9.2. BALISES (“TAGS”) INTERNET</h3>
-                 
+                <h3>9.2. BALISES (“TAGS”) INTERNET</h3>
 
                 <p>
 
