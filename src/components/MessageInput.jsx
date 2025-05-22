@@ -17,8 +17,12 @@ export default function MessageInput({ onSendMessage }) {
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Tapez votre message..."
-        onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
+        placeholder="Écrivez votre message ici..." // Suggestion de texte pour le placeholder
+        onKeyDown={(e) => { // Utilisation de onKeyDown au lieu de onKeyPress
+          if (e.key === 'Enter') {
+            handleSubmit();
+          }
+        }}
       />
       <button onClick={handleSubmit}>Envoyer</button>
     </div>
