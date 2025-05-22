@@ -48,7 +48,10 @@ setResult('Inscription déjà faite.');
       }
     return (
       <main  >
-          <h1>Inscription par login et mot de passe</h1>
+          <h1>Créez votre compte avec Email</h1>
+          <p className="text-sm text-muted mb-4">
+            Remplissez simplement les champs ci-dessous pour nous rejoindre. C'est rapide et facile !
+          </p>
           <form onSubmit={handleSubmit}>
           <h2>Email:</h2>
           <input type="email" required onChange={(e)=>setEmail(e.target.value)}></input>
