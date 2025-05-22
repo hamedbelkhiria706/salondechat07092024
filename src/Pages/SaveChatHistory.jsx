@@ -31,7 +31,7 @@ const SaveChatHistory = () => {
     <main>
       <div className="container mt-5">
         <h1>Sauvegarder l'Historique des Chats</h1>
-        <p>Vous pouvez sauvegarder votre historique des chats ici.</p>
+        <p>Sauvegardez l'historique de vos chats pour conserver une trace de vos conversations et y accéder quand vous le souhaitez.</p>
         <button className="btn btn-primary" onClick={handleSaveHistory} disabled={isLoading}>
           {isLoading ? "Sauvegarde en cours..." : "Sauvegarder l'historique"}
         </button>
