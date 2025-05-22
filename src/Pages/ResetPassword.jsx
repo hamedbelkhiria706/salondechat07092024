@@ -13,13 +13,15 @@ function ResetPassword() {
       try { const response = await axios.post(apiUrl+'/api/users/resetpassword',
       // 
  { email: email, password: password });
-  setData(response.data);
-  setResult('Connexion faite avec succès.')
-  console.log(data)
+   setData(response.data); // Vous pouvez utiliser response.data si nécessaire
+  setResult('Votre mot de passe a été réinitialisé avec succès.')
+  console.log('Réponse de la réinitialisation:', response.data);
+
 }
    catch (error) { console.log('Error making POST request:', error);
 
-    setResult('Erreur login ou mot de passe');
+     setResult('Erreur lors de la réinitialisation du mot de passe. Veuillez vérifier votre e-mail ou réessayer.');
+    
     } };
     const validatePassword = (password) => {
        
@@ -33,8 +35,8 @@ function ResetPassword() {
             
         } else {
             setIsValid(false);
-            setError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.');
-        }
+          setError('Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial (ex: !@#$%^&*).');
+          }
          
       };
       
@@ -48,23 +50,36 @@ function ResetPassword() {
   return (
     <main>
         <h1>Réinitialiser mot de passe</h1>
+         <p>Veuillez saisir votre adresse e-mail et votre nouveau mot de passe ci-dessous.</p>
+        
+        
         <form onSubmit={handleSubmit}>
-        <h2>Email:</h2>
-        <input type="email" required onChange={(e)=>setEmail(e.target.value)}></input>
-        <br/>
+        <div>
+          <label htmlFor="email">Adresse e-mail :</label>
+          <input id="email" name="email" type="email" required onChange={(e)=>setEmail(e.target.value)} placeholder="exemple@domaine.com" />
+        </div> <br/>
         <h2>Mot de passe:</h2>
-        <input type="password" onChange={(e)=>{
-            
-            setPassword(e.target.value);
-            validatePassword(e.target.value);
-        }}  required
+        <div>
+          <label htmlFor="password">Nouveau mot de passe :</label>
+          <input 
+              id="password"
+              name="password"
+              type="password" 
+              onChange={(e)=>{
+                  setPassword(e.target.value);
+                  validatePassword(e.target.value);
+              }}  
+              required
               style={{ borderColor: isValid ? 'green' : 'red' }}
-              ></input>
+             
+              placeholder="Votre nouveau mot de passe"
+          />
+        </div>
         <br/>
         {!isValid && error && <p style={{ color: 'red' }}>{error}</p>}
-        {result}
-        <button type="sumbit" disabled={!isValid}>Envoyer</button>
-        </form>
+        {result && <p style={{ color: result.includes('Erreur') ? 'red' : 'green' }}>{result}</p>}
+        <button type="submit" disabled={!isValid}>Envoyer</button>
+         </form>
     </main>
   )
 }
