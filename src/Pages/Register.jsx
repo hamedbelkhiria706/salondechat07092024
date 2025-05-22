@@ -14,9 +14,9 @@ function Register() {
       className="d-flex flex-column text-center p-4 bg-dark rounded "
       style={{ maxWidth: "28rem", margin: "0 auto" }}
     >
-      <h1 className="text-2xl font-semibold text-white">Bienvenue chez nous!</h1>
+      <h1 className="text-2xl font-semibold text-white">Créez votre compte !</h1>
       <p className="text-sm text-white-50">
-        Connectez vous et commencez à chatter!
+        Rejoignez notre communauté et commencez à discuter dès aujourd'hui. C'est simple et rapide !
       </p>
       <div className="d-flex flex-column" style={{ gap: "20px" }}>
         <button className="w-100 border-0 rounded p-2 bg-white">
