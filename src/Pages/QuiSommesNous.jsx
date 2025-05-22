@@ -4,45 +4,47 @@ function QuiSommesNous() {
   return (
     <div className="col-md-7 flex-column">
                       <div className="w-100 p-md-5 p-4">
-                        <h2>Qui sommes-nous ?</h2>
+                        <h2>Qui sommes-nous&nbsp;?</h2>
                         <p>
-                          Notre projet a été fondé avec une mission claire :
-                          rendre la communication simple, rapide et accessible à
-                          tous. Nous croyons que la communication instantanée
-                          devrait être fluide, sécurisée et à la portée de tous.
+                          Notre projet est né d'une mission claire : rendre la
+                          communication instantanée simple, rapide, sécurisée et
+                          accessible à tous. Nous sommes convaincus qu'échanger
+                          devrait toujours être une expérience fluide,
+                          confidentielle et à la portée de chacun.
                         </p>
                         <hr />
                         <h2>Nos valeurs</h2>
                         <ul>
                           <li>
-                            <strong>Innovation</strong> : Nous sommes
-                            constamment à la recherche de nouvelles façons
-                            d'améliorer l’expérience de chat pour nos
-                            utilisateurs.
+                            <strong>Innovation</strong> : Nous explorons sans cesse
+                            de nouvelles pistes pour enrichir et perfectionner
+                            votre expérience de chat.
                           </li>
                           <li>
-                            <strong>Sécurité</strong> : Protéger les données de
-                            nos utilisateurs est notre priorité numéro un.
+                            <strong>Sécurité</strong> : La protection de vos
+                            données et de votre vie privée est au cœur de nos
+                            engagements, une priorité absolue.
                           </li>
                           <li>
                             <strong>Accessibilité</strong> : Nous croyons que
-                            tout le monde, quelle que soit sa situation, doit
-                            avoir accès à des outils de communication puissants
-                            et fiables.
+                            tout le monde, quelle que soit sa situation, doit avoir
+                            accès à des outils de communication performants et
+                            intuitifs.
                           </li>
                         </ul>
                         <hr />
                         <h2>Notre équipe</h2>
                         <p>
-                          Notre équipe est composée de développeurs, designers,
-                          et experts en sécurité dédiés à fournir une
-                          application de chat qui évolue avec les besoins des
-                          utilisateurs. Ensemble, nous avons pour but de faire
-                          de [Nom de l’App] la meilleure plateforme de chat
-                          disponible.
+                          Notre équipe rassemble des développeurs, designers et
+                          experts en sécurité passionnés, tous mobilisés pour vous
+                          offrir une application de chat qui évolue avec vos
+                          attentes. Ensemble, nous visons à faire de  
+                          <strong>[Salon de Chat]</strong> la plateforme de
+                          messagerie de référence, celle qui simplifie et
+                          enrichit vos échanges au quotidien.
                         </p>
                         <button className="btn btn-primary">
-                          [Rejoignez notre communauté]
+                          Rejoignez la conversation&nbsp;!
                         </button>
                       </div>
                     </div>

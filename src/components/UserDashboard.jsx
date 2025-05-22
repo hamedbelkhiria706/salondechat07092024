@@ -4,7 +4,9 @@ import React, { useEffect, useState } from 'react';
 import MessageItem from './MessageItem'; // Renamed for clarity
 import Statistics from './Statistics';  
 import { useNavigate } from 'react-router-dom';
-
+function getCurrentUserId(){
+    return 1;
+}
  
 const userId = getCurrentUserId();   
 
