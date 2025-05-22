@@ -49,6 +49,15 @@ export default function ChatArea({ messages, currentUser }) {
                 </span>
               )}
             */}
+              {message.senderId !== currentUser?.id && message.senderName && (
+                <span className="message-sender-name">{message.senderName}</span>
+              )}
+              
+              {message.timestamp && (
+                <span className="message-timestamp">
+                  {new Date(message.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </span>
+              )}
           </div>
         </div>
       ))}

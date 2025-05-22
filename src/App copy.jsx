@@ -10,7 +10,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import MentionsLegales from "./Pages/MentionsLegales";
 import PolitiqueDeConfidentialite from "./Pages/PolitiqueDeConfidentialite";
-
+import ChatArea from "./components/ChatArea";
 // Importation des pages utilisateur
 import UserDashboard from "./components/UserDashboard";
 import Notifications from "./Pages/Notifications";
@@ -67,6 +67,8 @@ function App() {
     <Route path="/user/:userId/exportdata" element={<ExportData />} />  
     <Route path="/user/:userId/editprofile" element={<EditProfile />} />   
     <Route path="/user/:userId/password" element={<Password />} /> 
+    <Route path="/user/:userId/chatrooms1/:chatroomId" element={<ChatArea />} />
+   
     <Route path="/user/:userId/chatrooms/:chatroomId" element={<Chatroom />} />
     <Route path="/user/:userId/chatrooms" element={<ChatroomsList token={token}/>} />
     <Route path="/user/:userId/settings" element={<Settings />} />  
